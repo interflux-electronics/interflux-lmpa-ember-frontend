@@ -65,14 +65,14 @@ h1 {
   font-family: $lato-regular;
   line-height: 100%;
   margin: 0;
-  color: $hotdoc-navy;
+  color: $interflux-blue;
 }
 h2 {
   font-size: 24px;
   font-family: $lato-regular;
   line-height: 100%;
   margin: 50px 0 20px;
-  color: $hotdoc-navy;
+  color: $interflux-blue;
   &:first-child {
     margin-top: 20px;
   }
@@ -100,17 +100,17 @@ p {
   line-height: 20px;
   margin: 0;
   strong {
-    color: lighten($hotdoc-navy, 6%);
+    color: lighten($interflux-blue, 6%);
   }
 }
 
 // Plain hyperlinks, underlined and hotdoc green
 a {
   text-decoration: underline;
-  color: $hotdoc-green;
+  color: $lmpa-orange;
   &:hover {
     text-decoration: none;
-    color: lighten($hotdoc-green, 5%);
+    color: lighten($lmpa-orange, 5%);
   }
   // Prevent phone numbers from breaking half way
   &[href^="tel:"] {
@@ -133,13 +133,13 @@ button {
   color: #fff;
   border: 0;
   outline: 0 !important;
-  background: $hotdoc-green;
+  background: $lmpa-orange;
   box-sizing: border-box;
   border-radius: 4px;
   user-select: none;
   &:focus,
   &:hover {
-    background: lighten($hotdoc-green, 5%);
+    background: lighten($lmpa-orange, 5%);
   }
 }
 
@@ -169,10 +169,10 @@ button {
     transition-property: border-color, color;
     -webkit-appearance: none;
     &:focus {
-      color: $highlight-blue;
-      border-color: $highlight-blue;
+      color: $interflux-light-blue;
+      border-color: $interflux-light-blue;
       & + i {
-        color: $highlight-blue;
+        color: $interflux-light-blue;
       }
     }
     &::-ms-clear {
@@ -231,7 +231,7 @@ button {
         margin-left: -8px;
         text-align: center;
         color: #fff;
-        background: $hotdoc-green;
+        background: $lmpa-orange;
         border-radius: 20px;
       }
     }

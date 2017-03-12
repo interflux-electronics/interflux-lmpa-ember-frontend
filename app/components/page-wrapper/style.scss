@@ -1,0 +1,31 @@
+#page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  > header {
+    background: $interflux-blue;
+    a,
+    h1 {
+      color: white;
+    }
+  }
+  > main {
+    h2 {
+      font-size: 38px;
+      line-height: 46px;
+      font-family: $lato-regular;
+      color: $interflux-blue;
+      text-align: center;
+      strong {
+        font-family: $lato-bold;
+      }
+    }
+  }
+  > footer {
+    background: $interflux-blue;
+    p {
+      color: white;
+    }
+  }
+}
