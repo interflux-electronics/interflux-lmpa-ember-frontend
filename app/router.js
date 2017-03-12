@@ -7,6 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('locale', { path: '/en' }, function() {
+    this.route('speed', { path: '/solder-5-times-faster-than-SAC-and-with-zero-defects' });
+    this.route('voiding', { path: '/how-to-reduce-solder-voiding' });
+    this.route('costs', { path: '/lower-production-costs' });
+  });
 });
 
 export default Router;
