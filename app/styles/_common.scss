@@ -68,39 +68,28 @@ h1 {
   color: $interflux-blue;
 }
 h2 {
-  font-size: 24px;
+  font-size: 38px;
+  line-height: 46px;
   font-family: $lato-regular;
-  line-height: 100%;
-  margin: 50px 0 20px;
   color: $interflux-blue;
-  &:first-child {
-    margin-top: 20px;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  strong {
+    font-family: $lato-bold;
   }
-}
-h3 {
-  font-size: 16px;
-  font-family: $lato-regular;
-  line-height: 100%;
-  margin: 0;
-  color: $paragraph-grey;
-}
-h5 {
-  font-size: 16px;
-  font-family: $lato-bold;
-  margin: 0;
-}
-h6 {
-  font-size: 22px;
-  font-family: $lato-light;
-  line-height: 28px;
-  margin: 0;
+  & + p {
+    margin-top: 40px;
+  }
 }
 p {
   font-size: 16px;
-  line-height: 20px;
-  margin: 0;
+  line-height: 26px;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
   strong {
-    color: lighten($interflux-blue, 6%);
+    color: $lmpa-orange;
   }
 }
 

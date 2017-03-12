@@ -2,8 +2,6 @@
 /* global require, module */
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const env = EmberApp.env();
-const isProductionLikeBuild = ['production', 'staging'].includes(env);
 
 module.exports = function(defaults) {
 
