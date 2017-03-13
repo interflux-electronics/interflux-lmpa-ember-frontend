@@ -1,9 +1,11 @@
 footer {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
+  > div {
+    padding: 8px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
   ul {
     display: flex;
     flex-flow: row nowrap;
