@@ -119,16 +119,21 @@ button {
   padding: 0 30px;
   text-align: center;
   text-decoration: none;
-  color: #fff;
   border: 0;
   outline: 0 !important;
-  background: $lmpa-orange;
+  background: none;
   box-sizing: border-box;
-  border-radius: 4px;
   user-select: none;
-  &:focus,
-  &:hover {
-    background: lighten($lmpa-orange, 5%);
+  &.white-border {
+    border: 2px solid white;
+    border-radius: 3px;
+    font-size: 17px;
+    font-family: $lato-black;
+    color: #fff;
+    &:focus,
+    &:hover {
+      background: rgba($lmpa-orange, 40%);
+    }
   }
 }
 

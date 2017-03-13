@@ -9,10 +9,14 @@
 @import "common";
 
 // Components
+@import "app/components/page-footer/style";
+@import "app/components/page-header/style";
 @import "app/components/page-wrapper/style";
-@import "app/components/speed-page/style";
-@import "app/components/voiding-page/style";
-@import "app/components/costs-page/style";
+@import "app/components/pages/free-demo/style";
+@import "app/components/pages/heat-failures/style";
+@import "app/components/pages/reduce-costs/style";
+@import "app/components/pages/reduce-voiding/style";
+@import "app/components/pages/solder-faster/style";
 
 // For outdated browsers
 @import "outdatedbrowser";
