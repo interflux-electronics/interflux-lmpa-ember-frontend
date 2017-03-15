@@ -1,0 +1,22 @@
+<div>
+  <h2>Request to be contacted for a <strong>free demo</strong> at your company</h2>
+  <p>You can find Interflux on every continent. We will find the person closes to you and who speaks your preferred language to contact you.</p>
+  <form>
+    <div class="field">
+      {{input value=demoRequest.name placeholder="Your name"}}
+    </div>
+    <div class="field">
+      {{input value=demoRequest.company placeholder="Company"}}
+    </div>
+    <div class="field">
+      {{input value=demoRequest.email placeholder="Email"}}
+    </div>
+    <div class="field">
+      {{input value=demoRequest.phone placeholder="Phone"}}
+    </div>
+    <div class="field">
+      {{input value=demoRequest.country placeholder="Country"}}
+    </div>
+    <button {{action 'requestDemo'}} class="light-blue">Send request</button>
+  </form>
+</div>
