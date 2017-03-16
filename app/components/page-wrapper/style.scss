@@ -1,17 +1,26 @@
 #page-wrapper {
   min-height: 100vh;
   min-height: 100%;
+  width: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   justify-content: center;
+  footer,
+  header,
   main {
     width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+  main {
     height: 100%;
     background: white;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     transition: 400ms all ease-out;
+    padding: 0 40px 100px;
+    box-sizing: border-box;
   }
 }

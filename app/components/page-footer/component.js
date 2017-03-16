@@ -6,6 +6,7 @@ const sequence = [
   'locale.voiding',
   'locale.costs',
   'locale.heat-failures',
+  'locale.dross',
   'locale.contact'
 ];
 const lastIndex = sequence.length - 1;
@@ -13,6 +14,8 @@ const lastIndex = sequence.length - 1;
 export default Ember.Component.extend({
   tagName: 'footer',
   router: Ember.inject.service('-routing'),
+
+  allRoutes: sequence,
 
   // Returns position of current route in the sequence
   currentIndex: Ember.computed('router.currentRouteName', function() {

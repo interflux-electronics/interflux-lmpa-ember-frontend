@@ -1,11 +1,9 @@
 <div>
   {{#link-to prevRoute class="button white-border"}}Previous{{/link-to}}
   <ul>
-    <li>{{#link-to 'locale.speed'}}Solder faster{{/link-to}}</li>
-    <li>{{#link-to 'locale.voiding'}}Reduce voiding{{/link-to}}</li>
-    <li>{{#link-to 'locale.costs'}}Reduce costs{{/link-to}}</li>
-    <li>{{#link-to 'locale.heat-failures'}}Heat failures{{/link-to}}</li>
-    <li>{{#link-to 'locale.contact'}}Free demo{{/link-to}}</li>
+    {{#each allRoutes as |route|}}
+      <li>{{#link-to route}}*{{/link-to}}</li>
+    {{/each}}
   </ul>
   {{#link-to nextRoute class="button white-border"}}Next{{/link-to}}
 </div>
