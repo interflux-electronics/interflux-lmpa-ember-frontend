@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 const sequence = [
-  'locale.solder-faster',
-  'locale.reduce-voiding',
-  'locale.reduce-costs',
+  'locale.intro',
+  'locale.speed',
+  'locale.voiding',
+  'locale.costs',
   'locale.heat-failures',
-  'locale.free-demo'
+  'locale.contact'
 ];
 const lastIndex = sequence.length - 1;
 

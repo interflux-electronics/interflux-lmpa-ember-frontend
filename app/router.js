@@ -8,11 +8,12 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('locale', { path: '/en' }, function() {
-    this.route('solder-faster', { path: '/solder-5-times-faster-than-SAC-and-with-zero-defects' });
-    this.route('reduce-voiding', { path: '/how-to-reduce-solder-voiding' });
-    this.route('reduce-costs', { path: '/reduce-costs' });
-    this.route('heat-failures', { path: '/heat-failures' });
-    this.route('free-demo', { path: '/free-demo' });
+    this.route('intro', { path: '/low-melting-point-soldering-alloys' });
+    this.route('speed', { path: '/solder-faster-and-with-zero-defects' });
+    this.route('voiding', { path: '/reduce-solder-voiding' });
+    this.route('costs', { path: '/reduce-production-costs-and-increase-capacity' });
+    this.route('heat-failures', { path: '/avoid-heat-related-solder-failures' });
+    this.route('contact', { path: '/request-free-demo' });
   });
 });
 
