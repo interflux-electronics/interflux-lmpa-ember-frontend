@@ -7,6 +7,8 @@ const sequence = [
   'locale.costs',
   'locale.heat-failures',
   'locale.dross',
+  'locale.wetting',
+  'locale.interflux',
   'locale.contact'
 ];
 const lastIndex = sequence.length - 1;

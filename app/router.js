@@ -14,6 +14,8 @@ Router.map(function() {
     this.route('costs', { path: '/reduce-production-costs-and-increase-capacity' });
     this.route('heat-failures', { path: '/avoid-heat-related-solder-failures' });
     this.route('dross', { path: '/reduce-dross-formation-when-wave-soldering' });
+    this.route('wetting', { path: '/excellent-wetting' });
+    this.route('interflux', { path: '/developed-by-interflux-electronics' });
     this.route('contact', { path: '/request-free-demo' });
   });
 });
