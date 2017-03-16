@@ -17,13 +17,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   // Interflux
   background: $interflux-blue url('images/background.jpg') no-repeat 50% 50% / cover;
-  > div.ember-view {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
-  }
 }
 
 // To avoid browsers from trying to bold our already bold font families, remove all default margins
