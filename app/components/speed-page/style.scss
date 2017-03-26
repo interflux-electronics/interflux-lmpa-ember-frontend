@@ -1,17 +1,11 @@
 main#speed {
-  #videos {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    margin: 40px;
-    @media (max-width: 1000px) {
-      flex-flow: column nowrap;
-    }
+  #video {
+    position: relative;
+    padding: 20px 0;
+    background: #F3F3F3;
     iframe {
-      width: 460px;
-      height: 300px;
-      margin: 10px;
+      width: 100vw;
+      height: 58vw;
     }
   }
 }

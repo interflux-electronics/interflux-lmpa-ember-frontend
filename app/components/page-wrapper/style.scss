@@ -22,5 +22,39 @@
     transition: 400ms all ease-out;
     padding: 0 40px 100px;
     box-sizing: border-box;
+    @media (max-width: 800px) {
+      padding: 0;
+      > div {
+        padding: 0 30px;
+      }
+      h2 {
+        font-size: 34px;
+        line-height: 120%;
+        margin: 21vw 0;
+        text-align: left;
+      }
+      p {
+        text-align: left;
+      }
+    }
+    h3 {
+      line-height: 22px;
+      border: 2px solid white;
+      color: white;
+      font-size: 17px;
+      padding: 10px;
+      strong {
+        font-family: $lato-black;
+      }
+      background: $paragraph-grey;
+      &.orange {
+        background: $lmpa-orange;
+      }
+    }
+    sup {
+      width: 0;
+      display: inline-block;
+      transform: translateX(-4px);
+    }
   }
 }

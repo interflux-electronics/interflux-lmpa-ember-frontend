@@ -1,4 +1,4 @@
-<div>
+<div class="desktop">
   <a href="http://www.interflux.com">
     <img src="/assets/images/interflux-logo.svg" alt="Interflux Electronics logo" width="197" height="49" />
   </a>
@@ -10,5 +10,25 @@
       </h1>
     {{/link-to}}
   </div>
-  {{#link-to 'locale.contact' class="button white-border"}}Free Demo{{/link-to}}
+  {{#link-to 'locale.contact' class="button white-border" }}Free Demo{{/link-to}}
+</div>
+<div class="mobile">
+  <div class="logo">
+    <h1><a href="http://www.interflux.com">Interflux</a></h1>
+    <h2>{{#link-to 'locale.intro'}}LMPA<sup>&trade;</sup>{{/link-to}}</h2>
+  </div>
+  <div class="button">
+    <button {{action 'openMobileNav'}}>
+      <span>MENU</span>
+      <svg width="54px" height="34px" viewBox="0 0 54 34">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g fill="#FFFFFF">
+            <rect x="0" y="0" width="54" height="4" rx="2"></rect>
+            <rect x="0" y="15" width="54" height="4" rx="2"></rect>
+            <rect x="0" y="30" width="54" height="4" rx="2"></rect>
+          </g>
+        </g>
+      </svg>
+    </button>
+  </div>
 </div>
