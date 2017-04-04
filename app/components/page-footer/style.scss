@@ -1,13 +1,34 @@
 footer {
   > div {
-    padding: 8px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    padding: 2.5vw 0;
   }
   ul {
     display: flex;
     flex-flow: row nowrap;
+    li {
+      a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        &:after {
+          content: ' ';
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: white;
+          text-decoration: none;
+        }
+        &.active {
+          &:after {
+            background: orange;
+          }
+        }
+      }
+    }
   }
 }

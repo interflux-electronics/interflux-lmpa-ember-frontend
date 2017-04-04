@@ -1,8 +1,10 @@
 <div class="desktop">
-  <a href="http://www.interflux.com">
-    <img src="/assets/images/interflux-logo.svg" alt="Interflux Electronics logo" width="197" height="49" />
-  </a>
-  <div>
+  <div class="logo">
+    <a href="http://www.interflux.com">
+      <img src="/assets/images/interflux-logo.svg" alt="Interflux Electronics logo" width="197" height="49" class="logo" />
+    </a>
+  </div>
+  <div class="lmpa">
     {{#link-to 'locale.intro'}}
       <h1>
         <strong>LMPA<sup>&trade;</sup></strong>
@@ -10,7 +12,9 @@
       </h1>
     {{/link-to}}
   </div>
-  {{#link-to 'locale.contact' class="button white-border" }}Free Demo{{/link-to}}
+  <div class="cta">
+    {{#link-to 'locale.contact' class="button white-border" }}Free Demo{{/link-to}}
+  </div>
 </div>
 <div class="mobile">
   <div class="logo">

@@ -64,13 +64,12 @@ h1 {
   color: $interflux-blue;
 }
 h2 {
-  font-size: 38px;
-  line-height: 46px;
+  font-size: 3.4vw;
+  line-height: 130%;
   font-family: $lato-regular;
   color: $interflux-blue;
   text-align: center;
-  max-width: 500px;
-  margin: 90px auto 20px;
+  margin: 7vw auto;
   strong {
     font-family: $lato-bold;
   }
@@ -112,6 +111,8 @@ button {
     font-size: 17px;
     font-family: $lato-black;
     color: #fff;
+    font-size: 2vw;
+    line-height: 240%;
     &:focus,
     &:hover {
       background: rgba($lmpa-orange, 40%);

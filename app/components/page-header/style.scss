@@ -1,12 +1,60 @@
 header {
   > div {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    display: none;
+    padding: 1.4vw 0;
+    &.desktop {
+      display: flex;
+      flex-flow: row nowrap;
+      > div {
+        display: flex;
+        width: calc(100%/3);
+        align-items: center;
+        &.lmpa {
+          justify-content: center;
+        }
+        &.cta {
+          justify-content: flex-end;
+        }
+      }
+      img {
+        height: auto;
+        width: 20vw;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        h1 {
+          font-size: 4.6vw;
+          color: white;
+          text-align: center;
+          strong {
+            position: relative;
+            display: block;
+            font-size: 50px;
+            font-family: $lato-black;
+            line-height: 100%;
+            sup {
+              position: absolute;
+              right: -28px;
+              top: 2px;
+              line-height: 100%;
+              font-family: $lato-light;
+              font-size: 20px;
+              right: -15px;
+              top: 4px;
+            }
+          }
+          small {
+            display: block;
+            font-size: 14px;
+            font-family: $lato-light;
+            line-height: 100%;
+            margin: 2px auto 4px;
+          }
+        }
+      }
+    }
     &.mobile {
+      display: none;
       padding: 0;
       flex-flow: row nowrap;
       justify-content: space-between;
@@ -48,43 +96,6 @@ header {
             margin-bottom: 2px;
             font-size: 12px;
             font-family: $lato-bold;
-          }
-        }
-      }
-    }
-    &.desktop {
-      @media (min-width: 801px) {
-        display: block;
-      }
-      a {
-        text-decoration: none;
-        color: white;
-        h1 {
-          color: white;
-          text-align: center;
-          strong {
-            position: relative;
-            display: block;
-            font-size: 50px;
-            font-family: $lato-black;
-            line-height: 100%;
-            sup {
-              position: absolute;
-              right: -28px;
-              top: 2px;
-              line-height: 100%;
-              font-family: $lato-light;
-              font-size: 20px;
-              right: -15px;
-              top: 4px;
-            }
-          }
-          small {
-            display: block;
-            font-size: 14px;
-            font-family: $lato-light;
-            line-height: 100%;
-            margin: 2px auto 4px;
           }
         }
       }

@@ -4,8 +4,11 @@ main#speed {
     padding: 20px 0;
     background: #F3F3F3;
     iframe {
-      width: 100vw;
-      height: 58vw;
+      @media (max-width: 600px) {
+        width: 100vw;
+        height: 58vw;
+      }
+      max-width: 100%;
     }
   }
 }

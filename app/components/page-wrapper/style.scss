@@ -9,8 +9,7 @@
   footer,
   header,
   main {
-    width: 100%;
-    max-width: 1020px;
+    width: 95vw;
     margin: 0 auto;
   }
   main {
@@ -47,6 +46,7 @@
         font-family: $lato-black;
       }
       background: $paragraph-grey;
+      background: $sac-grey;
       &.orange {
         background: $lmpa-orange;
       }
