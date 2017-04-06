@@ -11,4 +11,17 @@ main#speed {
       max-width: 100%;
     }
   }
+  #videos {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 5vw;
+    > div {
+      width: 40vw;
+      iframe {
+        width: 38vw;
+        height: 27vw;
+      }
+    }
+  }
 }
