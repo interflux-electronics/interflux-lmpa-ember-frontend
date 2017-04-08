@@ -1,4 +1,11 @@
 main#speed {
+  h2 {
+    text-align: left;
+  }
+  h2+p {
+    max-width: 50vw;
+    text-align: left;
+  }
   #video {
     position: relative;
     padding: 20px 0;

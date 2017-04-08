@@ -36,21 +36,7 @@
         text-align: left;
       }
     }
-    h3 {
-      line-height: 22px;
-      border: 2px solid white;
-      color: white;
-      font-size: 17px;
-      padding: 10px;
-      strong {
-        font-family: $lato-black;
-      }
-      background: $paragraph-grey;
-      background: $sac-grey;
-      &.orange {
-        background: $lmpa-orange;
-      }
-    }
+
     sup {
       width: 0;
       display: inline-block;
