@@ -15,20 +15,37 @@ footer {
     flex-flow: row nowrap;
     li {
       a {
+        position: relative;
         display: block;
         padding: 10px;
         text-decoration: none;
-        &:after {
-          content: ' ';
+        &:after,
+        &:before {
           display: block;
+          content: ' ';
+          border-radius: 50%;
+        }
+        &:before {
           width: 10px;
           height: 10px;
-          border-radius: 50%;
           background: white;
-          text-decoration: none;
+        }
+        &:after {
+          position: absolute;
+          border: 1px solid orange;
+          transition: transform 500ms ease;
+          width: 10px;
+          height: 10px;
+          box-sizing: border-box;
+          top: 10px;
+          left: 10px;
+          transform: scale(0);
         }
         &.active {
           &:after {
+            transform: scale(1.8);
+          }
+          &:before {
             background: orange;
           }
         }

@@ -44,9 +44,9 @@ img {
 // Most of the time <ul> are not used as bullets, thus we overwrite default padding / margin
 ol,
 ul {
-  // margin: 0;
-  // padding: 0;
-  // list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   li {
     font-size: 16px;
     line-height: 20px;
@@ -70,7 +70,7 @@ h2 {
   line-height: 130%;
   font-family: $lato-regular;
   color: $interflux-blue;
-  margin: 0 auto 2vw;
+  margin: 0 auto 3vw;
   strong {
     font-family: $lato-bold;
   }
@@ -81,8 +81,9 @@ h3 {
   line-height: 22px;
   border: 2px solid white;
   color: white;
-  font-size: 17px;
-  padding: 10px;
+  font-size: 1.7vw;
+  padding: 1vw 1.4vw;
+  line-height: 140%;
   strong {
     font-family: $lato-black;
   }
@@ -95,7 +96,7 @@ h3 {
       width: 0;
       height: 0;
       left: 3vw;
-      bottom: -1.4vw;
+      bottom: -1.3vw;
       border-left: 1.5vw solid transparent;
       border-right: 1.5vw solid transparent;
       border-top: 1.5vw solid transparent;
@@ -105,7 +106,7 @@ h3 {
     }
     &:before {
       border-top-color: white;
-      bottom: -1.7vw;
+      bottom: -1.6vw;
     }
   }
   &.lmpa {
@@ -121,7 +122,7 @@ h3 {
 
 li,
 p {
-  font-size: 1.7vw;
+  font-size: 1.6vw;
   line-height: 170%;
   margin: 0 0 2vw;
   max-width: 60vw;
