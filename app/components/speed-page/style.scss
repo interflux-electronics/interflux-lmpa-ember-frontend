@@ -6,28 +6,33 @@ main#speed {
     max-width: 50vw;
     text-align: left;
   }
-  #video {
-    position: relative;
-    padding: 20px 0;
-    background: #F3F3F3;
-    iframe {
-      @media (max-width: 600px) {
-        width: 100vw;
-        height: 58vw;
-      }
-      max-width: 100%;
-    }
-  }
   #videos {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
-    margin-top: 5vw;
+    justify-content: space-between;
+    margin-top: 12vw;
     > div {
-      width: 40vw;
+      position: relative;
+      background: #008000;
+      h3 {
+        max-width: 80%;
+        box-sizing: border-box;
+        position: absolute;
+        left: 4%;
+        bottom: 94%;
+        padding: 0.7vw 1.3vw;
+      }
+    }
+    .clip {
+      overflow: hidden;
+      width: 34vw;
+      height: 27vw;
+      display: flex;
+      justify-content: center;
       iframe {
-        width: 38vw;
+        width: 36vw;
         height: 27vw;
+        flex-shrink: 0;
       }
     }
   }

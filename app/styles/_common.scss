@@ -1,12 +1,12 @@
 html {
   min-width: 320px;
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
   // We support screen width above 320px only
   min-width: 320px;
-  height: 100%;
+  min-height: 100%;
   // The styles all headings and paragraphs will inherit, no need to add <p> rules
   font-family: $lato-regular;
   font-size: 16px;
@@ -32,7 +32,7 @@ strong {
   font-weight: normal;
 }
 strong {
-  font-family: $lato-bold;
+  font-family: $lato-black;
 }
 
 // Prevent <img> and <iframe> from having awkward empty space underneath
@@ -44,9 +44,9 @@ img {
 // Most of the time <ul> are not used as bullets, thus we overwrite default padding / margin
 ol,
 ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  // margin: 0;
+  // padding: 0;
+  // list-style: none;
   li {
     font-size: 16px;
     line-height: 20px;
@@ -70,8 +70,7 @@ h2 {
   line-height: 130%;
   font-family: $lato-regular;
   color: $interflux-blue;
-  text-align: center;
-  margin: 7vw auto 2vw;
+  margin: 0 auto 2vw;
   strong {
     font-family: $lato-bold;
   }
@@ -87,11 +86,36 @@ h3 {
   strong {
     font-family: $lato-black;
   }
+  &.callout {
+    position: relative;
+    &:after,
+    &:before {
+      position: absolute;
+      content: ' ';
+      width: 0;
+      height: 0;
+      left: 3vw;
+      bottom: -1.4vw;
+      border-left: 1.5vw solid transparent;
+      border-right: 1.5vw solid transparent;
+      border-top: 1.5vw solid transparent;
+    }
+    &:after {
+      border-top-color: $lmpa-orange;
+    }
+    &:before {
+      border-top-color: white;
+      bottom: -1.7vw;
+    }
+  }
   &.lmpa {
     background: $lmpa-orange;
   }
   &.sac {
     background: $faint-orange;
+    &:after {
+      border-top-color: $faint-orange;
+    }
   }
 }
 
