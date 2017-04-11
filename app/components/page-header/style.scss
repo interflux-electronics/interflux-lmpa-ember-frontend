@@ -1,5 +1,6 @@
 header {
   width: 100vw;
+  min-width: 320px;
   #top {
     display: flex;
     flex-flow: row nowrap;
@@ -41,9 +42,11 @@ header {
     }
     a {
       text-decoration: none;
-      width: 95vw;
       display: block;
       margin: 0 auto;
+      padding: 0 2.5vw;
+      min-width: 320px;
+      text-align: center;
     }
     h1 {
       font-size: 28px;
@@ -88,7 +91,7 @@ header {
       flex-shrink: 0;
       &:focus,
       &:hover {
-        background: rgba($lmpa-orange, 40%);
+        background: rgba(white, 0.4);
       }
       @media (max-width: 600px) {
         font-size: 16px;
@@ -134,8 +137,6 @@ header {
             width: 10px;
             height: 10px;
             box-sizing: border-box;
-            top: 10px;
-            left: 10px;
             transform: scale(0);
           }
           &.active {

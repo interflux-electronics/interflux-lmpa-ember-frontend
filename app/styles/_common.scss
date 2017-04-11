@@ -53,25 +53,6 @@ ul {
   }
 }
 
-// Main page title
-h2 {
-  font-size: 3.4vw;
-  line-height: 130%;
-  font-family: $lato-regular;
-  color: $interflux-blue;
-  margin: 0 0 3vw;
-  @media (max-width: #{30/(3.4/100)}px) {
-    font-size: 30px;
-    min-width: 100%;
-  }
-  @media (max-width: 600px) {
-    margin: 20px 0 50px;
-  }
-  strong {
-    font-family: $lato-bold;
-  }
-}
-
 // Callouts for distinguishing SAC vs LMPA
 h3 {
   line-height: 22px;
@@ -163,6 +144,7 @@ button {
     font-family: $lato-bold;
   }
 }
+
 body > .ember-view {
   min-height: 100vh;
   min-height: 100%;
@@ -172,25 +154,44 @@ body > .ember-view {
   justify-content: space-between;
   justify-content: center;
   padding-bottom: 10vw;
-  main {
-    width: 95vw;
-    margin: 0 auto;
-    height: 100%;
-    background: white;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    box-sizing: border-box;
-    > div {
-      padding: 10vw 11vw;
-      @media (max-width: #{30/(10/100)}px ) {
-        padding: 40px;
-      }
+}
+
+main {
+  // width: 95vw;
+  // margin: 0 auto;
+  margin: 0 2.5vw;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  box-sizing: border-box;
+  > div {
+    padding: 10vw 11vw;
+    @media (max-width: #{30/(10/100)}px ) {
+      padding: 40px;
     }
-    sup {
-      width: 0;
-      display: inline-block;
-      transform: translateX(-4px);
+  }
+  sup {
+    width: 0;
+    display: inline-block;
+    transform: translateX(-4px);
+  }
+  h2 {
+    font-size: 3.4vw;
+    line-height: 130%;
+    font-family: $lato-regular;
+    color: $interflux-blue;
+    margin: 0 0 3vw;
+    @media (max-width: #{30/(3.4/100)}px) {
+      font-size: 30px;
+      min-width: 100%;
+    }
+    @media (max-width: 600px) {
+      margin: 20px 0 50px;
+    }
+    strong {
+      font-family: $lato-bold;
     }
   }
 }
