@@ -17,6 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   // Interflux
   background: $interflux-blue url('images/background.jpg') no-repeat 50% 50% / cover;
+  background-attachment: fixed;
 }
 
 // To avoid browsers from trying to bold our already bold font families, remove all default margins
@@ -30,9 +31,6 @@ p,
 strong {
   margin: 0;
   font-weight: normal;
-}
-strong {
-  font-family: $lato-black;
 }
 
 // Prevent <img> and <iframe> from having awkward empty space underneath
@@ -55,15 +53,6 @@ ul {
   }
 }
 
-// The logo
-h1 {
-  font-size: 28px;
-  font-family: $lato-regular;
-  line-height: 100%;
-  margin: 0;
-  color: $interflux-blue;
-}
-
 // Main page title
 h2 {
   font-size: 3.4vw;
@@ -71,6 +60,13 @@ h2 {
   font-family: $lato-regular;
   color: $interflux-blue;
   margin: 0 0 3vw;
+  @media (max-width: #{30/(3.4/100)}px) {
+    font-size: 30px;
+    min-width: 100%;
+  }
+  @media (max-width: 600px) {
+    margin: 20px 0 50px;
+  }
   strong {
     font-family: $lato-bold;
   }
@@ -126,6 +122,16 @@ p {
   line-height: 170%;
   margin: 0 0 2vw;
   max-width: 60vw;
+  @media (max-width: #{(16/0.016)}px) {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 600px) {
+    max-width: none;
+  }
+  strong {
+    font-family: $lato-bold;
+  }
 }
 
 a {
@@ -151,19 +157,6 @@ button {
   background: none;
   box-sizing: border-box;
   user-select: none;
-  &.white-border {
-    border: 2px solid white;
-    border-radius: 3px;
-    font-size: 17px;
-    font-family: $lato-black;
-    color: #fff;
-    font-size: 2vw;
-    line-height: 240%;
-    &:focus,
-    &:hover {
-      background: rgba($lmpa-orange, 40%);
-    }
-  }
   &.light-blue {
     background: $interflux-light-blue;
     color: white;
@@ -179,22 +172,20 @@ body > .ember-view {
   justify-content: space-between;
   justify-content: center;
   padding-bottom: 10vw;
-  footer,
-  header,
   main {
     width: 95vw;
     margin: 0 auto;
-  }
-  main {
     height: 100%;
     background: white;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    transition: 400ms all ease-out;
     box-sizing: border-box;
     > div {
       padding: 10vw 11vw;
+      @media (max-width: #{30/(10/100)}px ) {
+        padding: 40px;
+      }
     }
     sup {
       width: 0;

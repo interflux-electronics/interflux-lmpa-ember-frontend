@@ -1,27 +1,10 @@
-<div class="desktop">
+<div id="top">
   <div class="logo">
     <a href="http://www.interflux.com">
       <img src="/assets/images/interflux-logo.svg" alt="Interflux Electronics logo" width="197" height="49" class="logo" />
     </a>
   </div>
-  <div class="lmpa">
-    {{#link-to 'locale.intro'}}
-      <h1>
-        <strong>LMPA<sup>&trade;</sup></strong>
-        <small>Low Melting Point Alloys</small>
-      </h1>
-    {{/link-to}}
-  </div>
-  <div class="cta">
-    {{#link-to 'locale.contact' class="button white-border" }}Free Demo{{/link-to}}
-  </div>
-</div>
-<div class="mobile">
-  <div class="logo">
-    <h1><a href="http://www.interflux.com">Interflux</a></h1>
-    <h2>{{#link-to 'locale.intro'}}LMPA<sup>&trade;</sup>{{/link-to}}</h2>
-  </div>
-  <div class="button">
+  <div class="burger">
     <button {{action 'openMobileNav'}}>
       <span>MENU</span>
       <svg width="54px" height="34px" viewBox="0 0 54 34">
@@ -36,3 +19,20 @@
     </button>
   </div>
 </div>
+<div id="lmpa">
+  {{#link-to 'locale.intro'}}
+    <h1>LMPA<sup>&trade;</sup></h1>
+    <h2>Low Melting Point Alloys</h2>
+  {{/link-to}}
+</div>
+<nav>
+  {{#link-to prevRoute class="button white-border" }}Prev<span>ious</span>{{/link-to}}
+  <ul>
+    {{#each allRoutes as |route|}}
+      <li>
+        {{#link-to route}}{{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+  {{#link-to nextRoute class="button white-border" }}Next{{/link-to}}
+</nav>

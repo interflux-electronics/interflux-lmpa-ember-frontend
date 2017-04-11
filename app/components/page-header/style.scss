@@ -1,101 +1,150 @@
 header {
-  > div {
-    padding: 2.4vw 0;
-    &.desktop {
-      display: flex;
-      flex-flow: row nowrap;
-      > div {
+  width: 100vw;
+  #top {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      height: auto;
+      width: 25vw;
+      min-width: 210px;
+    }
+    .burger {
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      button {
         display: flex;
-        width: calc(100%/3);
+        flex-flow: column nowrap;
+        justify-content: center;
         align-items: center;
-        &.lmpa {
-          justify-content: center;
-        }
-        &.cta {
-          justify-content: flex-end;
-        }
-      }
-      img {
-        height: auto;
-        width: 25vw;
-      }
-      a {
-        text-decoration: none;
         color: white;
-        h1 {
-          font-size: 4.6vw;
-          color: white;
-          text-align: center;
-          strong {
-            position: relative;
-            display: block;
-            font-size: 50px;
-            font-family: $lato-black;
-            line-height: 100%;
-            sup {
-              position: absolute;
-              right: -28px;
-              top: 2px;
-              line-height: 100%;
-              font-family: $lato-light;
-              font-size: 20px;
-              right: -15px;
-              top: 4px;
-            }
-          }
-          small {
-            display: block;
-            font-size: 14px;
-            font-family: $lato-light;
-            line-height: 100%;
-            margin: 2px auto 4px;
-          }
+        width: 80px;
+        height: 80px;
+        padding: 0;
+        svg {
+          width: 40px;
+        }
+        span {
+          line-height: 100%;
+          margin-bottom: 2px;
+          font-size: 12px;
+          font-family: $lato-bold;
         }
       }
     }
-    &.mobile {
-      display: none;
+  }
+  #lmpa {
+    background: $lmpa-orange;
+    padding: 2vw 0;
+    @media (max-width: 600px) {
+      padding: 14px 0;
+    }
+    a {
+      text-decoration: none;
+      width: 95vw;
+      display: block;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 28px;
+      font-family: $lato-black;
+      line-height: 100%;
+      margin: 0;
+      color: $interflux-blue;
+      color: white;
+      font-size: 4vw;
+      @media (max-width: 600px) {
+        font-size: 32px;
+      }
+    }
+    h2 {
+      color: white;
+      font-family: $lato-regular;
+      font-size: 2vw;
+      margin: 0;
+      @media (max-width: 600px) {
+        font-size: 16px;
+      }
+    }
+  }
+  nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.5vw 0;
+    width: 95vw;
+    margin: 0 auto;
+    .button {
       padding: 0;
+      width: 15vw;
+      border: 2px solid white;
+      border-radius: 3px;
+      font-size: 17px;
+      font-family: $lato-black;
+      color: #fff;
+      font-size: 2vw;
+      line-height: 240%;
+      flex-shrink: 0;
+      &:focus,
+      &:hover {
+        background: rgba($lmpa-orange, 40%);
+      }
+      @media (max-width: 600px) {
+        font-size: 16px;
+        width: 20vw;
+        line-height: 230%;
+        border-width: 2px;
+        span {
+          display: none;
+        }
+      }
+    }
+    ul {
+      display: flex;
       flex-flow: row nowrap;
-      justify-content: space-between;
-      @media (max-width: 800px) {
-        display: flex;
-      }
-      .logo {
-        h1 {
-          font-size: 18px;
-          font-family: $lato-bold;
-          margin: 0;
-        }
-        h2 {
-          font-size: 54px;
-          font-family: $lato-black;
-          margin: 0;
-        }
+      flex-shrink: 1;
+      max-width: 42vw;
+      li {
+        width: 30px;
         a {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 30px;
           text-decoration: none;
-          color: white;
-        }
-      }
-      .button {
-        border-left: 1px solid rgba(255, 255, 255, 0.2);
-        button {
           display: flex;
-          flex-flow: column nowrap;
           justify-content: center;
           align-items: center;
-          color: white;
-          width: 80px;
-          height: 80px;
-          padding: 0;
-          svg {
-            width: 40px;
+          &:after,
+          &:before {
+            display: block;
+            content: ' ';
+            border-radius: 50%;
           }
-          span {
-            line-height: 100%;
-            margin-bottom: 2px;
-            font-size: 12px;
-            font-family: $lato-bold;
+          &:before {
+            width: 10px;
+            height: 10px;
+            background: white;
+          }
+          &:after {
+            position: absolute;
+            border: 1px solid orange;
+            transition: transform 500ms ease;
+            width: 10px;
+            height: 10px;
+            box-sizing: border-box;
+            top: 10px;
+            left: 10px;
+            transform: scale(0);
+          }
+          &.active {
+            &:after {
+              transform: scale(1.8);
+            }
+            &:before {
+              background: orange;
+            }
           }
         }
       }

@@ -2,9 +2,6 @@ main#costs {
   h2 {
     text-align: center;
     margin-bottom: 8vw;
-    strong {
-      display: block;
-    }
   }
   h3 {
     font-size: 1.8vw;
@@ -21,6 +18,9 @@ main#costs {
     li {
       margin: 0 auto 80px;
       max-width: 36vw;
+      @media (max-width: 600px) {
+        max-width: none;
+      }
       .blocks {
         > div {
           position: relative;
