@@ -1,1 +1,11 @@
-main#wetting {}
+main#wetting {
+  text-align: center;
+  > div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    img {
+      margin-top: 3vw;
+    }
+  }
+}
