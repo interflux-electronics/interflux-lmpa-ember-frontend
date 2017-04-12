@@ -46,15 +46,13 @@ ul {
   padding: 0;
   list-style: none;
   li {
-    font-size: 16px;
-    line-height: 20px;
     margin: 0;
     color: $paragraph-grey;
   }
 }
 
 // Callouts for distinguishing SAC vs LMPA
-h3 {
+h4 {
   line-height: 22px;
   border: 2px solid white;
   color: white;
@@ -85,6 +83,23 @@ h3 {
       border-top-color: white;
       bottom: -1.6vw;
     }
+    &.top {
+      &:after,
+      &:before {
+        top: -1.3vw;
+        border-top: 0;
+        border-bottom: 1.5vw solid transparent;
+      }
+      &:after {
+        border-top-color: transparent;
+        border-bottom-color: $lmpa-orange;
+      }
+      &:before {
+        border-top-color: transparent;
+        border-bottom-color: white;
+        top: -1.6vw;
+      }
+    }
   }
   &.lmpa {
     background: $lmpa-orange;
@@ -94,15 +109,21 @@ h3 {
     &:after {
       border-top-color: $faint-orange;
     }
+    &.top {
+      &:after {
+        border-top-color: transparent;
+        border-bottom-color: $faint-orange;
+      }
+    }
   }
 }
 
 li,
 p {
   font-size: 1.6vw;
-  line-height: 170%;
-  margin: 0 0 2vw;
-  max-width: 60vw;
+  line-height: 150%;
+  margin: 2vw 0;
+  max-width: 52vw;
   @media (max-width: #{(16/0.016)}px) {
     font-size: 16px;
     margin-bottom: 24px;
@@ -157,15 +178,10 @@ body > .ember-view {
 }
 
 main {
-  // width: 95vw;
-  // margin: 0 auto;
-  margin: 0 2.5vw;
+  width: 100vw;
   height: 100%;
+  min-width: 320px;
   background: white;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  box-sizing: border-box;
   > div {
     padding: 10vw 11vw;
     @media (max-width: #{30/(10/100)}px ) {
@@ -178,7 +194,7 @@ main {
     transform: translateX(-4px);
   }
   h2 {
-    font-size: 3.4vw;
+    font-size: 3.8vw;
     line-height: 130%;
     font-family: $lato-regular;
     color: $interflux-blue;
@@ -192,6 +208,18 @@ main {
     }
     strong {
       font-family: $lato-bold;
+    }
+  }
+  h3 {
+    font-size: 2vw;
+    font-family: $lato-black;
+    color: $paragraph-grey;
+    padding: 0;
+    margin: 3vw 0 1vw;
+    border: 0;
+    @media (max-width: #{(17/0.02)}px) {
+      font-size: 17px;
+      margin-bottom: 10px;
     }
   }
 }

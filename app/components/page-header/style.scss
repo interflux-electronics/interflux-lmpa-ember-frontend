@@ -1,39 +1,105 @@
 header {
-  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   min-width: 320px;
-  #top {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    img {
-      height: auto;
-      width: 25vw;
-      min-width: 210px;
-    }
-    .burger {
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
-      button {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        width: 80px;
-        height: 80px;
-        padding: 0;
-        svg {
-          width: 40px;
-        }
-        span {
-          line-height: 100%;
-          margin-bottom: 2px;
-          font-size: 12px;
-          font-family: $lato-bold;
-        }
+  #logo {
+    a {
+      display: block;
+      @media (min-width: 601px) {
+        width: 30vw;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+      img {
+        width: 22vw;
+        height: auto;
+        padding: 2vw;
       }
     }
   }
+  #lmpa {
+    background: $lmpa-orange;
+    a {
+      display: block;
+      text-decoration: none;
+      margin: 0 auto;
+    }
+    h1,
+    h2 {
+      color: white;
+      @media (min-width: 601px) {
+        text-align: center;
+      }
+    }
+    h1 {
+      font-family: $lato-black;
+      font-size: 6vw;
+      line-height: 100%;
+      sup {
+        display: block;
+        width: 0;
+      }
+    }
+    h2 {
+      font-family: $lato-regular;
+      font-size: 1vw;
+      line-height: 100%;
+    }
+  }
+  #cta {
+    width: 30vw;
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+  #burger {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    @media (min-width: 601px) {
+      display: none;
+    }
+    button {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      width: 80px;
+      height: 80px;
+      padding: 0;
+      svg {
+        width: 40px;
+      }
+      span {
+        line-height: 100%;
+        margin-bottom: 2px;
+        font-size: 12px;
+        font-family: $lato-bold;
+      }
+    }
+  }
+  nav {
+    background: white;
+    border-bottom: 1px solid #EEE;
+    padding: 1vw;
+    a.button {
+      color: $interflux-light-blue;
+      width: 12vw;
+      border-color: #EEE;
+      font-family: $lato-bold;
+      &:hover {
+        background: $lmpa-orange;
+        border-color: $lmpa-orange;
+        color: white;
+      }
+    }
+    ul li a:before {
+      background: #EEE;
+    }
+  }
+}
+.headerr {
   #lmpa {
     background: $lmpa-orange;
     padding: 2vw 0;
@@ -59,6 +125,11 @@ header {
       @media (max-width: 600px) {
         font-size: 32px;
       }
+      sup {
+        width: 0;
+        display: inline-block;
+        font-size: 22px;
+      }
     }
     h2 {
       color: white;
@@ -67,87 +138,6 @@ header {
       margin: 0;
       @media (max-width: 600px) {
         font-size: 16px;
-      }
-    }
-  }
-  nav {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3.5vw 0;
-    width: 95vw;
-    margin: 0 auto;
-    .button {
-      padding: 0;
-      width: 15vw;
-      border: 2px solid white;
-      border-radius: 3px;
-      font-size: 17px;
-      font-family: $lato-black;
-      color: #fff;
-      font-size: 2vw;
-      line-height: 240%;
-      flex-shrink: 0;
-      &:focus,
-      &:hover {
-        background: rgba(white, 0.4);
-      }
-      @media (max-width: 600px) {
-        font-size: 16px;
-        width: 20vw;
-        line-height: 230%;
-        border-width: 2px;
-        span {
-          display: none;
-        }
-      }
-    }
-    ul {
-      display: flex;
-      flex-flow: row nowrap;
-      flex-shrink: 1;
-      max-width: 42vw;
-      li {
-        width: 30px;
-        a {
-          position: relative;
-          display: block;
-          width: 100%;
-          height: 30px;
-          text-decoration: none;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          &:after,
-          &:before {
-            display: block;
-            content: ' ';
-            border-radius: 50%;
-          }
-          &:before {
-            width: 10px;
-            height: 10px;
-            background: white;
-          }
-          &:after {
-            position: absolute;
-            border: 1px solid orange;
-            transition: transform 500ms ease;
-            width: 10px;
-            height: 10px;
-            box-sizing: border-box;
-            transform: scale(0);
-          }
-          &.active {
-            &:after {
-              transform: scale(1.8);
-            }
-            &:before {
-              background: orange;
-            }
-          }
-        }
       }
     }
   }

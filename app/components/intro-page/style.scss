@@ -1,6 +1,23 @@
 main#intro {
   ul {
-    list-style: disc;
-    padding-left: 0;
+    &#benefits {
+      li {
+        .check {
+          margin-right: 1vw;
+        }
+        svg {
+          width: 22px;
+          height: 22px;
+          path {
+            fill: $interflux-light-blue;
+          }
+        }
+        a {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+        }
+      }
+    }
   }
 }

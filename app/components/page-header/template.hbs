@@ -1,23 +1,7 @@
-<div id="top">
-  <div class="logo">
-    <a href="http://www.interflux.com">
-      <img src="/assets/images/interflux-logo.svg" alt="Interflux Electronics logo" width="197" height="49" class="logo" />
-    </a>
-  </div>
-  <div class="burger">
-    <button {{action 'openMobileNav'}}>
-      <span>MENU</span>
-      <svg width="54px" height="34px" viewBox="0 0 54 34">
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g fill="#FFFFFF">
-            <rect x="0" y="0" width="54" height="4" rx="2"></rect>
-            <rect x="0" y="15" width="54" height="4" rx="2"></rect>
-            <rect x="0" y="30" width="54" height="4" rx="2"></rect>
-          </g>
-        </g>
-      </svg>
-    </button>
-  </div>
+<div id="logo">
+  <a href="http://www.interflux.com">
+    <img src="/assets/images/interflux-logo.svg" alt="Interflux Electronics logo" width="197" height="49" class="logo" />
+  </a>
 </div>
 <div id="lmpa">
   {{#link-to 'locale.intro'}}
@@ -25,14 +9,21 @@
     <h2>Low Melting Point Alloys</h2>
   {{/link-to}}
 </div>
-<nav>
-  {{#link-to prevRoute class="button white-border" }}Prev<span>ious</span>{{/link-to}}
-  <ul>
-    {{#each allRoutes as |route|}}
-      <li>
-        {{#link-to route}}{{/link-to}}
-      </li>
-    {{/each}}
-  </ul>
-  {{#link-to nextRoute class="button white-border" }}Next{{/link-to}}
-</nav>
+<div id="cta">
+  {{#link-to 'locale.contact' class="button white-border" }}Free demo{{/link-to}}
+</div>
+<div id="burger">
+  <button {{action 'openMobileNav'}}>
+    <span>MENU</span>
+    <svg width="54px" height="34px" viewBox="0 0 54 34">
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill="#FFFFFF">
+          <rect x="0" y="0" width="54" height="4" rx="2"></rect>
+          <rect x="0" y="15" width="54" height="4" rx="2"></rect>
+          <rect x="0" y="30" width="54" height="4" rx="2"></rect>
+        </g>
+      </g>
+    </svg>
+  </button>
+</div>
+{{page-nav}}

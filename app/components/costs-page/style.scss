@@ -8,18 +8,6 @@ main#costs {
       margin-right: auto;
     }
   }
-  h3 {
-    font-size: 2vw;
-    font-family: $lato-black;
-    color: $paragraph-grey;
-    padding: 0;
-    margin: 0 0 1vw;
-    border: 0;
-    @media (max-width: #{(17/0.02)}px) {
-      font-size: 17px;
-      margin-bottom: 10px;
-    }
-  }
   p {
     margin: 0 0 2vw;
     @media (max-width: #{(17/0.018)}px) {

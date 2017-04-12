@@ -1,20 +1,20 @@
 main#speed {
   h2 {
-    text-align: left;
+    max-width: 50vw;
   }
   #videos {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    margin: 15vw 0 2vw;
+    margin: 4vw 0 15vw;
     > div {
       position: relative;
-      h3 {
+      h4 {
         max-width: 80%;
         box-sizing: border-box;
         position: absolute;
-        left: 4%;
-        bottom: 94%;
+        left: 10%;
+        top: 96%;
         padding: 0.9vw 1.5vw;
         font-size: 1.8vw;
         line-height: 140%;
@@ -22,13 +22,13 @@ main#speed {
     }
     .clip {
       overflow: hidden;
-      width: 34vw;
-      height: 27vw;
+      width: 36vw;
+      height: 29vw;
       display: flex;
       justify-content: center;
       iframe {
-        width: 36vw;
-        height: 27vw;
+        width: 40vw;
+        height: 29vw;
         flex-shrink: 0;
       }
     }
