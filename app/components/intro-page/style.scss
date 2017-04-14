@@ -1,9 +1,10 @@
 main#intro {
   ul {
     &#benefits {
+      margin-top: 2.4vw;
       li {
         .check {
-          margin-right: 1vw;
+          margin: 0 2vw 0 1vw;
         }
         svg {
           width: 22px;
@@ -17,6 +18,18 @@ main#intro {
           align-items: center;
           text-decoration: none;
         }
+      }
+    }
+    &#processes {
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1vw;
+      }
+      img {
+        width: 5vw;
+        height: 5vw;
+        margin: 0 2vw 0 0;
       }
     }
   }
