@@ -139,6 +139,7 @@ p {
 a {
   text-decoration: underline;
   color: $interflux-light-blue;
+  outline: 0;
   &:hover {
     text-decoration: none;
     color: $lmpa-orange;
@@ -159,6 +160,28 @@ button {
   background: none;
   box-sizing: border-box;
   user-select: none;
+  &.white-border {
+    padding: 0;
+    width: 15vw;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-size: 17px;
+    font-family: $lato-black;
+    color: #fff;
+    font-size: 1.8vw;
+    line-height: 240%;
+    flex-shrink: 0;
+    &:focus,
+    &:hover {
+      background: rgba(white, 0.4);
+    }
+    @media (max-width: 600px) {
+      font-size: 16px;
+      width: 20vw;
+      line-height: 230%;
+      border-width: 2px;
+    }
+  }
   &.light-blue {
     background: $interflux-light-blue;
     color: white;

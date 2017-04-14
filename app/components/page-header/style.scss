@@ -20,11 +20,18 @@ header {
     }
   }
   #lmpa {
-    background: $lmpa-orange;
+    margin: 0.5vw 0;
     a {
       display: block;
       text-decoration: none;
       margin: 0 auto;
+      padding: 0.2vw 2vw 0;
+      background: $lmpa-orange;
+      height: 100%;
+      box-sizing: border-box;
+      &:hover {
+        opacity: 0.8;
+      }
     }
     h1,
     h2 {
@@ -34,24 +41,36 @@ header {
       }
     }
     h1 {
+      position: relative;
       font-family: $lato-black;
       font-size: 6vw;
       line-height: 100%;
       sup {
+        position: absolute;
         display: block;
         width: 0;
+        top: 1.4vw;
+        font-size: 1.5vw;
+        right: 0.7vw;
       }
     }
     h2 {
       font-family: $lato-regular;
-      font-size: 1vw;
+      font-size: 1.4vw;
       line-height: 100%;
+      margin-top: 0.1vw;
     }
   }
   #cta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     width: 30vw;
     @media (max-width: 600px) {
       display: none;
+    }
+    .button {
+      margin-right: 2.2vw;
     }
   }
   #burger {
@@ -83,7 +102,7 @@ header {
     background: white;
     border-bottom: 1px solid #EEE;
     padding: 1vw;
-    a.button {
+    .button.white-border {
       color: $interflux-light-blue;
       width: 12vw;
       border-color: #EEE;
@@ -96,49 +115,6 @@ header {
     }
     ul li a:before {
       background: #EEE;
-    }
-  }
-}
-.headerr {
-  #lmpa {
-    background: $lmpa-orange;
-    padding: 2vw 0;
-    @media (max-width: 600px) {
-      padding: 14px 0;
-    }
-    a {
-      text-decoration: none;
-      display: block;
-      margin: 0 auto;
-      padding: 0 2.5vw;
-      min-width: 320px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 28px;
-      font-family: $lato-black;
-      line-height: 100%;
-      margin: 0;
-      color: $interflux-blue;
-      color: white;
-      font-size: 4vw;
-      @media (max-width: 600px) {
-        font-size: 32px;
-      }
-      sup {
-        width: 0;
-        display: inline-block;
-        font-size: 22px;
-      }
-    }
-    h2 {
-      color: white;
-      font-family: $lato-regular;
-      font-size: 2vw;
-      margin: 0;
-      @media (max-width: 600px) {
-        font-size: 16px;
-      }
     }
   }
 }
