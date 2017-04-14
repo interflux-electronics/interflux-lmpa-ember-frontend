@@ -99,19 +99,10 @@ header {
     }
   }
   nav {
-    background: white;
-    border-bottom: 1px solid #EEE;
+    background: rgba(white,0.15);
     padding: 1vw;
     .button.white-border {
-      color: $interflux-light-blue;
-      width: 12vw;
-      border-color: #EEE;
-      font-family: $lato-bold;
-      &:hover {
-        background: $lmpa-orange;
-        border-color: $lmpa-orange;
-        color: white;
-      }
+      // font-family: $lato-bold;
     }
     ul li a:before {
       background: #EEE;

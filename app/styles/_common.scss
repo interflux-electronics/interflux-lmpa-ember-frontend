@@ -118,6 +118,7 @@ h4 {
   }
 }
 
+label,
 li,
 p {
   font-size: 1.6vw;
@@ -161,14 +162,12 @@ button {
   box-sizing: border-box;
   user-select: none;
   &.white-border {
-    padding: 0;
-    width: 15vw;
-    border: 2px solid white;
-    border-radius: 3px;
-    font-size: 17px;
     font-family: $lato-black;
-    color: #fff;
     font-size: 1.8vw;
+    color: #fff;
+    padding: 0 2.7vw;
+    border: 0.25vw solid #fff;
+    border-radius: 0.4vw;
     line-height: 240%;
     flex-shrink: 0;
     &:focus,
@@ -245,4 +244,41 @@ main {
       margin-bottom: 10px;
     }
   }
+}
+
+$placeholder-color: #AAA;
+$placeholder-focus-color: #CCC;
+
+input {
+  outline: none;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid black;
+  transition: all 350ms ease;
+}
+::-webkit-input-placeholder {
+  color: $placeholder-color;
+}
+:-ms-input-placeholder {
+  color: $placeholder-color;
+}
+::-moz-placeholder {
+  color: $placeholder-color;
+  opacity: 1;
+}
+:-moz-placeholder {
+  color: $placeholder-color;
+  opacity: 1;
+}
+:focus::-webkit-input-placeholder {
+  color: $placeholder-focus-color;
+}
+:focus:-ms-input-placeholder {
+  color: $placeholder-focus-color;
+}
+:focus::-moz-placeholder {
+  color: $placeholder-focus-color;
+}
+:focus:-moz-placeholder {
+  color: $placeholder-focus-color;
 }
