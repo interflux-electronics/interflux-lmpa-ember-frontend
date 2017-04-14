@@ -1,4 +1,11 @@
 main#intro {
+  > div {
+    max-width: 50vw;
+    margin: 0 auto;
+  }
+  a {
+    text-decoration: none;
+  }
   ul {
     &#benefits {
       margin-top: 2.4vw;
