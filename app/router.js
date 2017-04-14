@@ -2,8 +2,47 @@ import Ember from 'ember';
 import config from './config/environment';
 
 const Router = Ember.Router.extend({
+
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+  seo: Ember.inject.service(),
+
+  onInit: Ember.on('init', function() {
+
+    // Set up Google Analytics on init
+    if (ga) {
+      ga('create', {
+        trackingId: config.googleAnalytics.trackingId,
+        cookieDomain: config.googleAnalytics.cookieDomain
+      });
+      ga('set', {
+        dimension1: 'LMPA',
+        dimension2: config.environment,
+      });
+    }
+
+  }),
+
+  onEachDidTransition: Ember.on('didTransition', function() {
+    const currentRoute = Ember.getOwner(this).lookup('route:' + this.currentRouteName);
+
+    // Hit Google Analytics on page transitions
+    if (ga) {
+      ga('set', {
+        page: window.location.pathname,
+        hostname: window.location.host,
+        title: document.title,
+        dimension3: currentRoute.routeName.replace(/\./g, '/'),
+      });
+      ga('send', 'pageview');
+    }
+
+    // Set the <meta name="robots" content="index, follow">
+    // Looks for the properties `robotIndex:true` and `robotFollow:false` on the route
+    this.get('seo').setRobotMeta(currentRoute.get('robotIndex'), currentRoute.get('robotFollow'));
+
+  })
+
 });
 
 Router.map(function() {

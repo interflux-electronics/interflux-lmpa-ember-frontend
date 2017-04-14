@@ -6,20 +6,25 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'history',
-
-    autoprefixer: {
-      browsers: ['> 1% in AU', 'Explorer > 9', 'Firefox >= 17', 'Chrome >= 10', 'Safari >= 6', 'iOS >= 6']
+    googleAnalytics: {
+      trackingId: 'UA-34474019-11'
     },
-
     EmberENV: {
       FEATURES: {},
       EXTEND_PROTOTYPES: {
         Date: false
       }
     },
-
     APP: {}
   };
+
+  if (environment === 'production') {
+
+  }
+
+  if (environment === 'staging') {
+
+  }
 
   if (environment === 'development') {
 
@@ -30,10 +35,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
     ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production') {
-
   }
 
   return ENV;

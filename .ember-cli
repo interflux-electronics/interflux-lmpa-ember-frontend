@@ -1,4 +1,5 @@
 {
   "liveReload": true,
-  "usePods": true
+  "usePods": true,
+  "watcher": "node"
 }
