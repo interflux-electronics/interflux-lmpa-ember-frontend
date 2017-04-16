@@ -3,6 +3,13 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 100vw;
+  min-width: 320px;
+  background: rgba(white,0.15);
+  padding: 1vw;
+  box-sizing: border-box;
+  @media (max-width: 700px) {
+    padding: 7px;
+  }
   ul {
     display: flex;
     flex-flow: row nowrap;
@@ -69,7 +76,6 @@ nav {
           &:before {
             background: orange;
           }
-
         }
       }
     }

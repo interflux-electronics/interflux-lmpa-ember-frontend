@@ -4,6 +4,14 @@ header {
   justify-content: space-between;
   min-width: 320px;
   #logo {
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    display: flex;
+    padding: 2vw;
+    @media (max-width: 700px) {
+      padding: 14px;
+    }
     a {
       display: block;
       @media (min-width: 601px) {
@@ -15,12 +23,17 @@ header {
       img {
         width: 22vw;
         height: auto;
-        padding: 2vw;
+        min-width: 180px;
       }
     }
   }
   #lmpa {
     margin: 0.5vw 0;
+    @media (max-width: 800px) {
+      width: 100vw;
+      margin: 0;
+      order: 1;
+    }
     a {
       display: block;
       text-decoration: none;
@@ -31,6 +44,12 @@ header {
       box-sizing: border-box;
       &:hover {
         opacity: 0.8;
+      }
+      @media (max-width: 800px) {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        padding: 7px 0 10px;
       }
     }
     h1,
@@ -45,6 +64,9 @@ header {
       font-family: $lato-black;
       font-size: 6vw;
       line-height: 100%;
+      @media (max-width: 766px) {
+        font-size: 46px;
+      }
       sup {
         position: absolute;
         display: block;
@@ -59,6 +81,9 @@ header {
       font-size: 1.4vw;
       line-height: 100%;
       margin-top: 0.1vw;
+      @media (max-width: 786px) {
+        font-size: 11px;
+      }
     }
   }
   #cta {
@@ -66,46 +91,39 @@ header {
     justify-content: flex-end;
     align-items: center;
     width: 30vw;
-    @media (max-width: 600px) {
-      display: none;
-    }
     .button {
       margin-right: 2.2vw;
+      @media (max-width: 700px) {
+        margin-right: 7px;
+      }
     }
   }
   #burger {
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-    @media (min-width: 601px) {
-      display: none;
-    }
-    button {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      width: 80px;
-      height: 80px;
-      padding: 0;
-      svg {
-        width: 40px;
-      }
-      span {
-        line-height: 100%;
-        margin-bottom: 2px;
-        font-size: 12px;
-        font-family: $lato-bold;
-      }
-    }
+    display: none;
   }
-  nav {
-    background: rgba(white,0.15);
-    padding: 1vw;
-    .button.white-border {
-      // font-family: $lato-bold;
-    }
-    ul li a:before {
-      background: #EEE;
-    }
-  }
+  // #burger {
+  //   border-left: 1px solid rgba(255, 255, 255, 0.2);
+  //   @media (min-width: 801px) {
+  //     display: none;
+  //   }
+  //   button {
+  //     display: flex;
+  //     flex-flow: column nowrap;
+  //     justify-content: center;
+  //     align-items: center;
+  //     color: white;
+  //     width: 80px;
+  //     height: 80px;
+  //     padding: 0;
+  //     svg {
+  //       width: 40px;
+  //     }
+  //     span {
+  //       line-height: 100%;
+  //       margin-bottom: 2px;
+  //       font-size: 12px;
+  //       font-family: $lato-bold;
+  //     }
+  //   }
+  // }
 }

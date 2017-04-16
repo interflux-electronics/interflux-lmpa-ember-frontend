@@ -15,6 +15,7 @@ const lastIndex = sequence.length - 1;
 
 export default Ember.Component.extend({
   tagName: 'nav',
+  classNames: ['page-nav'],
   router: Ember.inject.service('-routing'),
 
   allRoutes: sequence,
