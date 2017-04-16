@@ -9,6 +9,12 @@ main#contact {
   }
   h2 {
     font-size: 3vw;
+    strong {
+      display: block;
+    }
+  }
+  a {
+    font-size: 3vw;
   }
   .field {
     position: relative;

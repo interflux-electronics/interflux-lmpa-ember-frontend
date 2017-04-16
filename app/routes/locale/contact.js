@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.get('store').createRecord('demoRequest');
+    return this.get('store').createRecord('contactRequest');
   }
 });
