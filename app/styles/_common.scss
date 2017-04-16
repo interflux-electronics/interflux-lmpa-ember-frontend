@@ -53,12 +53,14 @@ ul {
 
 // Callouts for distinguishing SAC vs LMPA
 h4 {
-  line-height: 22px;
+  font-size: 1.7vw;
+  line-height: 140%;
+  padding: 1vw 1.4vw;
   border: 2px solid white;
   color: white;
-  font-size: 1.7vw;
-  padding: 1vw 1.4vw;
-  line-height: 140%;
+  @media (max-width: #{(16/0.017)}px) {
+    font-size: 16px;
+  }
   strong {
     font-family: $lato-black;
   }
@@ -204,16 +206,18 @@ main {
   background: white;
   > div {
     padding: 10vw 10vw 20vw;
-    @media (max-width: 900px) {
-      padding: 6vw 6vw 12vw;
-    }
-    @media (max-width: #{30/(10/100)}px ) {
-      padding: 40px;
-    }
+    // @media (max-width: 900px) {
+    //   padding: 6vw 6vw 12vw;
+    // }
+    // @media (max-width: #{30/(10/100)}px ) {
+    //   padding: 40px;
+    // }
+
   }
   sup {
-    display: inline-block;
-    transform: translateX(-4px);
+    // display: inline-block;
+    // transform: translateX(-4px);
+
   }
   h2 {
     font-size: 3.8vw;
@@ -226,7 +230,12 @@ main {
       min-width: 100%;
     }
     @media (max-width: 600px) {
-      margin: 20px 0 50px;
+      margin: 0 0 50px;
+    }
+    &.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
     strong {
       font-family: $lato-bold;

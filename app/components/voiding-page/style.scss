@@ -1,11 +1,4 @@
 main#voiding {
-  h2 {
-    max-width: 45vw;
-    margin-left: 0;
-    strong {
-      display: block;
-    }
-  }
   > div {
     @media (min-width: 700px) {
       display: flex;

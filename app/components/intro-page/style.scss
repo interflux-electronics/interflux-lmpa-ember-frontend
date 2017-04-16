@@ -1,7 +1,9 @@
 main#intro {
   > div {
-    max-width: 60vw;
     margin: 0 auto;
+    @media (min-width: 601px) {
+      max-width: 60vw;
+    }
   }
   a {
     text-decoration: none;
