@@ -6,24 +6,38 @@ main#voiding {
       display: block;
     }
   }
+  > div {
+    @media (min-width: 700px) {
+      display: flex;
+      justify-content: space-between;
+      > div {
+        width: 40%;
+      }
+    }
+  }
   #images {
     display: flex;
-    justify-content: space-between;
-    margin-top: 4.5vw;
-    > div {
-      width: 47%;
-      .image {
-        background: $background-grey;
-        padding: 2vw;
-        h4 {
-          margin-bottom: 2vw;
-          max-width: 80%;
-          margin: 1.4vw auto 2.2vw;
-        }
-        img {
-          width: 100%;
-          height: auto;
-        }
+    flex-flow: column nowrap;
+    @media (min-width: 700px) {
+      width: 50%;
+    }
+    .image {
+      background: $background-grey;
+      padding: 2vw 2vw 0;
+      width: 100%;
+      box-sizing: border-box;
+      &:last-child {
+        padding-bottom: 2vw;
+        padding-top: 0;
+      }
+      h4 {
+        margin-bottom: 2vw;
+        max-width: 80%;
+        margin: 1.4vw auto 2.2vw;
+      }
+      img {
+        width: 100%;
+        height: auto;
       }
     }
   }

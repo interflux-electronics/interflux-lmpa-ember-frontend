@@ -124,13 +124,9 @@ p {
   font-size: 1.6vw;
   line-height: 150%;
   margin: 2vw 0;
-  max-width: 52vw;
   @media (max-width: #{(16/0.016)}px) {
     font-size: 16px;
     margin-bottom: 24px;
-  }
-  @media (max-width: 600px) {
-    max-width: none;
   }
   strong {
     font-family: $lato-bold;
@@ -207,7 +203,10 @@ main {
   min-width: 320px;
   background: white;
   > div {
-    padding: 10vw 11vw;
+    padding: 10vw 10vw 20vw;
+    @media (max-width: 900px) {
+      padding: 6vw 6vw 12vw;
+    }
     @media (max-width: #{30/(10/100)}px ) {
       padding: 40px;
     }
