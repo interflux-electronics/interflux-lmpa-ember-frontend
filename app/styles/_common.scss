@@ -97,11 +97,15 @@ h3 {
 
 // Callouts for distinguishing SAC vs LMPA
 h4 {
-  font-size: 1.7vw;
   line-height: 140%;
-  padding: 1vw 1.4vw;
   border: 2px solid white;
   color: white;
+  font-size: 18px;
+  padding: 10.8px 15.12px;
+  @media (max-width: 1080px) {
+    font-size: 1.7vw;
+    padding: 1vw 1.4vw;
+  }
   @media (max-width: #{(16/0.017)}px) {
     font-size: 16px;
   }
