@@ -12,7 +12,7 @@ header {
     justify-content: center;
     flex-flow: column nowrap;
     display: flex;
-    padding: 22px;
+    padding: 18px;
     // @media (max-width: 1080px) {
     //   padding: #{(22/1080)*100}vw;
     // }
@@ -36,7 +36,10 @@ header {
     }
   }
   #lmpa {
-    margin: 0.5vw 0;
+    margin: 6px 0;
+    @media (max-width: 1080px) {
+      margin: 0.5vw 0;
+    }
     @media (max-width: 550px) {
       width: 100vw;
       min-width: 320px;
@@ -44,21 +47,24 @@ header {
       order: 1;
     }
     a {
-      display: block;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
       text-decoration: none;
       margin: 0 auto;
-      padding: 0.2vw 2vw 0;
       background: $lmpa-orange;
       height: 100%;
       box-sizing: border-box;
-      &:hover {
-        opacity: 0.8;
-      }
       @media (max-width: 550px) {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
         padding: 7px 0 10px;
+      }
+      &:hover {
+        opacity: 0.8;
       }
     }
     h1,
@@ -71,8 +77,11 @@ header {
     h1 {
       position: relative;
       font-family: $lato-black;
-      font-size: 6vw;
       line-height: 100%;
+      font-size: 64.8px;
+      @media (max-width:1080px) {
+        font-size: 6vw;
+      }
       @media (max-width: 766px) {
         font-size: 46px;
       }
@@ -80,16 +89,25 @@ header {
         position: absolute;
         display: block;
         width: 0;
-        top: 1.4vw;
-        font-size: 1.5vw;
-        right: 0.7vw;
+        right: 7.56px;
+        font-size: 16px;
+        top: 15.12px;
+        @media (max-width: 1080px) {
+          font-size: 1.5vw;
+          top: 1.4vw;
+          right: 0.7vw;
+        }
       }
     }
     h2 {
       font-family: $lato-regular;
-      font-size: 1.4vw;
       line-height: 100%;
-      margin-top: 0.1vw;
+      margin: 1px 0 0;
+      font-size: 15px;
+      @media (max-width: 1080px) {
+        margin: 0.1vw 0 0;
+        font-size: 1.4vw;
+      }
       @media (max-width: 786px) {
         font-size: 11px;
       }

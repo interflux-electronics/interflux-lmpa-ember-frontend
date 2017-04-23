@@ -64,7 +64,7 @@ h2 {
   }
   @media (max-width: #{32/(44/1080)}px) {
     font-size: 32px;
-    min-width: 100%;
+    // min-width: 100%;
   }
   @media (max-width: 600px) {
     margin: 0 0 50px;
@@ -206,13 +206,19 @@ button {
   white-space: nowrap;
   &.white-border {
     font-family: $lato-black;
-    font-size: 1.8vw;
-    color: #fff;
-    padding: 0 2.7vw;
-    border: 0.25vw solid #fff;
-    border-radius: 0.4vw;
+    color: white;
+    border: 2px solid white;
     line-height: 240%;
     flex-shrink: 0;
+    font-size: 20px;
+    border-radius: 4px;
+    padding: 0 29px;
+    @media (max-width: 1080px) {
+      font-size: 1.8vw;
+      border-radius: 0.4vw;
+      border-width: 0.25vw;
+      padding: 0 2.7vw;
+    }
     &:focus,
     &:hover {
       background: rgba(white, 0.4);
