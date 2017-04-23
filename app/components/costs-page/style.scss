@@ -1,6 +1,7 @@
 main#costs {
   h2 {
-    margin-bottom: 10vw;
+    // margin-bottom: 10vw;
+    margin-bottom: 10%;
   }
   h3 {
     margin-top: 0;
@@ -11,12 +12,14 @@ main#costs {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-      padding: 10vw 0;
+      // padding: 10vw 0;
+      padding: 10% 0;
       @media (max-width: 800px) {
         padding: 80px 0;
       }
       > * {
-        width: 46vw;
+        // width: 46vw;
+        width: 46%;
         @media (max-width: 750px) {
           width: 100%;
           max-width: 345px;

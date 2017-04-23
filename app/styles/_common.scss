@@ -51,6 +51,50 @@ ul {
   }
 }
 
+// The big blue titles on top of a page
+h2 {
+  line-height: 130%;
+  font-family: $lato-regular;
+  color: $interflux-blue;
+  font-size: 44px;
+  margin: 0 0 44px;
+  @media (max-width: 1080px) {
+    font-size: #{(44/1080)*100}vw;
+    margin: 0 0 #{(44/1080)*100}vw;
+  }
+  @media (max-width: #{32/(44/1080)}px) {
+    font-size: 32px;
+    min-width: 100%;
+  }
+  @media (max-width: 600px) {
+    margin: 0 0 50px;
+  }
+  &.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  strong {
+    font-family: $lato-bold;
+  }
+}
+
+// Black-ish bold sub titles
+h3 {
+  // font-size: 2vw;
+  font-size: 22px;
+  font-family: $lato-black;
+  color: $paragraph-grey;
+  padding: 0;
+  margin: 3vw 0 1vw;
+  border: 0;
+  // @media (max-width: #{(17/0.02)}px) {
+  //   font-size: 17px;
+  //   margin-bottom: 10px;
+  // }
+
+}
+
 // Callouts for distinguishing SAC vs LMPA
 h4 {
   font-size: 1.7vw;
@@ -123,16 +167,16 @@ h4 {
 label,
 li,
 p {
-  font-size: 1.6vw;
+  font-size: 16px;
   line-height: 150%;
-  margin: 2vw 0;
-  @media (max-width: #{(16/0.016)}px) {
-    font-size: 16px;
-    margin-bottom: 24px;
-  }
+  margin: 16px 0 24px;
   strong {
     font-family: $lato-bold;
   }
+}
+
+p {
+  max-width: 560px;
 }
 
 a {
@@ -200,12 +244,14 @@ body > .ember-view {
 }
 
 main {
-  width: 100vw;
   height: 100%;
   min-width: 320px;
   background: white;
   > div {
     padding: 10vw 10vw 20vw;
+    max-width: 1080px;
+    margin: 0 auto;
+
     // @media (max-width: 900px) {
     //   padding: 6vw 6vw 12vw;
     // }
@@ -219,40 +265,7 @@ main {
     // transform: translateX(-4px);
 
   }
-  h2 {
-    font-size: 3.8vw;
-    line-height: 130%;
-    font-family: $lato-regular;
-    color: $interflux-blue;
-    margin: 0 0 3vw;
-    @media (max-width: #{30/(3.4/100)}px) {
-      font-size: 30px;
-      min-width: 100%;
-    }
-    @media (max-width: 600px) {
-      margin: 0 0 50px;
-    }
-    &.center {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    strong {
-      font-family: $lato-bold;
-    }
-  }
-  h3 {
-    font-size: 2vw;
-    font-family: $lato-black;
-    color: $paragraph-grey;
-    padding: 0;
-    margin: 3vw 0 1vw;
-    border: 0;
-    @media (max-width: #{(17/0.02)}px) {
-      font-size: 17px;
-      margin-bottom: 10px;
-    }
-  }
+
 }
 
 $placeholder-color: #AAA;

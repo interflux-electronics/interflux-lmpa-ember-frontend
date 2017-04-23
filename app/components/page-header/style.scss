@@ -3,15 +3,22 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   min-width: 320px;
+  // > div {
+  //   max-width: 1080px;
+  //   margin: 0 auto;
+  // }
   #logo {
     align-items: center;
     justify-content: center;
     flex-flow: column nowrap;
     display: flex;
-    padding: 2vw;
-    @media (max-width: 700px) {
-      padding: 14px;
-    }
+    padding: 22px;
+    // @media (max-width: 1080px) {
+    //   padding: #{(22/1080)*100}vw;
+    // }
+    // @media (max-width: #{14/(22/1080)}px) {
+    //   padding: 14px;
+    // }
     a {
       display: block;
       @media (min-width: 601px) {
@@ -22,8 +29,9 @@ header {
       }
       img {
         width: 22vw;
-        height: auto;
+        max-width: 238px;
         min-width: 180px;
+        height: auto;
       }
     }
   }
