@@ -1,15 +1,14 @@
 main#voiding {
   > div {
-    padding-right: 0;
-    padding-bottom: 0;
-    @media (min-width: 700px) {
+    @media (min-width: 701px) {
       display: flex;
       justify-content: space-between;
-      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
     }
   }
   #text {
-    @media (min-width: 700px) {
+    @media (min-width: 701px) {
       width: 40%;
       padding-bottom: 80px;
     }
@@ -18,7 +17,7 @@ main#voiding {
     display: flex;
     flex-flow: column nowrap;
     background: $background-grey;
-    @media (min-width: 700px) {
+    @media (min-width: 701px) {
       width: 50%;
     }
     .image {
