@@ -1,18 +1,27 @@
 main#heat-failures {
+  > div {
+    padding-top: 1px;
+  }
   h2 {
-    max-width: 44vw;
+    margin: 80px 0;
+    max-width: 560px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
-  h2+img {
-    margin: 6vw auto;
+  .heat-guage {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    svg {
+      max-width: 100%;
+      @media (min-width: 701px) {
+        transform: translateX(50px);
+      }
+    }
   }
   p {
     margin-left: auto;
     margin-right: auto;
-  }
-  img {
-    max-width: 100%;
   }
 }

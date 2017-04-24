@@ -6,7 +6,12 @@ nav {
   min-width: 320px;
   background: rgba(white,0.15);
   box-sizing: border-box;
+  max-width: 1080px;
+  margin: 0 auto;
   padding: 10px;
+  @media (min-width: 1081px) {
+    border-radius: 3px 3px 0 0;
+  }
   @media (max-width: 1080px) {
     padding: 1vw;
   }
