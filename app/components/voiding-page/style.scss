@@ -17,21 +17,27 @@ main#voiding {
     display: flex;
     flex-flow: column nowrap;
     background: $background-grey;
+    padding: 5%;
+    box-sizing: border-box;
     @media (min-width: 701px) {
       width: 50%;
     }
     .image {
-      padding: 10% 10% 0;
+      position: relative;
       width: 100%;
-      box-sizing: border-box;
-      &:last-child {
-        padding-bottom: 10%;
-        padding-top: 0;
-      }
       h4 {
-        margin-bottom: 2vw;
-        max-width: 80%;
-        margin: 1.4vw auto 2.2vw;
+        position: absolute;
+        position: absolute;
+        top: 55%;
+        left: -4%;
+        padding: 6px 10px;
+        &:after,
+        &:before {
+          content: none;
+        }
+        span {
+          display: block;
+        }
       }
       img {
         width: 100%;

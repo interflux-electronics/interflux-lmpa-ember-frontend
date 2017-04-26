@@ -57,7 +57,7 @@ h2 {
   font-family: $lato-regular;
   color: $interflux-blue;
   font-size: 40px;
-  margin: 80px 0;
+  margin: 80px 0 70px;
   @media (max-width: 700px) {
     font-size: 5.7vw;
     margin: 11.4vw 0;
@@ -111,11 +111,13 @@ h4 {
       content: ' ';
       width: 0;
       height: 0;
-      left: 3vw;
-      bottom: -1.3vw;
-      border-left: 1.5vw solid transparent;
-      border-right: 1.5vw solid transparent;
-      border-top: 1.5vw solid transparent;
+      left: 10px;
+      left: 50%;
+      margin-left: -14px;
+      bottom: 14px;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 8px solid transparent;
     }
     &:after {
       border-top-color: $lmpa-orange;
@@ -127,9 +129,9 @@ h4 {
     &.top {
       &:after,
       &:before {
-        top: -1.3vw;
+        top: -13px;
         border-top: 0;
-        border-bottom: 1.5vw solid transparent;
+        border-bottom: 14px solid transparent;
       }
       &:after {
         border-top-color: transparent;
@@ -138,7 +140,7 @@ h4 {
       &:before {
         border-top-color: transparent;
         border-bottom-color: white;
-        top: -1.6vw;
+        top: -16px;
       }
     }
   }
@@ -147,6 +149,7 @@ h4 {
   }
   &.sac {
     background: $faint-orange;
+    background: $sac-grey;
     &:after {
       border-top-color: $faint-orange;
     }
@@ -154,6 +157,7 @@ h4 {
       &:after {
         border-top-color: transparent;
         border-bottom-color: $faint-orange;
+        border-bottom-color: $sac-grey;
       }
     }
   }
@@ -163,7 +167,7 @@ label,
 li,
 p {
   font-size: 16px;
-  line-height: 150%;
+  line-height: 160%;
   margin: 16px 0 24px;
   strong {
     font-family: $lato-bold;
@@ -242,7 +246,6 @@ body > .ember-view {
   flex-flow: column nowrap;
   justify-content: space-between;
   justify-content: center;
-  padding-bottom: 10vw;
 }
 
 main {
@@ -254,7 +257,6 @@ main {
     min-width: 320px;
     margin: 0 auto;
     box-sizing: border-box;
-    // padding: 108px 108px 216px;
     padding: 1px 108px 216px;
     @media (min-width: 1080px) {
       box-shadow: 0 3px 12px RGBA(0,0,0,0.3);
