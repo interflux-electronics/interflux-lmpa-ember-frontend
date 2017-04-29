@@ -22,7 +22,7 @@ main#costs {
         width: 100%;
         max-width: 380px;
       }
-      .blocks {
+      .graph {
         position: relative;
         > div {
           position: relative;
@@ -91,26 +91,6 @@ main#costs {
             text-align: right;
             padding: 0 13px;
           }
-        }
-      }
-      &#electricity {
-        .fill {
-          transform: translateX(-22%);
-        }
-      }
-      &#oxides {
-        .fill {
-          transform: translateX(-95%);
-        }
-      }
-      &#nitrogen {
-        .fill {
-          transform: translateX(-100%);
-        }
-      }
-      &#silver {
-        .fill {
-          transform: translateX(-40%);
         }
       }
       &#failures,

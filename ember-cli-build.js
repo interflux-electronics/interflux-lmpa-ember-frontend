@@ -21,6 +21,7 @@ module.exports = function(defaults) {
 
   });
 
+  app.import('bower_components/velocity/velocity.min.js'); // Replacement for jQuery .animate() for handling CSS3 animations
   app.import('vendor/google-analytics.js');
 
   return app.toTree();

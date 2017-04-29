@@ -1,5 +1,7 @@
 {
   "name": "lmpa-interflux-com",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "velocity": "^1.5.0"
   }
 }
