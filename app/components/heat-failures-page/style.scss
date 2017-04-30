@@ -9,15 +9,14 @@ main#heat-failures {
     margin-left: auto;
     margin-right: auto;
   }
-  .heat-guage {
+  .temperature-guage {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
     svg {
-      max-width: 100%;
-      @media (min-width: 701px) {
-        transform: translateX(50px);
-      }
+      display: block;
+      width: 24vw;
+      height: 100%;
     }
   }
   p {

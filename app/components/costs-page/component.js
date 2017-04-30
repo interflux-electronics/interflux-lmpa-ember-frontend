@@ -15,10 +15,10 @@ export default Ember.Component.extend({
       if (isInView) {
         $(this).addClass('animated');
         const $fill = $(this).find('.lmpa .fill, .counter .fill');
-        const $label = $(this).find('.counter span');
+        const $label = $(this).find('.counter span span');
         const drop = $(this).data('drop');
         $fill.velocity({
-          translateX: drop,
+          translateX: `-${drop}`,
           tween: [drop, 0]
         }, {
           duration: 1400,

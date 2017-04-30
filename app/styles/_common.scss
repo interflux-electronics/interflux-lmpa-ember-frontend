@@ -172,6 +172,10 @@ p {
   strong {
     font-family: $lato-bold;
   }
+  sup {
+    top: -3px;
+    font-size: 75%;
+  }
 }
 
 p {
