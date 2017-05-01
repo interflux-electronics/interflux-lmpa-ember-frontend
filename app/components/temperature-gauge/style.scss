@@ -4,15 +4,9 @@
     width: 32vw;
     height: 100%;
     .arrow {
-      &.sac {
-        > g {
-          transform: rotate(50deg);
-        }
-      }
       > g {
         transform-origin: center;
-        transition: transform 400ms ease;
-        transform: rotate(20deg);
+        transform: rotate(-108deg);
       }
     }
     #pies {
@@ -25,22 +19,10 @@
       #pies path.wave {
         opacity: 0.15;
       }
-      .arrow.lmpa > g {
-        transform: rotate(22deg);
-      }
-      .arrow.sac > g {
-        transform: rotate(43deg);
-      }
     }
     &.selective {
       #pies path.selective {
         opacity: 0.15;
-      }
-      .arrow.lmpa > g {
-        transform: rotate(50deg);
-      }
-      .arrow.sac > g {
-        transform: rotate(30deg);
       }
     }
     &.reflow {
@@ -48,12 +30,6 @@
         path.reflow {
           opacity: 0.15;
         }
-      }
-      .arrow.lmpa > g {
-        transform: rotate(10deg);
-      }
-      .arrow.sac > g {
-        transform: rotate(50deg);
       }
     }
   }
