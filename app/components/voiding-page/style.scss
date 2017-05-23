@@ -16,8 +16,8 @@ main#voiding {
   #images {
     display: flex;
     flex-flow: column nowrap;
-    background: $background-grey;
     padding: 5%;
+    background: $background-grey;
     box-sizing: border-box;
     @media (min-width: 701px) {
       width: 50%;

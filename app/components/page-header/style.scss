@@ -2,13 +2,13 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-width: 320px;
   max-width: 1080px;
+  min-width: 320px;
   margin: 0 auto;
   #logo {
-    justify-content: center;
-    flex-flow: column nowrap;
     display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
     padding: 18px;
     box-sizing: border-box;
     @media (min-width: 601px) {
@@ -24,9 +24,9 @@ header {
       }
       img {
         width: 28vw;
+        height: auto;
         max-width: 238px;
         min-width: 180px;
-        height: auto;
       }
     }
   }
@@ -36,26 +36,26 @@ header {
       margin: 0.5vw 0;
     }
     @media (max-width: 550px) {
+      order: 1;
       width: 100%;
       min-width: 320px;
       margin: 0;
-      order: 1;
     }
     a {
       display: flex;
+      align-items: center;
       flex-flow: column nowrap;
       justify-content: center;
-      align-items: center;
-      padding: 10px 20px;
-      text-decoration: none;
-      margin: 0 auto;
-      background: $lmpa-orange;
       height: 100%;
+      padding: 10px 20px;
+      margin: 0 auto;
+      text-decoration: none;
+      background: $lmpa-orange;
       box-sizing: border-box;
       @media (max-width: 550px) {
         display: flex;
-        flex-flow: column nowrap;
         align-items: center;
+        flex-flow: column nowrap;
         padding: 7px 0 10px;
       }
       &:hover {
@@ -72,8 +72,8 @@ header {
     h1 {
       position: relative;
       font-family: $lato-black;
-      line-height: 100%;
       font-size: 64.8px;
+      line-height: 100%;
       @media (max-width:1080px) {
         font-size: 6vw;
       }
@@ -82,23 +82,23 @@ header {
       }
       sup {
         position: absolute;
+        top: 15.12px;
+        right: 7.56px;
         display: block;
         width: 0;
-        right: 7.56px;
         font-size: 16px;
-        top: 15.12px;
         @media (max-width: 1080px) {
-          font-size: 1.5vw;
           top: 1.4vw;
           right: 0.7vw;
+          font-size: 1.5vw;
         }
       }
     }
     h2 {
-      font-family: $lato-regular;
-      line-height: 100%;
       margin: 1px 0 0;
+      font-family: $lato-regular;
       font-size: 15px;
+      line-height: 100%;
       @media (max-width: 1080px) {
         margin: 0.1vw 0 0;
         font-size: 1.4vw;
@@ -110,8 +110,8 @@ header {
   }
   #cta {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
     width: 30%;
     .button {
       margin-right: 2.2vw;
@@ -148,5 +148,4 @@ header {
   //     }
   //   }
   // }
-
 }

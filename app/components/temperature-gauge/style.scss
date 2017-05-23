@@ -5,8 +5,9 @@
     height: 100%;
     .arrow {
       > g {
-        transform-origin: center;
         transform: rotate(-108deg);
+
+        transform-origin: center;
       }
     }
     #pies {

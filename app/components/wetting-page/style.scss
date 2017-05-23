@@ -2,12 +2,12 @@ main#wetting {
   text-align: center;
   > div {
     display: flex;
-    flex-flow: column nowrap;
     align-items: center;
+    flex-flow: column nowrap;
     img {
-      margin-top: 3vw;
-      max-width: 100%;
       height: auto;
+      max-width: 100%;
+      margin-top: 3vw;
     }
   }
 }

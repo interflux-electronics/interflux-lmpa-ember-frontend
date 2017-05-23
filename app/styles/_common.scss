@@ -10,11 +10,11 @@ body {
   // The styles all headings and paragraphs will inherit, no need to add <p> rules
   font-family: $lato-regular;
   font-size: 16px;
-  line-height: 100%;
-  color: $paragraph-grey;
+  -moz-osx-font-smoothing: grayscale;
   // To make all browsers render fonts the same
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  line-height: 100%;
+  color: $paragraph-grey;
   // Interflux
   background: $interflux-blue url('images/background.jpg') no-repeat 50% 50% / cover;
   background-attachment: fixed;
@@ -42,8 +42,8 @@ img {
 // Most of the time <ul> are not used as bullets, thus we overwrite default padding / margin
 ol,
 ul {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
   li {
     margin: 0;
@@ -53,22 +53,23 @@ ul {
 
 // The big blue titles on top of a page
 h2 {
-  line-height: 130%;
-  font-family: $lato-regular;
-  color: $interflux-blue;
-  font-size: 40px;
   margin: 80px 0 70px;
+  font-family: $lato-regular;
+  font-size: 40px;
+  line-height: 130%;
+  color: $interflux-blue;
   @media (max-width: 700px) {
-    font-size: 5.7vw;
     margin: 11.4vw 0;
+    font-size: 5.7vw;
   }
-  @media (max-width: #{(30/5.7)*100}px) {
-    font-size: 30px;
+  // @media (max-width: #{(30/5.7)*100}px) {
+  @media (max-width: 526px) {
     margin: 60px 0;
+    font-size: 30px;
   }
   &.center {
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
     text-align: center;
   }
   strong {
@@ -78,26 +79,27 @@ h2 {
 
 // Black-ish bold sub titles
 h3 {
-  font-size: 22px;
-  font-family: $lato-black;
-  color: $paragraph-grey;
   padding: 0;
   margin: 3vw 0 1vw;
+  font-family: $lato-black;
+  font-size: 22px;
+  color: $paragraph-grey;
   border: 0;
 }
 
 // Callouts for distinguishing SAC vs LMPA
 h4 {
-  line-height: 140%;
-  border: 2px solid white;
-  color: white;
-  font-size: 18px;
   padding: 10.8px 15.12px;
+  font-size: 18px;
+  line-height: 140%;
+  color: white;
+  border: 2px solid white;
   @media (max-width: 1080px) {
-    font-size: 1.7vw;
     padding: 1vw 1.4vw;
+    font-size: 1.7vw;
   }
-  @media (max-width: #{(16/0.017)}px) {
+  // @media (max-width: #{(16/0.017)}px) {
+  @media (max-width: 941px) {
     font-size: 16px;
   }
   strong {
@@ -108,23 +110,23 @@ h4 {
     &:after,
     &:before {
       position: absolute;
-      content: ' ';
-      width: 0;
-      height: 0;
+      bottom: 14px;
       left: 10px;
       left: 50%;
+      width: 0;
+      height: 0;
       margin-left: -14px;
-      bottom: 14px;
-      border-left: 14px solid transparent;
-      border-right: 14px solid transparent;
       border-top: 8px solid transparent;
+      border-right: 14px solid transparent;
+      border-left: 14px solid transparent;
+      content: ' ';
     }
     &:after {
       border-top-color: $lmpa-orange;
     }
     &:before {
-      border-top-color: white;
       bottom: -1.6vw;
+      border-top-color: white;
     }
     &.top {
       &:after,
@@ -138,9 +140,9 @@ h4 {
         border-bottom-color: $lmpa-orange;
       }
       &:before {
+        top: -16px;
         border-top-color: transparent;
         border-bottom-color: white;
-        top: -16px;
       }
     }
   }
@@ -166,9 +168,9 @@ h4 {
 label,
 li,
 p {
+  margin: 16px 0 24px;
   font-size: 16px;
   line-height: 160%;
-  margin: 16px 0 24px;
   strong {
     font-family: $lato-bold;
   }
@@ -183,89 +185,89 @@ p {
 }
 
 a {
-  text-decoration: underline;
   color: $interflux-light-blue;
+  text-decoration: underline;
   outline: 0;
   &:hover {
-    text-decoration: none;
     color: $lmpa-orange;
+    text-decoration: none;
   }
 }
 
 a.button,
 button {
-  font-size: 16px;
-  font-family: $lato-regular;
-  line-height: 40px;
   display: inline-block;
   padding: 0 30px;
+  font-family: $lato-regular;
+  font-size: 16px;
+  line-height: 40px;
   text-align: center;
   text-decoration: none;
+  white-space: nowrap;
+  background: none;
   border: 0;
   outline: 0 !important;
-  background: none;
   box-sizing: border-box;
   user-select: none;
-  white-space: nowrap;
   &.white-border {
+    flex-shrink: 0;
+    padding: 0 29px;
     font-family: $lato-black;
+    font-size: 20px;
+    line-height: 240%;
     color: white;
     border: 2px solid white;
-    line-height: 240%;
-    flex-shrink: 0;
-    font-size: 20px;
     border-radius: 4px;
-    padding: 0 29px;
     @media (max-width: 1080px) {
-      font-size: 1.8vw;
-      border-radius: 0.4vw;
-      border-width: 0.25vw;
       padding: 0 2.7vw;
+      font-size: 1.8vw;
+      border-width: 0.25vw;
+      border-radius: 0.4vw;
     }
     &:focus,
     &:hover {
       background: rgba(white, 0.4);
     }
     @media (max-width: 888px) {
+      padding: 0 24px;
       font-size: 16px;
       line-height: 230%;
       border-width: 2px;
       border-radius: 3.5px;
-      padding: 0 24px;
     }
   }
   &.light-blue {
-    background: $interflux-light-blue;
-    color: white;
     font-family: $lato-bold;
+    color: white;
+    background: $interflux-light-blue;
   }
 }
 
 body > .ember-view {
-  min-height: 100vh;
-  min-height: 100%;
-  width: 100%;
-  min-width: 320px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   justify-content: center;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100%;
 }
 
 main {
   height: 100%;
   min-width: 320px;
   > div {
-    background: white;
     max-width: 1080px;
     min-width: 320px;
-    margin: 0 auto;
-    box-sizing: border-box;
     padding: 1px 108px 216px;
+    margin: 0 auto;
+    background: white;
+    box-sizing: border-box;
     @media (min-width: 1080px) {
-      box-shadow: 0 3px 12px RGBA(0,0,0,0.3);
       margin-bottom: 30px;
       border-radius: 0 0 3px 3px;
+      box-shadow: 0 3px 12px RGBA(0,0,0,0.3);
     }
     @media (max-width: 1080px) {
       padding: 1px 10vw 20vw;
@@ -280,10 +282,10 @@ $placeholder-color: #AAA;
 $placeholder-focus-color: #CCC;
 
 input {
-  outline: none;
   padding: 12px;
-  border-radius: 3px;
   border: 1px solid black;
+  border-radius: 3px;
+  outline: none;
   transition: all 350ms ease;
 }
 ::-webkit-input-placeholder {

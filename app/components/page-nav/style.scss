@@ -1,14 +1,14 @@
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100vw;
+  max-width: 1080px;
   min-width: 320px;
+  padding: 10px;
+  margin: 0 auto;
   background: rgba(white,0.15);
   box-sizing: border-box;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 10px;
   @media (min-width: 1081px) {
     border-radius: 3px 3px 0 0;
   }
@@ -34,12 +34,12 @@ nav {
       a {
         position: relative;
         display: block;
-        text-decoration: none;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         width: 32px;
         height: 32px;
+        text-decoration: none;
         @media (max-width: 1080px) {
           width: 3vw;
           height: 3vw;
@@ -47,10 +47,10 @@ nav {
         &:after,
         &:before {
           display: block;
-          content: ' ';
-          border-radius: 100%;
           width: 33.333%;
           height: 33.333%;
+          border-radius: 100%;
+          content: ' ';
         }
         &:before {
           background: white;
@@ -59,9 +59,9 @@ nav {
         &:after {
           position: absolute;
           border: 1px solid orange;
-          transition: transform 500ms $easeOutBack;
-          box-sizing: border-box;
           transform: scale(0);
+          box-sizing: border-box;
+          transition: transform 500ms $easeOutBack;
         }
         // svg {
         //   circle {

@@ -2,6 +2,7 @@
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
+
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -56,28 +57,28 @@ dfn {
   font-style: italic;
 }
 h1 {
+  margin: 0.67em 0;
   font-size: 2em;
-  margin: .67em 0;
 }
 mark {
-  background: #ff0;
   color: #000;
+  background: #FF0;
 }
 small {
   font-size: 80%;
 }
 sub,
 sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 img {
   border: 0;
@@ -89,9 +90,10 @@ figure {
   margin: 1em 40px;
 }
 hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
   height: 0;
+  box-sizing: content-box;
+
+  -moz-box-sizing: content-box;
 }
 pre {
   overflow: auto;
@@ -108,9 +110,9 @@ input,
 optgroup,
 select,
 textarea {
-  color: inherit;
-  font: inherit;
   margin: 0;
+  font: inherit;
+  color: inherit;
 }
 button {
   overflow: visible;
@@ -123,8 +125,9 @@ button,
 html input[type=button],
 input[type=reset],
 input[type=submit] {
-  -webkit-appearance: button;
   cursor: pointer;
+
+  -webkit-appearance: button;
 }
 button[disabled],
 html input[disabled] {
@@ -132,39 +135,40 @@ html input[disabled] {
 }
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  border: 0;
   padding: 0;
+  border: 0;
 }
 input {
   line-height: normal;
 }
 input[type=checkbox],
 input[type=radio] {
-  box-sizing: border-box;
   padding: 0;
+  box-sizing: border-box;
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 input[type=search] {
+  box-sizing: content-box;
+
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
-  box-sizing: content-box;
 }
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 fieldset {
-  border: 1px solid silver;
+  padding: 0.35em 0.625em 0.75em;
   margin: 0 2px;
-  padding: .35em .625em .75em;
+  border: 1px solid silver;
 }
 legend {
-  border: 0;
   padding: 0;
+  border: 0;
 }
 textarea {
   overflow: auto;
