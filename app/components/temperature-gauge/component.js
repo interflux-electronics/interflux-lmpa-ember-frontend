@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-const { observer } = Ember;
+const { observer, run } = Ember;
 
-const allLimits = {
+const limitsMap = {
   wave: {
     lmpa: [200, 230],
     sac: [260, 280]
@@ -17,65 +17,67 @@ const allLimits = {
   }
 };
 
-// Standard Normal variate using Box-Muller transform.
-function randn_bm() {
-  var u = 1 - Math.random(); // Subtraction to flip [0, 1) to (0, 1].
-  var v = 1 - Math.random();
-  return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-}
-
 export default Ember.Component.extend({
   classNames: ['temperature-guage'],
 
   observeProcess: observer('process', function() {
-    this.moveArrows();
+    this.animateArrow('lmpa');
+    // this.animateArrow('sac');
   }),
 
   randomBM() {
-    var u = 1 - Math.random(); // Subtraction to flip [0, 1) to (0, 1].
-    var v = 1 - Math.random();
-    return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+    return (1 + ((Math.random() + Math.random() + Math.random() + Math.random() + Math.random() + Math.random()) - 3) / 3) / 2;
   },
 
-  moveArrows() {
+  // animateArrow(type) {
+  //   const process = this.get('process');
+  //   const limits = limitsMap[process][type];
+  //   const min = limits[0];
+  //   const max = limits[1];
+  //   const range = max - min;
+  //   const random = this.randomBM();
+  //   const temperature = min + (random * range);
+  //   const degrees = (temperature * ((2 * 108) / 350)) - 108;
+  //   const $lmpa = this.$(`#arrow-${type}>g`);
+  //   $lmpa.stop('velocity').velocity({
+  //     rotateZ: `${degrees}deg`
+  //   }, {
+  //     duration: 2000,
+  //     easing: 'easeOutExpo'
+  //   });
+  //   const self = this;
+  //   run.later(self, function() {
+  //     self.animateArrow(type);
+  //   }, 2100);
+  // },
+
+  animateArrow(type) {
     const process = this.get('process');
-    const limits = allLimits[process];
-    const rangeLMPA = limits.lmpa[1] - limits.lmpa[0];
-    const rangeSAC = limits.sac[1] - limits.sac[0];
-    // const deviationLMPA = Math.round(((this.randomBM() + 1) / 2) * (rangeLMPA / 2));
-    // const deviationSAC = Math.round(((this.randomBM() + 1) / 2) * (rangeSAC / 2));
-    // const centreTempLMPA = limits.lmpa[0] + ((this.randomBM() + 1) / 2) * rangeLMPA;
-    // const centreTempSAC = limits.sac[0] + ((this.randomBM() + 1) / 2) * rangeLMPA;
-
-    const centreTempLMPA = limits.lmpa[0] + (rangeLMPA / 2);
-    const centreTempSAC = limits.sac[0] + (rangeSAC / 2);
-
-    const ratio = (108 + 108) / 350;
-    const degreesLMPA = centreTempLMPA * ratio - 108;
-    const degreesSAC = centreTempSAC * ratio - 108;
-
-    const $sac = this.$('#arrow-sac>g');
-    const $lmpa = this.$('#arrow-lmpa>g');
-
-    const self = this;
-
-    $sac.stop('velocity').velocity({ rotateZ: `${degreesSAC}deg` }, {
-      duration: 2000,
-      easing: 'easeOutExpo',
-      complete: function() {
-        // self.moveArrows();
-      }
-    });
-
+    const limits = limitsMap[process][type];
+    const min = limits[0];
+    const max = limits[1];
+    const range = max - min;
+    const random = this.randomBM();
+    const temperature = min + (range / 4) + (random * (range / 2));
+    const degrees = (temperature * ((2 * 108) / 350)) - 108;
+    const duration = 1000 + (random * 2000);
+    const $lmpa = this.$(`#arrow-${type}>g`);
+    console.log(`${type} ${degrees}`);
     $lmpa.stop('velocity').velocity({
-      rotateZ: `${degreesLMPA}deg`
+      rotateZ: `${degrees}deg`
     }, {
-      duration: 2000,
-      easing: 'easeOutExpo'
+      duration: duration,
+      easing: 'easeInOut'
     });
+    const self = this;
+    run.later(self, function() {
+      self.animateArrow(type);
+    }, duration * 1.1);
   },
 
   didInsertElement: function() {
-    this.moveArrows();
+    // this.moveArrows();
+    // this.animateArrow('lmpa', 1);
+    // this.animateArrow('sac', 1);
   }
 });

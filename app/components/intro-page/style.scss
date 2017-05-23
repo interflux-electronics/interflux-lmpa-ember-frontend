@@ -12,11 +12,36 @@ main#intro {
   .temperature-guage {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    svg {
+      width: 60%;
+    }
   }
   #processes {
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: -60px;
+    > div {
+      width: 31%;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid #E4E4E4;
+      border-radius: 5px;
+      box-sizing: border-box;
+      &:hover {
+        cursor: pointer;
+        border-color: blue;
+      }
+      img {
+        display: none;
+        width: 70px;
+        height: auto;
+        margin: 0 auto;
+      }
+      p {
+        margin: 0;
+      }
+    }
   }
 
   a {
