@@ -1,8 +1,7 @@
-.temperature-guage {
+#temperature-guage {
   position: relative;
   .label {
     position: absolute;
-
     &#lmpa {
       top: -20px;
       right: 180px;
@@ -18,7 +17,6 @@
       margin: 0;
     }
   }
-
   svg {
     display: block;
     width: 100%;
