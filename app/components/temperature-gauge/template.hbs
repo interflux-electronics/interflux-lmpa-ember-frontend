@@ -1,15 +1,15 @@
-<h2>Selective Soldering</h2>
 <div class="label" id="lmpa">
   <h3>LMPA<sup>&trade;</sup>-Q</h3>
   <p>200°C - 250°C</p>
-  <p>Solder at lower temperatures</p>
 </div>
 <div class="label" id="sac">
   <h3>Sn(Ag)Cu</h3>
   <p>270°C - 320°C</p>
-  <p>Your current temperatures</p>
 </div>
-<svg width="340px" height="340px" viewBox="0 0 340 340" class="{{process}}">
+<div id="guage">
+
+
+<svg width="340px" height="240px" viewBox="0 0 340 240" class="{{process}}">
   <defs>
     <path d="M0,160 C0,71.63444 71.63444,0 160,0 C248.36556,0 320,71.63444 320,160 C320,180.279523 316.22471,200.039586 308.961352,218.515396 C308.548184,219.566371 307.361262,220.083416 306.310287,219.670248 L262.54224,202.463803 C261.491265,202.050635 260.97422,200.863713 261.387388,199.812738 C266.345157,187.201656 268.881789,173.778082 268.881789,160 C268.881789,99.8662483 220.133752,51.1182109 160,51.1182109 C99.8662483,51.1182109 51.1182109,99.8662483 51.1182109,160 C51.1182109,173.777564 53.6546517,187.200648 58.6120564,199.811323 C59.0252093,200.862304 58.5081476,202.049219 57.4571668,202.462372 L13.6888773,219.6682 C12.6378965,220.081353 11.4509816,219.564292 11.0378287,218.513311 C3.77500382,200.038094 0,180.278756 0,160 Z" id="path-1"></path>
   </defs>
@@ -68,16 +68,6 @@
             <path d="M1,321 L1,161" id="invisible-line" stroke="#5192D5" opacity="0"></path>
           </g>
         </g>
-        {{!-- <g id="arrow-sac" class="arrow sac" transform="translate(170.000000, 170.500000) rotate(73.000000) translate(-170.000000, -170.500000) translate(157.000000, 10.000000)">
-          <path d="M13,160 L13,1.13686838e-13" id="invisible-line" stroke="#FFFFFF" opacity="0" stroke-linecap="square"></path>
-          <path d="M13,321 L13,161" id="invisible-line" stroke="#5192D5" opacity="0" stroke-linecap="square"></path>
-          <polygon id="triangle" fill="#FFFFFF" points="12.9773707 32.5168515 25.4773707 57.5168515 0.477370681 57.5168515"></polygon>
-        </g> --}}
-        {{!-- <g id="arrow-lmpa" transform="translate(170.000000, 170.500000) rotate(30.000000) translate(-170.000000, -170.500000) translate(157.000000, 10.000000)">
-          <path d="M13,160 L13,1.13686838e-13" id="invisible-line" stroke="#FFFFFF" opacity="0.519927536" stroke-linecap="square"></path>
-          <path d="M13,321 L13,161" id="invisible-line" stroke="#5192D5" opacity="0" stroke-linecap="square"></path>
-          <polygon id="triangle" fill="#FFFFFF" points="12.9773707 32.5168515 25.4773707 57.5168515 0.477370681 57.5168515"></polygon>
-        </g> --}}
         <g id="arrow-sac" class="arrow sac" transform="translate(170.000000, 170.500000) translate(-170.000000, -170.500000) translate(157.000000, 10.000000)">
           <g>
             <path d="M13,160 L13,1.13686838e-13" id="invisible-line" stroke="#FFFFFF" opacity="1" stroke-linecap="square"></path>
@@ -123,3 +113,9 @@
     </g>
   </g>
 </svg>
+</div>
+<div class="buttons">
+  <button {{action 'setProcess' 'wave'}} class="{{if (eq process 'wave') 'active'}}">Wave soldering</button>
+  <button {{action 'setProcess' 'selective'}} class="{{if (eq process 'selective') 'active'}}">Selective soldering</button>
+  <button {{action 'setProcess' 'reflow'}} class="{{if (eq process 'reflow') 'active'}}">Reflow soldering</button>
+</div>

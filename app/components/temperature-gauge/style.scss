@@ -1,5 +1,12 @@
 #temperature-guage {
   position: relative;
+  #guage {
+    display: flex;
+    justify-content: center;
+  }
+  svg {
+    width: 60%;
+  }
   .label {
     position: absolute;
     &#lmpa {
@@ -21,6 +28,8 @@
     display: block;
     width: 100%;
     height: 100%;
+    max-width: 540px;
+    padding: 0 50px;
     .arrow {
       > g {
         transform: rotate(-108deg);
@@ -55,6 +64,24 @@
         path.reflow {
           opacity: 0.15;
         }
+      }
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+    button {
+      padding: 0 20px;
+      line-height: 36px;
+      border: 1px solid #DDD;
+      border-right-width: 0;
+      &:first-child {
+        border-radius: 3px 0 0 3px;
+      }
+      &:last-child {
+        border-right-width: 1px;
+        border-radius: 0 3px 3px 0;
       }
     }
   }

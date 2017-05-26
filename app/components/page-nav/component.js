@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 const sequence = [
   'locale.intro',
+  'locale.overview',
   'locale.speed',
   'locale.voiding',
   'locale.costs',

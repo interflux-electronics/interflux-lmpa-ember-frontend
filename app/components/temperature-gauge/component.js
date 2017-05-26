@@ -24,13 +24,7 @@ let timer = {
 
 export default Ember.Component.extend({
   elementId: 'temperature-guage',
-
-  observeProcess: observer('process', function() {
-    // run.cancel(timer.lmpa);
-    // run.cancel(timer.sac);
-    // this.animateArrow('lmpa');
-    // this.animateArrow('sac');
-  }),
+  process: 'selective',
 
   // Return random number between 0 and 1 with a normal distribution
   random() {
@@ -54,7 +48,7 @@ export default Ember.Component.extend({
       $lmpa.stop('velocity').velocity({
         rotateZ: [`${degrees}deg`, -108]
       }, {
-        duration: 7000,
+        duration: 5000,
         easing: 'easeInOut'
       });
     } else {
@@ -71,8 +65,15 @@ export default Ember.Component.extend({
     }, delay);
   },
 
+  actions: {
+    setProcess(process) {
+      this.set('process', process);
+    }
+  },
+
   didInsertElement: function() {
     this.animateArrow('lmpa', true);
     this.animateArrow('sac', true);
   }
+
 });
