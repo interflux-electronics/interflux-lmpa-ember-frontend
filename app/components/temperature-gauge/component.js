@@ -91,7 +91,7 @@ export default Ember.Component.extend({
         easing: 'easeInOut'
       });
     }
-    const delay = intro ? 7200 : duration * 1.1;
+    const delay = intro ? 5100 : duration * 1.1;
     this.get('timer')[alloy] = run.later(self, function() {
       self.animateArrow(alloy);
     }, delay);
