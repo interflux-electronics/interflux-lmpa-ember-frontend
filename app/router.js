@@ -57,7 +57,9 @@ Router.map(function() {
     this.route('wetting', { path: '/excellent-wetting' });
     this.route('interflux', { path: '/developed-by-interflux-electronics' });
     this.route('contact', { path: '/request-free-demo' });
+    this.route('catchall', { path: '*:' });
   });
+  this.route('catchall', { path: '*:' });
 });
 
 export default Router;
