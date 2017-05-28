@@ -9,16 +9,10 @@ main#overview {
       display: block;
     }
   }
-  #temperature-guage {
-    svg {
-      width: 60%;
-    }
-  }
   #processes {
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-top: -60px;
     > div {
       width: 31%;
       padding: 30px;
@@ -26,10 +20,6 @@ main#overview {
       border: 1px solid #E4E4E4;
       border-radius: 5px;
       box-sizing: border-box;
-      &:hover {
-        cursor: pointer;
-        border-color: blue;
-      }
       img {
         display: none;
         width: 70px;
@@ -41,7 +31,6 @@ main#overview {
       }
     }
   }
-
   a {
     text-decoration: none;
   }
