@@ -1,119 +1,119 @@
 export default function() {
 
-  this.transition(
-    this.fromRoute([
-      'locale.intro'
-    ]),
-    this.toRoute([
-      'locale.speed',
-      'locale.voiding',
-      'locale.costs',
-      'locale.heat-failures',
-      'locale.dross',
-      'locale.wetting',
-      'locale.interflux',
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-
-  this.transition(
-    this.fromRoute([
-      'locale.speed'
-    ]),
-    this.toRoute([
-      'locale.voiding',
-      'locale.costs',
-      'locale.heat-failures',
-      'locale.dross',
-      'locale.wetting',
-      'locale.interflux',
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-
-  this.transition(
-    this.fromRoute([
-      'locale.voiding'
-    ]),
-    this.toRoute([
-      'locale.costs',
-      'locale.heat-failures',
-      'locale.dross',
-      'locale.wetting',
-      'locale.interflux',
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-
-  this.transition(
-    this.fromRoute([
-      'locale.costs'
-    ]),
-    this.toRoute([
-      'locale.heat-failures',
-      'locale.dross',
-      'locale.wetting',
-      'locale.interflux',
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-
-  this.transition(
-    this.fromRoute([
-      'locale.heat-failures'
-    ]),
-    this.toRoute([
-      'locale.dross',
-      'locale.wetting',
-      'locale.interflux',
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-
-  this.transition(
-    this.fromRoute([
-      'locale.dross'
-    ]),
-    this.toRoute([
-      'locale.wetting',
-      'locale.interflux',
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-
-  this.transition(
-    this.fromRoute([
-      'locale.wetting'
-    ]),
-    this.toRoute([
-      'locale.interflux',
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
-
-  this.transition(
-    this.fromRoute([
-      'locale.interflux'
-    ]),
-    this.toRoute([
-      'locale.contact'
-    ]),
-    this.use('toLeft'),
-    this.reverse('toRight')
-  );
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.intro'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.speed',
+  //     'locale.voiding',
+  //     'locale.costs',
+  //     'locale.heat-failures',
+  //     'locale.dross',
+  //     'locale.wetting',
+  //     'locale.interflux',
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
+  //
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.speed'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.voiding',
+  //     'locale.costs',
+  //     'locale.heat-failures',
+  //     'locale.dross',
+  //     'locale.wetting',
+  //     'locale.interflux',
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
+  //
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.voiding'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.costs',
+  //     'locale.heat-failures',
+  //     'locale.dross',
+  //     'locale.wetting',
+  //     'locale.interflux',
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
+  //
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.costs'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.heat-failures',
+  //     'locale.dross',
+  //     'locale.wetting',
+  //     'locale.interflux',
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
+  //
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.heat-failures'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.dross',
+  //     'locale.wetting',
+  //     'locale.interflux',
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
+  //
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.dross'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.wetting',
+  //     'locale.interflux',
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
+  //
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.wetting'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.interflux',
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
+  //
+  // this.transition(
+  //   this.fromRoute([
+  //     'locale.interflux'
+  //   ]),
+  //   this.toRoute([
+  //     'locale.contact'
+  //   ]),
+  //   this.use('toLeft'),
+  //   this.reverse('toRight')
+  // );
 
 }

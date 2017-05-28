@@ -32,12 +32,12 @@
   }
   &.reflow {
     #lmpa.label {
-      top: -45px;
-      right: 210px;
+      top: -54px;
+      right: 230px;
     }
     #sac.label {
-      top: 37px;
-      right: 102px;
+      top: 22px;
+      right: 129px;
     }
     #pies {
       path.reflow {
@@ -118,10 +118,13 @@
     button {
       position: relative;
       z-index: 1;
+      padding: 0 15px;
+      line-height: 38px;
       border: 1px solid #EEE;
       &:hover,
       &.active {
         z-index: 2;
+        color: $interflux-light-blue;
         border-color: $interflux-light-blue;
       }
       &:first-child {

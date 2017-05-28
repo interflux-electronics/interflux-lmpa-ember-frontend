@@ -5,7 +5,6 @@ const { computed, observer, run } = Ember;
 export default Ember.Component.extend({
   classNames: ['temperature-gauge'],
   classNameBindings: ['process'],
-  process: 'selective',
 
   limits: {
     wave: {
@@ -25,28 +24,39 @@ export default Ember.Component.extend({
     }
   },
 
-  current: computed('process', function() {
-    return this.get('limits')[this.get('process')];
-  }),
-  label: computed('current', function() {
-    return this.get('current').label;
-  }),
-  minTempLMPA: computed('current', function() {
-    return this.get('current')['lmpa'][0];
-  }),
-  maxTempLMPA: computed('current', function() {
-    return this.get('current')['lmpa'][1];
-  }),
-  minTempSAC: computed('current', function() {
-    return this.get('current')['sac'][0];
-  }),
-  maxTempSAC: computed('current', function() {
-    return this.get('current')['sac'][1];
-  }),
+  process: 'wave',
+  current: null,
+  label: null,
+  minTempLMPA: null,
+  maxTempLMPA: null,
+  minTempSAC: null,
+  maxTempSAC: null,
 
   timer: {
     lmpa: null,
     sac: null
+  },
+
+  init: function() {
+    this._super(...arguments);
+    this.setValues();
+  },
+
+  observeProcess: observer('process', function() {
+    run.cancel(this.get('timer').lmpa);
+    run.cancel(this.get('timer').sac);
+    this.setValues();
+    this.animateArrow('lmpa');
+    this.animateArrow('sac');
+  }),
+
+  setValues() {
+    const current = this.get('limits')[this.get('process')];
+    this.set('label', current.label);
+    this.set('minTempLMPA', current.lmpa[0]);
+    this.set('maxTempLMPA', current.lmpa[1]);
+    this.set('minTempSAC', current.sac[0]);
+    this.set('maxTempSAC', current.sac[1]);
   },
 
   // Return random number between 0 and 1 with a normal distribution
@@ -63,8 +73,6 @@ export default Ember.Component.extend({
     const range = max - min;
     const random = this.random();
     const temperature = min + (range * random);
-    // const temperature = min + (range / 4) + (random * (range / 2));
-    // const temperature = min + (range * 0.166) + (random * (range * 0.666));
     const degrees = (temperature * ((2 * 108) / 350)) - 108;
     const duration = 1000 + (random * 1400);
     const $lmpa = this.$(`#arrow-${alloy}>g`);
@@ -98,6 +106,11 @@ export default Ember.Component.extend({
   didInsertElement: function() {
     this.animateArrow('lmpa', true);
     this.animateArrow('sac', true);
+  },
+
+  willDestroy() {
+    run.cancel(this.get('timer').lmpa);
+    run.cancel(this.get('timer').sac);
   }
 
 });
