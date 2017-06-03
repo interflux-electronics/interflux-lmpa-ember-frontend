@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+let handler;
+
 export default Ember.Component.extend({
   tagName: 'main',
   elementId: 'costs',
@@ -31,13 +33,14 @@ export default Ember.Component.extend({
     });
   },
 
-  didInsertElement: function() {
+  didInsertElement() {
 
     // Add debounced scroll event listener
     const self = this;
     let lastScrollY = 0;
     let ticking = false;
-    window.addEventListener('scroll', function(e) {
+
+    handler = function(e) {
       lastScrollY = window.scrollY;
       if (!ticking) {
         window.requestAnimationFrame(function() {
@@ -46,10 +49,16 @@ export default Ember.Component.extend({
         });
       }
       ticking = true;
-    });
+    }
+
+    window.addEventListener('scroll', handler);
 
     // Trigger first scroll
     self.userScrolled(window.scrollY);
 
+  },
+
+  willDestroy() {
+    window.removeEventListener('scroll', handler, false);
   }
 });
