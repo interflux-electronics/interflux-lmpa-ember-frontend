@@ -95,8 +95,9 @@
   svg {
     display: block;
     width: 100%;
-    height: 100%;
-    max-width: 540px;
+    width: 510px; // Other wise Safari breaks
+    height: 360px; // Other wise Safari breaks
+    max-width: 510px;
     .arrow {
       > g {
         transform: rotate(-108deg);
@@ -114,6 +115,9 @@
   .buttons {
     position: absolute;
     top: 58%;
+    left: 50%;
+    width: 400px;
+    transform: translateX(-200px);
     display: flex;
     flex-flow: column nowrap;
     button {
@@ -128,8 +132,8 @@
       transform: scale(0.8);
       transition: all 400ms ease;
       transition-property: transform;
-      &:hover,
-      &.active {
+      &.active,
+      &:hover {
         z-index: 2;
         color: $interflux-light-blue;
         border-color: $interflux-light-blue;
