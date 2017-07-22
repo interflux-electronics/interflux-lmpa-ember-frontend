@@ -314,3 +314,10 @@ input {
 :focus:-moz-placeholder {
   color: $placeholder-focus-color;
 }
+
+#test-videos {
+  background: white;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
