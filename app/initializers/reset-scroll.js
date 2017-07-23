@@ -7,7 +7,7 @@ export function initialize() {
       window.scrollTo(0, 0);
     }
   });
-};
+}
 
 export default {
   name: 'reset-scroll',

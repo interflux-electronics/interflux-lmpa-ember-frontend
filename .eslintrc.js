@@ -16,6 +16,7 @@ module.exports = {
     'semi': ['error', 'always']
   },
   globals: {
-    ga: true
+    ga: true,
+    $: true
   }
 };

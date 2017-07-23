@@ -7,8 +7,8 @@ export default Ember.Component.extend({
   elementId: 'costs',
 
   // What to do if user scrolls
-  userScrolled(scrollY) {
-    this.$('li .graph').not('.animated').each(function(i) {
+  userScrolled() {
+    this.$('li .graph').not('.animated').each(function() {
       const elementTop = $(this).offset().top;
       const elementBottom = elementTop + $(this).height();
       const windowTop = window.scrollY + (window.innerHeight * 0.2);
@@ -40,7 +40,7 @@ export default Ember.Component.extend({
     let lastScrollY = 0;
     let ticking = false;
 
-    handler = function(e) {
+    handler = function() {
       lastScrollY = window.scrollY;
       if (!ticking) {
         window.requestAnimationFrame(function() {
@@ -49,7 +49,7 @@ export default Ember.Component.extend({
         });
       }
       ticking = true;
-    }
+    };
 
     window.addEventListener('scroll', handler);
 

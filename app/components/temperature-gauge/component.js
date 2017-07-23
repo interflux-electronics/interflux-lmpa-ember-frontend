@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { computed, observer, run } = Ember;
+const { observer, run } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['temperature-gauge'],
