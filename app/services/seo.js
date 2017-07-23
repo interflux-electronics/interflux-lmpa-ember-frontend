@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
+// TODO: Consider using https://github.com/ronco/ember-cli-head
+
 // Set the defaults to whatever is in index.html
 const defaultTitle = document.title;
 const defaultDescription = document.head.querySelector('meta[name=description]').content;
