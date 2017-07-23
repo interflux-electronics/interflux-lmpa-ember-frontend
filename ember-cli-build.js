@@ -1,5 +1,5 @@
-/* jshint node:true */
-/* global require, module */
+/* eslint-env node */
+'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
@@ -17,6 +17,12 @@ module.exports = function(defaults) {
       browsers: ['> 1%', 'Explorer > 9', 'Firefox >= 17', 'Chrome >= 10', 'Safari >= 6', 'iOS >= 6'],
       cascade: false,
       remove: false
+    },
+
+    'ember-cli-prerender': {
+      sitemap: {
+        rootUrl: 'https://lmpa.interflux.com/',
+      }
     }
 
   });

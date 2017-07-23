@@ -1,9 +1,9 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'lmpa-interflux-com',
-    environment: environment,
+    environment,
     rootURL: '/',
     locationType: 'history',
     googleAnalytics: {
