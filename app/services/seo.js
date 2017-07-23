@@ -1,21 +1,45 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
+// Set the defaults to whatever is in index.html
+const defaultTitle = document.title;
+const defaultDescription = document.head.querySelector('meta[name=description]').content;
+
 export default Ember.Service.extend({
 
-  setRobotMeta(shouldIndex, shouldFollow) {
+  setMetaTags(route) {
+    const title = route.get('seoTitle') || defaultTitle;
+    const description = route.get('seoDescription') || defaultDescription;
+    let robotIndex = route.get('robotIndex') || true;
+    let robotFollow = route.get('robotFollow') || true;
 
-    // Unless production, always set to false
+    // Only set robot to index and follow in production environment
     if (config.environment !== 'production') {
-      shouldIndex = false;
-      shouldFollow = false;
+      robotIndex = false;
+      robotFollow = false;
     }
 
-    // Set robot metatag in the <head>
-    const index = shouldIndex === false ? 'noindex' : 'index';
-    const follow = shouldFollow === false ? 'nofollow' : 'follow';
-    Ember.$('meta[name=robots]').attr('content', `${index}, ${follow}`);
+    this.setTitle(title);
+    this.setDescription(description);
+    this.setRobot(robotIndex, robotFollow);
+  },
 
+  setTitle(string) {
+    return document.title = string;
+  },
+
+  setDescription(string) {
+    return document.head.querySelector('meta[name=description]').content = string;
+  },
+
+  setCanonical(url) {
+    return document.head.querySelector('link[rel=canonical]').href = url;
+  },
+
+  setRobotMeta(robotIndex, robotFollow) {
+    const index = robotIndex === false ? 'noindex' : 'index';
+    const follow = robotFollow === false ? 'nofollow' : 'follow';
+    return document.head.querySelector('meta[name=robots]').content = `${index}, ${follow}`;
   }
 
 });
