@@ -1,24 +1,23 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
+const ready = config.googleAnalytics && config.googleAnalytics.trackingId && ga ? true : false;
+
 export default Ember.Service.extend({
 
-  // Start Google Analytics
   startTracking() {
-    if (!ga) { return; }
+    if (!ready) { return; }
     ga('create', {
-      trackingId: config.googleAnalytics.trackingId,
-      cookieDomain: config.googleAnalytics.cookieDomain
+      trackingId: config.googleAnalytics.trackingId
     });
     ga('set', {
-      dimension1: 'LMPA',
-      dimension2: config.environment,
+      dimension1: config.modulePrefix,
+      dimension2: config.environment
     });
   },
 
-  // Hit Google Analytics with a pageview
   sendPageView(currentRoute) {
-    if (!ga) { return; }
+    if (!ready) { return; }
     ga('set', {
       page: window.location.pathname,
       hostname: window.location.host,
