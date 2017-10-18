@@ -101,8 +101,8 @@
     .arrow {
       > g {
         transform: rotate(-108deg);
-
         transform-origin: center;
+        transform-origin: 15px 160px;
       }
     }
     #pies {
