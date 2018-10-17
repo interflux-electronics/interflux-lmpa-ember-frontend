@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Service from '@ember/service';
 import config from '../config/environment';
 
 // TODO: Consider using https://github.com/ronco/ember-cli-head
@@ -8,7 +8,7 @@ const defaultTitle = document.title;
 const defaultDescription = document.head.querySelector('meta[name=description]')
   .content;
 
-export default Ember.Service.extend({
+export default Service.extend({
   setMetaTags(route) {
     const title = route.seoTitle || defaultTitle;
     const description = route.seoDescription || defaultDescription;

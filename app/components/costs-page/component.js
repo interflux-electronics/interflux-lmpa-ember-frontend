@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
 let handler;
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'main',
   elementId: 'costs',
 

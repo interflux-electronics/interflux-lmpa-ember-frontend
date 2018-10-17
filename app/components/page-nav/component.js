@@ -1,6 +1,6 @@
-import Ember from 'ember';
-
-const { computed, inject } = Ember;
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 const sequence = [
   'locale.intro',
@@ -16,10 +16,10 @@ const sequence = [
 ];
 const lastIndex = sequence.length - 1;
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'nav',
   classNames: ['page-nav'],
-  router: inject.service('-routing'),
+  router: service('-routing'),
 
   allRoutes: sequence,
 

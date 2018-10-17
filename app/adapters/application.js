@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { underscore } from '@ember/string';
 import DS from 'ember-data';
 
 export default DS.JSONAPIAdapter.extend({
@@ -19,6 +19,6 @@ export default DS.JSONAPIAdapter.extend({
 
   // Rails expects underscored resources instead of hyphens
   pathForType: function(type) {
-    return Ember.String.underscore(type);
+    return underscore(type);
   }
 });

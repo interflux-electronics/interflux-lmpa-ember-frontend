@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { observer } from '@ember/object';
+import { run } from '@ember/runloop';
 
-const { observer, run } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['temperature-gauge'],
   classNameBindings: ['process'],
 
