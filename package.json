@@ -1,46 +1,70 @@
 {
   "name": "lmpa-interflux-com",
   "version": "0.0.0",
-  "description": "Small description for lmpa-interflux-com goes here",
-  "license": "MIT",
-  "author": "",
+  "description": "The website for the LMPA product range of Interflux Electronics.",
+  "author": "Jan Werkhoven <jw@nabu.io> (https://github.com/janwerkhoven)",
+  "license": "UNLICENSED",
+  "private": true,
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "git@github.com:janwerkhoven/lmpa.interflux.com.git",
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
+    "lint:js": "eslint ./*.js app blueprints config lib server tests",
+    "start": "ember serve",
+    "test": "ember test",
+    "prettify-repo": "prettier --write \"*/**/*.{css,scss,js,json,md}\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{css,scss,js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
+    "animejs": "^2.2.0",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "~2.14.1",
+    "ember-cli": "3.1.3",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-autoprefixer": "^0.7.0",
-    "ember-cli-babel": "^6.3.0",
-    "ember-cli-dependency-checker": "^1.3.0",
-    "ember-cli-eslint": "^3.0.0",
+    "ember-cli-babel": "^6.6.0",
+    "ember-cli-dependency-checker": "^2.0.0",
+    "ember-cli-eslint": "^4.2.1",
+    "ember-cli-fastboot": "1.1.3",
+    "ember-cli-head": "^0.4.1",
     "ember-cli-htmlbars": "^2.0.1",
-    "ember-cli-htmlbars-inline-precompile": "^0.4.3",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-qunit": "^4.0.0",
-    "ember-cli-sass": "5.6.0",
-    "ember-cli-shims": "^1.1.0",
+    "ember-cli-qunit": "^4.1.1",
+    "ember-cli-sass": "^6.2.0",
+    "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
-    "ember-cli-uglify": "^1.2.0",
-    "ember-data": "~2.14.3",
+    "ember-cli-uglify": "^2.0.0",
+    "ember-concurrency": "^0.8.19",
+    "ember-data": "~3.1.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-get-config": "^0.2.4",
     "ember-load-initializers": "^1.0.0",
+    "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^4.0.0",
-    "ember-source": "~2.14.1",
-    "ember-truth-helpers": "1.3.0",
-    "loader.js": "^4.2.3"
+    "ember-source": "~3.1.0",
+    "ember-truth-helpers": "^1.3.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-ember": "^5.0.0",
+    "eslint-plugin-prettier": "^2.6.1",
+    "fastboot-app-server": "1.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "loader.js": "^4.2.3",
+    "node-sass": "^4.9.2",
+    "outdatedbrowser": "^1.1.5",
+    "prettier": "^1.13.7"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
-  },
-  "private": true
+  }
 }
