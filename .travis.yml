@@ -18,4 +18,6 @@ install:
   - yarn install --non-interactive
 
 script:
-  - yarn test
+  - npm run lint:hbs
+  - npm run lint:js
+  - npm test
