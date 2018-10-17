@@ -30,14 +30,14 @@ export default Ember.Component.extend({
 
   // Returns next route in sequence
   nextRoute: computed('router.currentRouteName', function() {
-    let next = this.get('currentIndex') + 1;
+    let next = this.currentIndex + 1;
     next = next > lastIndex ? 0 : next;
     return sequence[next];
   }),
 
   // Returns previous route in sequence
   prevRoute: computed('router.currentRouteName', function() {
-    let prev = this.get('currentIndex') - 1;
+    let prev = this.currentIndex - 1;
     prev = prev < 0 ? lastIndex : prev;
     return sequence[prev];
   })

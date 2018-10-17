@@ -43,15 +43,15 @@ export default Ember.Component.extend({
   },
 
   observeProcess: observer('process', function() {
-    run.cancel(this.get('timer').lmpa);
-    run.cancel(this.get('timer').sac);
+    run.cancel(this.timer.lmpa);
+    run.cancel(this.timer.sac);
     this.setValues();
     this.animateArrow('lmpa');
     this.animateArrow('sac');
   }),
 
   setValues() {
-    const current = this.get('limits')[this.get('process')];
+    const current = this.limits[this.process];
     this.set('label', current.label);
     this.set('minTempLMPA', current.lmpa[0]);
     this.set('maxTempLMPA', current.lmpa[1]);
@@ -77,8 +77,8 @@ export default Ember.Component.extend({
 
   animateArrow(alloy, intro) {
     const self = this;
-    const process = this.get('process');
-    const limits = this.get('limits')[process][alloy];
+    const process = this.process;
+    const limits = this.limits[process][alloy];
     const min = limits[0];
     const max = limits[1];
     const range = max - min;
@@ -109,7 +109,7 @@ export default Ember.Component.extend({
       );
     }
     const delay = intro ? 5100 : duration * 1.1;
-    this.get('timer')[alloy] = run.later(
+    this.timer[alloy] = run.later(
       self,
       function() {
         self.animateArrow(alloy);
@@ -130,7 +130,7 @@ export default Ember.Component.extend({
   },
 
   willDestroy() {
-    run.cancel(this.get('timer').lmpa);
-    run.cancel(this.get('timer').sac);
+    run.cancel(this.timer.lmpa);
+    run.cancel(this.timer.sac);
   }
 });

@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   elementId: 'contact',
   actions: {
     requestContact() {
-      this.get('contactRequest').save();
+      this.contactRequest.save();
 
       // TODO Send to Formspree
       // TODO Send GA event with category "contact form" and action "submit"
