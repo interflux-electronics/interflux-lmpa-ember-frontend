@@ -16,7 +16,8 @@ body {
   line-height: 100%;
   color: $paragraph-grey;
   // Interflux
-  background: $interflux-blue url('images/background.jpg') no-repeat 50% 50% / cover;
+  background: $interflux-blue url('images/background.jpg') no-repeat 50% 50% /
+    cover;
   background-attachment: fixed;
 }
 
@@ -267,7 +268,7 @@ main {
     @media (min-width: 1080px) {
       // margin-bottom: 30px;
       border-radius: 0 0 3px 3px;
-      box-shadow: 0 3px 12px RGBA(0,0,0,0.3);
+      box-shadow: 0 3px 12px RGBA(0, 0, 0, 0.3);
     }
     @media (max-width: 1080px) {
       padding: 1px 10vw 20vw;
@@ -278,8 +279,8 @@ main {
   }
 }
 
-$placeholder-color: #AAA;
-$placeholder-focus-color: #CCC;
+$placeholder-color: #aaa;
+$placeholder-focus-color: #ccc;
 
 input {
   padding: 12px;

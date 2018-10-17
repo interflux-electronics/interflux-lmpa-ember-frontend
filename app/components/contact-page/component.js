@@ -9,7 +9,6 @@ export default Ember.Component.extend({
 
       // TODO Send to Formspree
       // TODO Send GA event with category "contact form" and action "submit"
-
     }
   }
 });

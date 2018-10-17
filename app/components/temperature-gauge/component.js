@@ -61,7 +61,18 @@ export default Ember.Component.extend({
 
   // Return random number between 0 and 1 with a normal distribution
   random() {
-    return (1 + ((Math.random() + Math.random() + Math.random() + Math.random() + Math.random() + Math.random()) - 3) / 3) / 2;
+    return (
+      (1 +
+        (Math.random() +
+          Math.random() +
+          Math.random() +
+          Math.random() +
+          Math.random() +
+          Math.random() -
+          3) /
+          3) /
+      2
+    );
   },
 
   animateArrow(alloy, intro) {
@@ -72,29 +83,39 @@ export default Ember.Component.extend({
     const max = limits[1];
     const range = max - min;
     const random = this.random();
-    const temperature = min + (range * random);
-    const degrees = (temperature * ((2 * 108) / 350)) - 108;
-    const duration = 1000 + (random * 1400);
+    const temperature = min + range * random;
+    const degrees = temperature * ((2 * 108) / 350) - 108;
+    const duration = 1000 + random * 1400;
     const $lmpa = this.$(`#arrow-${alloy}>g`);
     if (intro) {
-      $lmpa.velocity('stop').velocity({
-        rotateZ: [`${degrees}deg`, -108]
-      }, {
-        duration: 5000,
-        easing: 'easeInOut'
-      });
+      $lmpa.velocity('stop').velocity(
+        {
+          rotateZ: [`${degrees}deg`, -108]
+        },
+        {
+          duration: 5000,
+          easing: 'easeInOut'
+        }
+      );
     } else {
-      $lmpa.velocity('stop').velocity({
-        rotateZ: `${degrees}deg`
-      }, {
-        duration: duration,
-        easing: 'easeInOut'
-      });
+      $lmpa.velocity('stop').velocity(
+        {
+          rotateZ: `${degrees}deg`
+        },
+        {
+          duration: duration,
+          easing: 'easeInOut'
+        }
+      );
     }
     const delay = intro ? 5100 : duration * 1.1;
-    this.get('timer')[alloy] = run.later(self, function() {
-      self.animateArrow(alloy);
-    }, delay);
+    this.get('timer')[alloy] = run.later(
+      self,
+      function() {
+        self.animateArrow(alloy);
+      },
+      delay
+    );
   },
 
   actions: {
@@ -112,5 +133,4 @@ export default Ember.Component.extend({
     run.cancel(this.get('timer').lmpa);
     run.cancel(this.get('timer').sac);
   }
-
 });
