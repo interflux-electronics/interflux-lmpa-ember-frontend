@@ -2,27 +2,35 @@ import Component from '@ember/component';
 import { observer } from '@ember/object';
 import { run } from '@ember/runloop';
 
+const limits = {
+  wave: {
+    label: 'Wave Soldering',
+    lmpa: [200, 230],
+    sac: [260, 280]
+  },
+  selective: {
+    label: 'Selective Soldering',
+    lmpa: [200, 250],
+    sac: [270, 320]
+  },
+  reflow: {
+    label: 'Reflow Soldering',
+    lmpa: [190, 220],
+    sac: [235, 250]
+  }
+};
+
+const timer = {
+  lmpa: null,
+  sac: null
+};
+
 export default Component.extend({
   classNames: ['temperature-gauge'],
   classNameBindings: ['process'],
 
-  limits: {
-    wave: {
-      label: 'Wave Soldering',
-      lmpa: [200, 230],
-      sac: [260, 280]
-    },
-    selective: {
-      label: 'Selective Soldering',
-      lmpa: [200, 250],
-      sac: [270, 320]
-    },
-    reflow: {
-      label: 'Reflow Soldering',
-      lmpa: [190, 220],
-      sac: [235, 250]
-    }
-  },
+  limits,
+  timer,
 
   process: 'wave',
   current: null,
@@ -31,11 +39,6 @@ export default Component.extend({
   maxTempLMPA: null,
   minTempSAC: null,
   maxTempSAC: null,
-
-  timer: {
-    lmpa: null,
-    sac: null
-  },
 
   init: function() {
     this._super(...arguments);

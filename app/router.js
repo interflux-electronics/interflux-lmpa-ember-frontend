@@ -1,6 +1,6 @@
 import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
-import { inject as service } from '@ember/service';
+// import { inject as service } from '@ember/service';
 // import { getOwner } from '@ember/application';
 import { on } from '@ember/object/evented';
 
