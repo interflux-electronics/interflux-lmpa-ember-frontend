@@ -30,7 +30,6 @@
     }
   },
   "devDependencies": {
-    "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",
     "animejs": "^2.2.0",
     "broccoli-asset-rev": "^3.0.0",
