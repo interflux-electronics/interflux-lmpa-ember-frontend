@@ -1,5 +1,4 @@
 export default function() {
-
   // this.transition(
   //   this.fromRoute([
   //     'locale.intro'
@@ -115,5 +114,4 @@ export default function() {
   //   this.use('toLeft'),
   //   this.reverse('toRight')
   // );
-
 }

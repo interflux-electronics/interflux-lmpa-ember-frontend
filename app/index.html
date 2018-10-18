@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8">
-    <meta name="fragment" content="!">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>LMPA&trade; - Low Melting Point Alloys</title>
-    <meta name="description" content="LMPA&trade; is short for Low Melting Point Alloys&trade;. These alloys allow you to use soldering temperatures that are considerably lower than for the traditional lead-free Sn(Ag)Cu (SAC) alloys.">
-    <meta name="robots" content="index, follow">
-    <meta name="developer" content="Jan Werkhoven - https://github.com/janwerkhoven">
+    <title>LmpaInterfluxCom</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for "head"}}
 
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/lmpa-interflux-com.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/lmpa-interflux-com.css">
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{rootURL}}assets/favicons/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{rootURL}}assets/favicons/apple-touch-icon-114x114.png" />
@@ -30,21 +25,14 @@
     <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="Interflux LMPA" />
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="{{rootURL}}assets/favicons/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="{{rootURL}}assets/favicons/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="{{rootURL}}assets/favicons/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="{{rootURL}}assets/favicons/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="{{rootURL}}assets/favicons/mstile-310x310.png" />
 
     {{content-for "head-footer"}}
-
   </head>
-
   <body>
-
     {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/lmpa-interflux-com.js"></script>
 
     <div id="outdated">
       <h6>Your browser is out of date!</h6>
@@ -76,11 +64,6 @@
       </script>
     </div>
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/lmpa-interflux-com.js"></script>
-
     {{content-for "body-footer"}}
-
   </body>
-
 </html>

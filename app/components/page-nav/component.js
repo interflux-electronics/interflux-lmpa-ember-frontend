@@ -1,6 +1,6 @@
-import Ember from 'ember';
-
-const { computed, inject } = Ember;
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 const sequence = [
   'locale.intro',
@@ -16,10 +16,10 @@ const sequence = [
 ];
 const lastIndex = sequence.length - 1;
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'nav',
   classNames: ['page-nav'],
-  router: inject.service('-routing'),
+  router: service('-routing'),
 
   allRoutes: sequence,
 
@@ -30,14 +30,14 @@ export default Ember.Component.extend({
 
   // Returns next route in sequence
   nextRoute: computed('router.currentRouteName', function() {
-    let next = this.get('currentIndex') + 1;
+    let next = this.currentIndex + 1;
     next = next > lastIndex ? 0 : next;
     return sequence[next];
   }),
 
   // Returns previous route in sequence
   prevRoute: computed('router.currentRouteName', function() {
-    let prev = this.get('currentIndex') - 1;
+    let prev = this.currentIndex - 1;
     prev = prev < 0 ? lastIndex : prev;
     return sequence[prev];
   })
