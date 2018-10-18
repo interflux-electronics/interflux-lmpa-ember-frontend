@@ -2,7 +2,8 @@
 <ul>
   {{#each allRoutes as |route|}}
     <li>
-      {{link-to route}}
+      {{#link-to route}}
+      {{/link-to}}
     </li>
   {{/each}}
 </ul>
