@@ -1,0 +1,21 @@
+steps:
+  - name: ':package:'
+    command:
+      - 'nvm install'
+      - 'yarn install'
+    timeout_in_minutes: 10
+
+  - wait
+
+  - name: ':hamster:'
+    command:
+      - 'ember test'
+    timeout_in_minutes: 10
+
+  - wait
+
+  - name: ':rocket:'
+    branches: 'production'
+    command:
+      - 'ember deploy'
+    timeout_in_minutes: 10
