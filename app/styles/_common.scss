@@ -244,17 +244,6 @@ button {
   }
 }
 
-body > .ember-view {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  justify-content: center;
-  width: 100%;
-  min-width: 320px;
-  min-height: 100vh;
-  min-height: 100%;
-}
-
 main {
   // height: 100%;
   min-width: 320px;
