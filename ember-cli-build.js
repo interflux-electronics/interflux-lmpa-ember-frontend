@@ -33,12 +33,12 @@ module.exports = function(defaults) {
     },
     // Enable source maps for debugging and Sentry
     sourcemaps: {
-      enabled: true,
+      enabled: isProductionLike,
       extensions: ['js']
     },
     // Only fingerprint assets for production builds that aren't the native app
     fingerprint: {
-      enabled: true,
+      enabled: isProductionLike,
       extensions: ['js', 'css']
     },
     // Include polyfills for old browsers
