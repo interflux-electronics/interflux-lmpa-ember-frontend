@@ -1,0 +1,13 @@
+timeout_in_minutes: 10
+steps:
+  - name: ':hamster:'
+    command:
+      - 'yarn install'
+      - 'ember test'
+
+  - wait
+
+  - name: ':rocket:'
+    branches: 'production'
+    command:
+      - 'ember deploy'

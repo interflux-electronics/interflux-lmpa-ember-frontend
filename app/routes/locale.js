@@ -1,3 +1,7 @@
 import Route from '@ember/routing/route';
 
-export default Route;
+export default Route.extend({
+  beforeModel() {
+    this.transitionTo('locale.intro');
+  }
+});
