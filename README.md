@@ -49,6 +49,24 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 Specify what it takes to deploy your app.
 
+Manual deploy:
+
+```
+ember deploy production --verbose --activate
+```
+
+List all revisions available on the remote server:
+
+```
+ember deploy:list production
+```
+
+Activate a specific revision:
+
+```
+ember deploy:activate production --revision e33f18c60e8c9b0ad5e424ccc7efa955
+```
+
 ## Further Reading / Useful Links
 
 - [ember.js](https://emberjs.com/)
