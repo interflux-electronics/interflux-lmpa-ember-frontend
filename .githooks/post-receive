@@ -1,0 +1,23 @@
+#!/bin/bash
+echo "----------"
+echo "User: $USER"
+echo "Server: $HOSTNAME"
+echo "Path: $PWD"
+while read oldrev newrev refname
+do
+    echo "Repo: $(node -p -e "require('./package.json').repository")"
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    echo "Branch: $branch"
+    if [ "$branch" == "master" ] ; then
+      echo "git fetch"
+      git fetch
+      echo "git checkout master -f"
+      git checkout master -f
+      echo "ember build -prod"
+      ember build -prod
+    else
+      echo "Doing nothing... Unless you push the master branch."
+    fi
+done
+echo "End"
+echo "----------"

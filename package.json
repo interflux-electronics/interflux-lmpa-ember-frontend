@@ -72,6 +72,7 @@
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-prettier": "^3.0.0",
     "fastboot-app-server": "^1.1.0",
+    "git-hooks": "^1.1.10",
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
     "loader.js": "^4.7.0",
