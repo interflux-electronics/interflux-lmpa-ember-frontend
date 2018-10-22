@@ -1,16 +1,32 @@
 #!/bin/bash
+
 echo "----------"
 echo "User: $USER"
 echo "Server: $HOSTNAME"
 echo "Path: $PWD"
+echo "----------"
+
+echo "Running git post-receive hook..."
+
 while read oldrev newrev refname
 do
-    echo "Repo: $(node -p -e "require('./package.json').repository")"
+    homepage=$(node -p -e "require('./package.json').homepage")
+    repository=$(node -p -e "require('./package.json').repository")
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    revision=$(git rev-parse HEAD)
+
+    echo "Repo: $repository"
     echo "Branch: $branch"
-    if [ "$branch" == "feature/deploy-pipeline" ] ; then
-      echo "git checkout feature/deploy-pipeline -f"
-      git checkout feature/deploy-pipeline -f
+    echo "Revision: $revision"
+
+    $productionbranch="feature/deploy-pipeline"
+
+    if [ "$branch" == $productionbranch ] ; then
+      echo "git checkout $branch -f"
+      mkdir /var/www/$homepage/releases/$revision/
+      git --work-tree=/var/www/$homepage/releases/$revision/ --git-dir=/var/www/$homepage/repo checkout $branch -f
+      echo "cd /var/www/$homepage/releases/$revision/"
+      cd /var/www/$homepage/releases/$revision/
       echo "yarn install"
       yarn install
       echo "ember build -prod"
@@ -18,8 +34,8 @@ do
       echo "node fastboot-server.js"
       node fastboot-server.js
     else
-      echo "Doing nothing... Unless you push the master branch."
+      echo "Doing nothing because this is not the production branch."
     fi
 done
-echo "End"
+echo "End post-receive hook"
 echo "----------"
