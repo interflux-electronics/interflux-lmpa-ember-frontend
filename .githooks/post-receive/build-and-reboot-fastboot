@@ -8,13 +8,15 @@ do
     echo "Repo: $(node -p -e "require('./package.json').repository")"
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
     echo "Branch: $branch"
-    if [ "$branch" == "master" ] ; then
-      echo "git fetch"
-      git fetch
-      echo "git checkout master -f"
-      git checkout master -f
+    if [ "$branch" == "feature/deploy-pipeline" ] ; then
+      echo "git checkout feature/deploy-pipeline -f"
+      git checkout feature/deploy-pipeline -f
+      echo "yarn install"
+      yarn install
       echo "ember build -prod"
       ember build -prod
+      echo "node fastboot-server.js"
+      node fastboot-server.js
     else
       echo "Doing nothing... Unless you push the master branch."
     fi
