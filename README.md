@@ -5,72 +5,79 @@ A short introduction of this app could easily go here.
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
+Please make sure these CLIs are available:
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/)
-- [Yarn](https://yarnpkg.com/)
-- [Ember CLI](https://ember-cli.com/)
-- [Google Chrome](https://google.com/chrome/)
+```
+nvm --version
+yarn --version
+ember --version
+```
 
 ## Installation
 
-- `git clone <repository-url>` this repository
-- `cd lmpa-interflux-com`
-- `yarn install`
-
-## Running / Development
-
-- `ember serve`
-- Visit your app at [http://localhost:4200](http://localhost:4200).
-- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-- `ember test`
-- `ember test --server`
-
-### Linting
-
-- `yarn lint:hbs`
-- `yarn lint:js`
-- `yarn lint:js --fix`
-
-### Building
-
-- `ember build` (development)
-- `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-Manual deploy:
-
 ```
-ember deploy production --verbose --activate
+git clone git@github.com:janwerkhoven/lmpa.interflux.com.git
+cd lmpa.interflux.com
+nvm install
+yarn install
 ```
 
-List all revisions available on the remote server:
+## Starting local server
 
 ```
-ember deploy:list production
+ember s
+open http://localhost:4200
 ```
 
-Activate a specific revision:
+## Deploying to production
 
 ```
-ember deploy:activate production --revision e33f18c60e8c9b0ad5e424ccc7efa955
+git remote add server ssh://jw@sg1.nabu.io/var/www/lmpa.interflux.com
+```
+```
+git push server production
+open https://lmpa.interflux.com
 ```
 
-## Further Reading / Useful Links
+## Building
 
-- [ember.js](https://emberjs.com/)
-- [ember-cli](https://ember-cli.com/)
-- Development Browser Extensions
-  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+```
+ember build
+ember build --environment production
+```
+
+## Testing
+
+```
+ember test
+```
+```
+ember test --server
+```
+```
+ember s
+open http://localhost:4200/tests
+```
+
+## Fastboot
+
+```
+ember build --environment production
+node fastboot-server.js
+```
+
+## Linting
+
+```
+yarn lint:hbs
+yarn lint:js
+yarn lint:js --fix
+```
+
+## Generating Ember files
+
+```
+ember generate --help
+ember g -h
+ember g component foo
+```
