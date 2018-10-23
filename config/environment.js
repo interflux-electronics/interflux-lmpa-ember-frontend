@@ -40,6 +40,7 @@ module.exports = function(environment) {
         'interflux.com',
         'fastboot.lmpa.interflux.com',
         'lmpa.interflux.com',
+        '127.0.0.1:8000',
         /^localhost:\d+$/
       ]
     },
