@@ -1,41 +1,41 @@
 #!/bin/bash
 
 echo "----------"
+echo "GIT POST RECEIVE HOOK"
 echo "User: $USER"
-echo "Server: $HOSTNAME"
+echo "Host: $HOSTNAME"
 echo "Path: $PWD"
-echo "----------"
-
-echo "Running git post-receive hook..."
 
 while read oldrev newrev refname
 do
-    homepage=$(node -p -e "require('./package.json').homepage")
-    repository=$(node -p -e "require('./package.json').repository")
-    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
-    revision=$(git rev-parse HEAD)
-
-    echo "Repo: $repository"
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname) || { echo 'Could not set $branch'; echo 'Exiting ...' ; exit 1; }
     echo "Branch: $branch"
+
+    if ! [ "$branch" == "feature/deploy-pipeline" ] ; then
+      echo "This is not a deployable branch."
+      echo "Exiting ..."
+      exit 1;
+    fi
+
+    revision=$(git rev-parse $branch) || { echo 'Could not set $revision' ; exit 1; }
     echo "Revision: $revision"
 
-    $productionbranch="feature/deploy-pipeline"
+    echo "mkdir ../releases/$revision/"
+    mkdir ../releases/$revision/ || { echo "Could not create ../releases/$revision/"; echo 'Exiting ...' ; exit 1; }
 
-    if [ "$branch" == $productionbranch ] ; then
-      echo "git checkout $branch -f"
-      mkdir /var/www/$homepage/releases/$revision/
-      git --work-tree=/var/www/$homepage/releases/$revision/ --git-dir=/var/www/$homepage/repo checkout $branch -f
-      echo "cd /var/www/$homepage/releases/$revision/"
-      cd /var/www/$homepage/releases/$revision/
-      echo "yarn install"
-      yarn install
-      echo "ember build -prod"
-      ember build -prod
-      echo "node fastboot-server.js"
-      node fastboot-server.js
-    else
-      echo "Doing nothing because this is not the production branch."
-    fi
+    echo "git --work-tree=../releases/$revision/ --git-dir=./ checkout $branch -f"
+    git --work-tree=../releases/$revision/ --git-dir=./ checkout $branch -f
+
+    echo "cd ../releases/$revision/"
+    cd ../releases/$revision/
+
+    echo "yarn install"
+    yarn install
+
+    echo "ember build -prod"
+    ember build -prod
+
+    echo "node fastboot-server.js"
+    node fastboot-server.js
 done
-echo "End post-receive hook"
 echo "----------"
