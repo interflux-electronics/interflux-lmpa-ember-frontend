@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -o pipefail
+
 echo "----------"
 echo "GIT POST RECEIVE HOOK"
 echo "User: $USER"
@@ -8,7 +11,12 @@ echo "Path: $PWD"
 
 while read oldrev newrev refname
 do
-    branch=$(git rev-parse --symbolic --abbrev-ref $refname) || { echo 'Could not set $branch'; echo 'Exiting ...' ; exit 1; }
+
+    echo "oldrev: $USER"
+    echo "newrev: $HOSTNAME"
+    echo "refname: $refname"
+
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
     echo "Branch: $branch"
 
     if ! [ "$branch" == "feature/deploy-pipeline" ] ; then
@@ -17,17 +25,34 @@ do
       exit 1;
     fi
 
-    revision=$(git rev-parse $branch) || { echo 'Could not set $revision' ; exit 1; }
+    revision=$(git rev-parse $branch)
     echo "Revision: $revision"
 
-    echo "mkdir ../releases/$revision/"
-    mkdir ../releases/$revision/ || { echo "Could not create ../releases/$revision/"; echo 'Exiting ...' ; exit 1; }
+    echo "cd ../"
+    cd ../
 
-    echo "git --work-tree=../releases/$revision/ --git-dir=./ checkout $branch -f"
-    git --work-tree=../releases/$revision/ --git-dir=./ checkout $branch -f
+    echo "pwd"
+    pwd
 
-    echo "cd ../releases/$revision/"
-    cd ../releases/$revision/
+    gitdir="repo/"
+    worktree="releases/$revision/"
+    current="current/"
+
+    echo "gitdir: $gitdir"
+    echo "worktree: $worktree"
+    echo "current: $current"
+
+    echo "mkdir $worktree"
+    mkdir $worktree
+
+    echo "git --work-tree=$worktree --git-dir=$gitdir checkout $branch -f"
+    git --work-tree=$worktree --git-dir=$gitdir checkout $branch -f
+
+    echo "cd $worktree"
+    cd $worktree
+
+    echo "nvm install"
+    nvm install
 
     echo "yarn install"
     yarn install
@@ -35,7 +60,8 @@ do
     echo "ember build -prod"
     ember build -prod
 
-    echo "node fastboot-server.js"
-    node fastboot-server.js
+    echo "ln -sf $worktree $current"
+    ln -sf $worktree $current
+    
 done
 echo "----------"
