@@ -36,7 +36,12 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['interflux.com', 'lmpa.interflux.com', /^localhost:\d+$/]
+      hostWhitelist: [
+        'interflux.com',
+        'fastboot.lmpa.interflux.com',
+        'lmpa.interflux.com',
+        /^localhost:\d+$/
+      ]
     },
 
     googleAnalytics: {
