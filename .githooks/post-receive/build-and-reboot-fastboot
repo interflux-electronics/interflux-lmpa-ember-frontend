@@ -28,15 +28,12 @@ do
     revision=$(git rev-parse $branch)
     echo "Revision: $revision"
 
-    echo "cd ../"
     cd ../
+    echo "Path: $PWD"
 
-    echo "pwd"
-    pwd
-
-    gitdir="repo/"
-    worktree="releases/$revision/"
-    current="current/"
+    gitdir="$PATH/repo/"
+    worktree="$PATH/releases/$revision/"
+    current="$PATH/current"
 
     echo "gitdir: $gitdir"
     echo "worktree: $worktree"
@@ -60,8 +57,13 @@ do
     echo "ember build -prod"
     ember build -prod
 
+    echo "rm $current"
+    rm $current
+
     echo "ln -sf $worktree $current"
-    ln -sf $worktree $current
+    ln -s $worktree $current
+
+    ls -alh
 
 done
 echo "----------"
