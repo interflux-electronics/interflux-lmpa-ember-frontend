@@ -31,9 +31,9 @@ do
     cd ../
     echo "Path: $PWD"
 
-    gitdir="$PATH/repo/"
-    worktree="$PATH/releases/$revision/"
-    current="$PATH/current"
+    gitdir="$PWD/repo/"
+    worktree="$PWD/releases/$revision/"
+    current="$PWD/current"
 
     echo "gitdir: $gitdir"
     echo "worktree: $worktree"
