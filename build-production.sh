@@ -1,8 +1,7 @@
-#!/usr/local/bin/fish
+#!/bin/bash
 
-# /bin/bash
-# set -e
-# set -o pipefail
+set -e
+set -o pipefail
 
 echo "----------"
 echo "GIT POST RECEIVE HOOK"
