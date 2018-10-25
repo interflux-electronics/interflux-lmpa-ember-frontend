@@ -17,7 +17,8 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "prettify-repo": "prettier --write \"*/**/*.{css,scss,js,json,md}\""
+    "prettify-repo": "prettier --write \"*/**/*.{css,scss,js,json,md}\"",
+    "build-production": "./build-production.sh"
   },
   "lint-staged": {
     "*.{css,scss,js,json,md}": [
@@ -27,7 +28,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-receive": "build-production"
     }
   },
   "devDependencies": {
