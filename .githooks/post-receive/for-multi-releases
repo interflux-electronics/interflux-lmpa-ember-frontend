@@ -31,13 +31,13 @@ do
     cd ../
     echo "Path: $PWD"
 
-    gitdir="$PWD/repo/"
-    worktree="$PWD/releases/$revision/"
-    current="$PWD/current"
+    base=$PWD
+    gitdir="$base/repo/"
+    worktree="$base/releases/$revision/"
 
+    echo "base: $base"
     echo "gitdir: $gitdir"
     echo "worktree: $worktree"
-    echo "current: $current"
 
     echo "mkdir $worktree"
     mkdir $worktree
@@ -57,13 +57,13 @@ do
     echo "ember build -prod"
     ember build -prod
 
-    echo "rm $current"
-    rm $current
+    echo "rm -rf $base/current/*"
+    rm -rf $base/current/*
 
-    echo "ln -sf $worktree $current"
-    ln -s $worktree $current
+    echo "cp $base/releases/$revision/dist/ $base/current/"
+    cp -r $base/releases/$revision/dist/ $base/current/
 
-    ls -alh
-
+    echo "ls $base/current/"
+    ls $base/current/
 done
 echo "----------"
