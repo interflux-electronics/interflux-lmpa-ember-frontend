@@ -12,8 +12,8 @@ echo "Path: $PWD"
 while read oldrev newrev refname
 do
 
-    echo "oldrev: $USER"
-    echo "newrev: $HOSTNAME"
+    echo "oldrev: $oldrev"
+    echo "newrev: $newrev"
     echo "refname: $refname"
 
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
@@ -21,7 +21,7 @@ do
 
     if ! [ "$branch" == "feature/deploy-pipeline" ] ; then
       echo "This is not a deployable branch."
-      echo "Exiting ..."
+      echo "Ending deployment."
       exit 1;
     fi
 
