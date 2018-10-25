@@ -60,8 +60,8 @@ do
     echo "rm -rf $base/current/*"
     rm -rf $base/current/*
 
-    echo "cp $base/releases/$revision/dist/ $base/current/"
-    cp -r $base/releases/$revision/dist/ $base/current/
+    echo "cp -r $base/releases/$revision/dist/* $base/current/"
+    cp -r $base/releases/$revision/dist/* $base/current/
 
     echo "ls $base/current/"
     ls $base/current/
