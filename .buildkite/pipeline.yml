@@ -10,6 +10,4 @@ steps:
   - name: ':rocket:'
     branches: 'feature/deploy-pipeline'
     command:
-      - 'git remote remove server'
-      - 'git remote add server ssh://jw@sg1.nabu.io/var/www/lmpa.interflux.com/repo'
       - 'git push server feature/deploy-pipeline'
