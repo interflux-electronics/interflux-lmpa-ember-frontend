@@ -3,9 +3,8 @@
 module.exports = function(environment) {
   // Environment flags
   const isDevelopment = environment === 'development';
-  const isTest = environment === 'test';
-  const isStaging = environment === 'staging';
   const isProduction = environment === 'production';
+  const isTest = environment === 'test';
 
   let ENV = {
     modulePrefix: 'lmpa-interflux-com',
@@ -31,7 +30,6 @@ module.exports = function(environment) {
     buildConfig: {
       isDevelopment,
       isTest,
-      isStaging,
       isProduction
     },
 
