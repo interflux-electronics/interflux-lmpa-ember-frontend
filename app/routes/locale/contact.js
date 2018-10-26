@@ -1,8 +1,10 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-  seoTitle: `Contact - Interflux`,
-  seoDescription: `Contact Interflux for more information about LMPA and LMPA-Q.`,
+  metaTitle: `Contact - Interflux`,
+  metaDescription: `Contact Interflux for more information about LMPA and LMPA-Q.`,
+  metaCanonical: 'https://lmpa.interflux.com/en/request-free-demo',
+
   model() {
     return this.store.createRecord('contactRequest');
   }

@@ -5,54 +5,79 @@ A short introduction of this app could easily go here.
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
+Please make sure these CLIs are available:
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/)
-- [Yarn](https://yarnpkg.com/)
-- [Ember CLI](https://ember-cli.com/)
-- [Google Chrome](https://google.com/chrome/)
+```
+nvm --version
+yarn --version
+ember --version
+```
 
 ## Installation
 
-- `git clone <repository-url>` this repository
-- `cd lmpa-interflux-com`
-- `yarn install`
+```
+git clone git@github.com:janwerkhoven/lmpa.interflux.com.git
+cd lmpa.interflux.com
+nvm install
+yarn install
+```
 
-## Running / Development
+## Starting local server
 
-- `ember serve`
-- Visit your app at [http://localhost:4200](http://localhost:4200).
-- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+```
+ember s
+open http://localhost:4200
+```
 
-### Code Generators
+## Deploying to production
 
-Make use of the many generators for code, try `ember help generate` for more details
+```
+git remote add server ssh://jw@sg1.nabu.io/var/www/lmpa.interflux.com
+```
+```
+git push server production
+open https://lmpa.interflux.com
+```
 
-### Running Tests
+## Building
 
-- `ember test`
-- `ember test --server`
+```
+ember build
+ember build --environment production
+```
 
-### Linting
+## Testing
 
-- `yarn lint:hbs`
-- `yarn lint:js`
-- `yarn lint:js --fix`
+```
+ember test
+```
+```
+ember test --server
+```
+```
+ember s
+open http://localhost:4200/tests
+```
 
-### Building
+## Fastboot
 
-- `ember build` (development)
-- `ember build --environment production` (production)
+```
+ember build --environment production
+node fastboot-server.js
+```
 
-### Deploying
+## Linting
 
-Specify what it takes to deploy your app.
+```
+yarn lint:hbs
+yarn lint:js
+yarn lint:js --fix
+```
 
-## Further Reading / Useful Links
+## Generating Ember files
 
-- [ember.js](https://emberjs.com/)
-- [ember-cli](https://ember-cli.com/)
-- Development Browser Extensions
-  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+```
+ember generate --help
+ember g -h
+ember g component foo
+```

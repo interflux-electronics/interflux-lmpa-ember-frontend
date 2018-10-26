@@ -2,6 +2,7 @@
   "name": "lmpa-interflux-com",
   "version": "0.0.0",
   "description": "The website for the LMPA product range of Interflux Electronics.",
+  "homepage": "lmpa.interflux.com",
   "repository": "git@github.com:janwerkhoven/lmpa.interflux.com.git",
   "license": "UNLICENSED",
   "author": "Jan Werkhoven <jw@nabu.io> (https://github.com/janwerkhoven)",
@@ -16,7 +17,8 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "prettify-repo": "prettier --write \"*/**/*.{css,scss,js,json,md}\""
+    "prettify-repo": "prettier --write \"*/**/*.{css,scss,js,json,md}\"",
+    "build-production": "./build-production.sh"
   },
   "lint-staged": {
     "*.{css,scss,js,json,md}": [
@@ -26,7 +28,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-receive": "build-production"
     }
   },
   "devDependencies": {
@@ -65,10 +68,10 @@
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-prettier": "^3.0.0",
     "fastboot-app-server": "^1.1.0",
+    "fastboot-watch-notifier": "^3.0.0",
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
     "loader.js": "^4.7.0",
-    "node-sass": "^4.9.2",
     "outdatedbrowser": "^1.1.5",
     "prettier": "^1.13.7",
     "qunit-dom": "^0.8.0",

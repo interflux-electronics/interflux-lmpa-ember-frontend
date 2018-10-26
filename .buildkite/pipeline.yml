@@ -8,6 +8,9 @@ steps:
   - wait
 
   - name: ':rocket:'
-    branches: 'production'
+    branches: 'feature/deploy-pipeline'
     command:
-      - 'ember deploy'
+      - 'git fetch'
+      - 'git checkout feature/deploy-pipeline'
+      - 'git pull'
+      - 'git push server feature/deploy-pipeline'

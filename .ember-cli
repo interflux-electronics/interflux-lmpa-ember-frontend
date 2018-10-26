@@ -1,6 +1,4 @@
 {
-  "proxy": "http://localhost:3000",
-  "liveReload": true,
   "usePods": true,
   "watcher": "node",
   "disableAnalytics": false
