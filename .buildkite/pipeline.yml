@@ -10,4 +10,6 @@ steps:
   - name: ':rocket:'
     branches: 'feature/deploy-pipeline'
     command:
+      - 'git fetch'
+      - 'git checkout feature/deploy-pipeline'
       - 'git push server feature/deploy-pipeline'
