@@ -19,7 +19,7 @@ do
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
     echo "Branch: $branch"
 
-    if ! [ "$branch" == "feature/deploy-pipeline" ] ; then
+    if ! [ "$branch" == "production" ] ; then
       echo "This is not a deployable branch."
       echo "Ending deployment."
       exit 1;

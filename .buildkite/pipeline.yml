@@ -8,9 +8,9 @@ steps:
   - wait
 
   - name: ':rocket:'
-    branches: 'feature/deploy-pipeline'
+    branches: 'production'
     command:
       - 'git fetch'
-      - 'git checkout feature/deploy-pipeline'
+      - 'git checkout production'
       - 'git pull'
-      - 'git push server feature/deploy-pipeline'
+      - 'git push server production'
