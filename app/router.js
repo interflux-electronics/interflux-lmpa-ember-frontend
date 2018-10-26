@@ -1,25 +1,31 @@
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
+import { inject as service } from '@ember/service';
+import { getOwner } from '@ember/application';
+import { on } from '@ember/object/evented';
 
-const { inject, on } = Ember;
-
-const Router = Ember.Router.extend({
-
+const Router = EmberRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL,
-  seo: inject.service(),
-  googleAnalytics: inject.service(),
+
+  googleAnalytics: service(),
+  headData: service(),
 
   onInit: on('init', function() {
-    this.get('googleAnalytics').startTracking();
+    this.googleAnalytics.startTracking();
   }),
 
   onEachDidTransition: on('didTransition', function() {
-    const currentRoute = Ember.getOwner(this).lookup('route:' + this.currentRouteName);
-    this.get('seo').setMetaTags(currentRoute);
-    this.get('googleAnalytics').sendPageView(currentRoute);
-  })
+    const currentRoute = getOwner(this).lookup(
+      'route:' + this.currentRouteName
+    );
+    this.googleAnalytics.sendPageView(currentRoute);
+  }),
 
+  // For setting the meta title
+  setTitle(title) {
+    this.get('headData').set('title', title);
+  }
 });
 
 Router.map(function() {
@@ -27,11 +33,19 @@ Router.map(function() {
   this.route('locale', { path: '/en' }, function() {
     this.route('intro', { path: '/low-melting-point-alloys' });
     this.route('overview', { path: '/low-melting-point-soldering-alloys' });
-    this.route('speed', { path: '/fast-selective-soldering-with-zero-defects' });
+    this.route('speed', {
+      path: '/fast-selective-soldering-with-zero-defects'
+    });
     this.route('voiding', { path: '/drastically-reduce-solder-voiding' });
-    this.route('costs', { path: '/reduce-production-costs-and-increase-capacity' });
-    this.route('heat-failures', { path: '/avoid-heat-related-solder-failures' });
-    this.route('dross', { path: '/reduce-dross-formation-when-wave-soldering' });
+    this.route('costs', {
+      path: '/reduce-production-costs-and-increase-capacity'
+    });
+    this.route('heat-failures', {
+      path: '/avoid-heat-related-solder-failures'
+    });
+    this.route('dross', {
+      path: '/reduce-dross-formation-when-wave-soldering'
+    });
     this.route('wetting', { path: '/excellent-wetting' });
     this.route('interflux', { path: '/developed-by-interflux-electronics' });
     this.route('contact', { path: '/request-free-demo' });

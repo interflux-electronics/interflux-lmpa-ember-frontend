@@ -1,15 +1,14 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'main',
   elementId: 'contact',
   actions: {
     requestContact() {
-      this.get('contactRequest').save();
+      this.contactRequest.save();
 
       // TODO Send to Formspree
       // TODO Send GA event with category "contact form" and action "submit"
-
     }
   }
 });

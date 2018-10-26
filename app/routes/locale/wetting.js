@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  seoTitle: `Excellent soldering wetting with LMPA - Interflux`,
-  seoDescription: `The LMPA™-Q alloy gives excellent wetting on all finishings, including OSP.`,
+export default Route.extend({
+  metaTitle: `Excellent soldering wetting with LMPA - Interflux`,
+  metaDescription: `The LMPA™-Q alloy gives excellent wetting on all finishings, including OSP.`,
+  metaCanonical: 'https://lmpa.interflux.com/en/excellent-wetting'
 });

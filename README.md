@@ -5,48 +5,79 @@ A short introduction of this app could easily go here.
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
+Please make sure these CLIs are available:
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Bower](https://bower.io/)
-* [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+```
+nvm --version
+yarn --version
+ember --version
+```
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd lmpa-interflux-com`
-* `npm install`
-* `bower install`
+```
+git clone git@github.com:janwerkhoven/lmpa.interflux.com.git
+cd lmpa.interflux.com
+nvm install
+yarn install
+```
 
-## Running / Development
+## Starting local server
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+```
+ember s
+open http://localhost:4200
+```
 
-### Code Generators
+## Deploying to production
 
-Make use of the many generators for code, try `ember help generate` for more details
+```
+git remote add server ssh://jw@sg1.nabu.io/var/www/lmpa.interflux.com
+```
+```
+git push server production
+open https://lmpa.interflux.com
+```
 
-### Running Tests
+## Building
 
-* `ember test`
-* `ember test --server`
+```
+ember build
+ember build --environment production
+```
 
-### Building
+## Testing
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+```
+ember test
+```
+```
+ember test --server
+```
+```
+ember s
+open http://localhost:4200/tests
+```
 
-### Deploying
+## Fastboot
 
-Specify what it takes to deploy your app.
+```
+ember build --environment production
+node fastboot-server.js
+```
 
-## Further Reading / Useful Links
+## Linting
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+```
+yarn lint:hbs
+yarn lint:js
+yarn lint:js --fix
+```
+
+## Generating Ember files
+
+```
+ember generate --help
+ember g -h
+ember g component foo
+```

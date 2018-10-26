@@ -1,11 +1,10 @@
-{{#link-to prevRoute class="button white-border" }}Back{{/link-to}}
+{{#link-to prevRoute data-test-prev class="button white-border"}}Back{{/link-to}}
 <ul>
   {{#each allRoutes as |route|}}
     <li>
       {{#link-to route}}
-        <!-- {{svg-circles}} -->
       {{/link-to}}
     </li>
   {{/each}}
 </ul>
-{{#link-to nextRoute class="button white-border" }}Next{{/link-to}}
+{{#link-to nextRoute data-test-next class="button white-border"}}Next{{/link-to}}

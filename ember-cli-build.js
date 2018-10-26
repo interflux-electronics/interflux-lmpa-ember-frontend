@@ -1,34 +1,53 @@
-/* eslint-env node */
 'use strict';
-
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const env = EmberApp.env();
+const isProductionLike = ['production', 'staging'].includes(env);
 
 module.exports = function(defaults) {
-
-  const app = new EmberApp(defaults, {
-
+  var app = new EmberApp(defaults, {
     // Makes SASS listent to file changes in the component folders
     sassOptions: {
-      includePaths: ['app/components']
+      includePaths: ['app/components'],
+      overwrite: true
     },
-
     // Adds CSS browser prefixes
     autoprefixer: {
-      browsers: ['> 1%', 'Explorer > 9', 'Firefox >= 17', 'Chrome >= 10', 'Safari >= 6', 'iOS >= 6'],
+      browsers: [
+        '> 1%',
+        'Explorer > 10',
+        'Firefox >= 17',
+        'Chrome >= 10',
+        'Safari >= 6',
+        'iOS >= 6'
+      ],
       cascade: false,
       remove: false
     },
-
-    'ember-cli-prerender': {
-      sitemap: {
-        rootUrl: 'https://lmpa.interflux.com/',
-      }
+    // Prevent CSS minification in development and tests
+    minifyCSS: {
+      enabled: isProductionLike
+    },
+    // Prevent JS minification in development and tests
+    minifyJS: {
+      enabled: isProductionLike
+    },
+    // Enable source maps for debugging and Sentry
+    sourcemaps: {
+      enabled: isProductionLike,
+      extensions: ['js']
+    },
+    // Only fingerprint assets for production builds that aren't the native app
+    fingerprint: {
+      enabled: isProductionLike,
+      extensions: ['js', 'css']
+    },
+    // Include polyfills for old browsers
+    'ember-cli-babel': {
+      includePolyfill: true
     }
-
   });
 
-  app.import('bower_components/velocity/velocity.min.js'); // Replacement for jQuery .animate() for handling CSS3 animations
-  app.import('vendor/google-analytics.js');
+  app.import('node_modules/animejs/anime.min.js');
 
   return app.toTree();
 };

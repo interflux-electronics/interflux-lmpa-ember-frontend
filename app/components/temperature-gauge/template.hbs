@@ -111,7 +111,7 @@
   </g>
 </svg>
 <div class="buttons">
-  <button onclick={{action 'setProcess' 'wave'}} class="{{if (eq process 'wave') 'active'}}">Wave soldering</button>
-  <button onclick={{action 'setProcess' 'selective'}} class="{{if (eq process 'selective') 'active'}}">Selective soldering</button>
-  <button onclick={{action 'setProcess' 'reflow'}} class="{{if (eq process 'reflow') 'active'}}">Reflow soldering</button>
+  <button onclick={{action "setProcess" "wave"}} class={{if (eq process "wave") "active"}}>Wave soldering</button>
+  <button onclick={{action "setProcess" "selective"}} class={{if (eq process "selective") "active"}}>Selective soldering</button>
+  <button onclick={{action "setProcess" "reflow"}} class={{if (eq process "reflow") "active"}}>Reflow soldering</button>
 </div>
