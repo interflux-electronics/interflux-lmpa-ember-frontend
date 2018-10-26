@@ -7,60 +7,35 @@
 
     {{content-for "head"}}
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/lmpa-interflux-com.css">
+    <link rel="preload" as="style" href="{{rootURL}}assets/lmpa-interflux-com.css">
+    <link rel="preload" as="style" href="{{rootURL}}assets/outdatedbrowser.min.css">
+    <link rel="preload" as="script" href="{{rootURL}}assets/vendor.js">
+    <link rel="preload" as="script" href="{{rootURL}}assets/lmpa-interflux-com.js">
+    <link rel="preload" as="script" href="{{rootURL}}assets/outdatedbrowser.min.js">
 
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{rootURL}}assets/favicons/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{rootURL}}assets/favicons/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{rootURL}}assets/favicons/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{rootURL}}assets/favicons/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{rootURL}}assets/favicons/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{rootURL}}assets/favicons/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{rootURL}}assets/favicons/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{rootURL}}assets/favicons/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/favicons/favicon-128.png" sizes="128x128" />
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/lmpa-interflux-com.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/outdatedbrowser.min.css" />
+
+    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-128.png" sizes="128x128" />
 
     {{content-for "head-footer"}}
   </head>
   <body>
     {{content-for "body"}}
 
+    <div id="outdated">
+      <h6>Your browser is out-of-date!</h6>
+      <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+      <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+    </div>
+
+    <script src="{{rootURL}}assets/outdatedbrowser.min.js"></script>
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/lmpa-interflux-com.js"></script>
-
-    <div id="outdated">
-      <h6>Your browser is out of date!</h6>
-      <p>Update your browser to view this website correctly.
-        <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now</a>
-      </p>
-      <p class="last">
-        <a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a>
-      </p>
-      <link href="{{rootURL}}assets/css/outdatedbrowser.min.css" type="text/css" rel="stylesheet" />
-      <script src="{{rootURL}}assets/js/outdatedbrowser.min.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        function addLoadEvent(func) {
-          var oldonload = window.onload;
-          if (typeof window.onload != 'function') {
-            window.onload = func;
-          } else {
-            window.onload = function () {
-              if (oldonload) {
-                oldonload();
-              }
-              func();
-            }
-          }
-        }
-        addLoadEvent(function () {
-          outdatedBrowser({bgColor: '#f25648', color: '#ffffff', lowerThan: 'transform'})
-        });
-      </script>
-    </div>
 
     {{content-for "body-footer"}}
   </body>
