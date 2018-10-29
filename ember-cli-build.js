@@ -1,15 +1,19 @@
 'use strict';
+
+// Access ENV from config/environment
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const env = EmberApp.env();
-const isProductionLike = ['production', 'staging'].includes(env);
+const buildConfig = require('./config/environment')(EmberApp.env()).buildConfig;
+
+const { isProduction, gitRevision } = buildConfig;
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Makes SASS listent to file changes in the component folders
+    // Makes SASS listen to file changes in the component folders
     sassOptions: {
       includePaths: ['app/components'],
       overwrite: true
     },
+
     // Adds CSS browser prefixes
     autoprefixer: {
       browsers: [
@@ -23,24 +27,43 @@ module.exports = function(defaults) {
       cascade: false,
       remove: false
     },
+
     // Prevent CSS minification in development and tests
     minifyCSS: {
-      enabled: isProductionLike
+      enabled: isProduction
     },
+
     // Prevent JS minification in development and tests
     minifyJS: {
-      enabled: isProductionLike
+      enabled: isProduction
     },
+
     // Enable source maps for debugging and Sentry
     sourcemaps: {
-      enabled: isProductionLike,
+      enabled: isProduction,
       extensions: ['js']
     },
-    // Only fingerprint assets for production builds that aren't the native app
+
     fingerprint: {
-      enabled: isProductionLike,
-      extensions: ['js', 'css']
+      enabled: isProduction,
+      extensions: [
+        'js',
+        'css',
+        'png',
+        'jpg',
+        'svg',
+        'map',
+        'mp4',
+        'ogg',
+        'webp',
+        'webm',
+        'woff',
+        'woff2'
+      ],
+      replaceExtensions: ['html', 'css', 'scss', 'js'],
+      customHash: gitRevision
     },
+
     // Include polyfills for old browsers
     'ember-cli-babel': {
       includePolyfill: true
