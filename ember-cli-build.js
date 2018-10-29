@@ -4,7 +4,7 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const buildConfig = require('./config/environment')(EmberApp.env()).buildConfig;
 
-const { isProduction, gitRevision } = buildConfig;
+const { isProduction, isDevelopment, gitRevision } = buildConfig;
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -45,7 +45,7 @@ module.exports = function(defaults) {
     },
 
     fingerprint: {
-      enabled: isProduction,
+      enabled: isProduction || isDevelopment,
       extensions: [
         'js',
         'css',

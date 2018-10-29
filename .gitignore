@@ -23,4 +23,4 @@
 /package.json.ember-try
 
 # deploy variables
-.env.deploy.*
+.env*
