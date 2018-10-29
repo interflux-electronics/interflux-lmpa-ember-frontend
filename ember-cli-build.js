@@ -1,7 +1,10 @@
 'use strict';
+
+// Access ENV from config/environment
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const env = EmberApp.env();
-const isProduction = env === 'production';
+const buildConfig = require('./config/environment')(EmberApp.env()).buildConfig;
+
+const { isProduction, gitRevision } = buildConfig;
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -41,10 +44,24 @@ module.exports = function(defaults) {
       extensions: ['js']
     },
 
-    // Only fingerprint assets for production builds that aren't the native app
     fingerprint: {
-      enabled: isProduction,
-      extensions: ['js', 'css']
+      enabled: true,
+      extensions: [
+        'js',
+        'css',
+        'png',
+        'jpg',
+        'svg',
+        'map',
+        'mp4',
+        'ogg',
+        'webp',
+        'webm',
+        'woff',
+        'woff2'
+      ],
+      replaceExtensions: ['html', 'css', 'scss', 'js'],
+      customHash: gitRevision
     },
 
     // Include polyfills for old browsers

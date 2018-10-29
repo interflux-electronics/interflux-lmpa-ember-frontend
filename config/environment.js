@@ -1,5 +1,8 @@
 'use strict';
 
+const git = require('git-rev-sync');
+const gitRevision = git.short();
+
 module.exports = function(environment) {
   // Environment flags
   const isDevelopment = environment === 'development';
@@ -30,7 +33,8 @@ module.exports = function(environment) {
     buildConfig: {
       isDevelopment,
       isTest,
-      isProduction
+      isProduction,
+      gitRevision
     },
 
     fastboot: {
