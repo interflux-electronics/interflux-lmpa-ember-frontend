@@ -10,11 +10,11 @@ import assertRobotMeta from 'lmpa-interflux-com/tests/helpers/assert-robot-meta'
 module('Acceptance | Each page is optimised for SEO', function(hooks) {
   setupApplicationTest(hooks);
 
-  test('Temperature guage page', async function() {
+  test('Intro page', async function() {
     await visit('/en/low-melting-point-alloys');
     assertRoute('locale.intro');
     assertRobotMeta('index, follow');
-    assertMetaTitle('Interlux presents: Low Melting Point Alloys (LMPA)');
+    assertMetaTitle(this, 'Interlux presents: Low Melting Point Alloys (LMPA)');
     assertMetaDescription(
       `LMPA-Q™ is an enhanced LMPA™ with superior mechanical properties. It's without exception the best alloy we have developed so far. The benefits are numerous.`
     );
@@ -27,7 +27,7 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     await visit('/en/low-melting-point-soldering-alloys');
     assertRoute('locale.overview');
     assertRobotMeta('index, follow');
-    assertMetaTitle('What are LMPA? - Interflux');
+    assertMetaTitle(this, 'What are LMPA? - Interflux');
     assertMetaDescription(
       `LMPA™ is short for Low Melting Point Alloys™. These alloys allow you to use soldering temperatures that are considerably lower than for the traditional lead-free Sn(Ag)Cu (SAC) alloys.`
     );
@@ -40,7 +40,7 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     await visit('/en/fast-selective-soldering-with-zero-defects');
     assertRoute('locale.speed');
     assertRobotMeta('index, follow');
-    assertMetaTitle('Solder 5 times faster with LMPA - Interflux');
+    assertMetaTitle(this, 'Solder 5 times faster with LMPA - Interflux');
     assertMetaDescription(
       'LMPA™-Q allows for up to 5 times faster production speeds than Sn(Ag)Cu alloys in combination with lower preheat and soldering temperatures. The low oxydation and bridging behaviour of LMPA-Q will facilitate a zero defect process.'
     );
@@ -53,7 +53,10 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     await visit('/en/drastically-reduce-solder-voiding');
     assertRoute('locale.voiding');
     assertRobotMeta('index, follow');
-    assertMetaTitle('How to drastically reduce solder voiding - Interflux');
+    assertMetaTitle(
+      this,
+      'How to drastically reduce solder voiding - Interflux'
+    );
     assertMetaDescription(
       'With the LMPA™-Q alloy voiding levels can be reduced to between 1% and 10%. For Sn(Ag)Cu-based alloys, voiding levels are typically in between 10% and 35%.'
     );
@@ -67,6 +70,7 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     assertRoute('locale.costs');
     assertRobotMeta('index, follow');
     assertMetaTitle(
+      this,
       'Reduce soldering production costs by switching to LMPA - Interflux'
     );
     assertMetaDescription(
@@ -82,6 +86,7 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     assertRoute('locale.heat-failures');
     assertRobotMeta('index, follow');
     assertMetaTitle(
+      this,
       'How to avoid heat related board and component failures - Interflux'
     );
     assertMetaDescription(
@@ -92,11 +97,11 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     );
   });
 
-  test('Heat dross page', async function() {
+  test('Dross page', async function() {
     await visit('/en/reduce-dross-formation-when-wave-soldering');
     assertRoute('locale.dross');
     assertRobotMeta('index, follow');
-    assertMetaTitle('Eliminate dross formation with LMPA - Interflux');
+    assertMetaTitle(this, 'Eliminate dross formation with LMPA - Interflux');
     assertMetaDescription(
       `The LMPA™-Q does not need nitrogen for wave soldering. Due to its low oxydation behaviour, dross formation is reduced to an absolute minimum.`
     );
@@ -105,22 +110,23 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     );
   });
 
-  test('Heat related failures page', async function() {
+  test('Wetting page', async function() {
     await visit('/en/excellent-wetting');
     assertRoute('locale.wetting');
     assertRobotMeta('index, follow');
-    assertMetaTitle('Excellent soldering wetting with LMPA - Interflux');
+    assertMetaTitle(this, 'Excellent soldering wetting with LMPA - Interflux');
     assertMetaDescription(
       'The LMPA™-Q alloy gives excellent wetting on all finishings, including OSP.'
     );
     assertMetaCanonical('https://lmpa.interflux.com/en/excellent-wetting');
   });
 
-  test('Heat developed by Interflux page', async function() {
+  test('Interflux page', async function() {
     await visit('/en/developed-by-interflux-electronics');
     assertRoute('locale.interflux');
     assertRobotMeta('index, follow');
     assertMetaTitle(
+      this,
       'LMPA was developed with 37 years of experience - Interflux'
     );
     assertMetaDescription(
@@ -131,11 +137,11 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     );
   });
 
-  test('Heat request demo page', async function() {
+  test('Request demo page', async function() {
     await visit('/en/request-free-demo');
     assertRoute('locale.contact');
     assertRobotMeta('index, follow');
-    assertMetaTitle('Contact - Interflux');
+    assertMetaTitle(this, 'Contact - Interflux');
     assertMetaDescription(
       'Contact Interflux for more information about LMPA and LMPA-Q.'
     );
