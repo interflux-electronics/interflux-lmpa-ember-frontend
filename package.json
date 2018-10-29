@@ -73,6 +73,7 @@
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
     "loader.js": "^4.7.0",
+    "normalize.css": "^8.0.0",
     "outdatedbrowser": "^1.1.5",
     "prettier": "^1.13.7",
     "qunit-dom": "^0.8.0",
