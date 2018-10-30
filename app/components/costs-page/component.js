@@ -4,7 +4,7 @@ import { task, waitForEvent } from 'ember-concurrency';
 import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 
-const { isTesting } = config;
+const { isTest } = config.buildConfig;
 
 export default Component.extend({
   tagName: 'main',
@@ -20,7 +20,7 @@ export default Component.extend({
 
   listenForScrolls: task(function*() {
     // Don't listen for scroll events in Fastboot nor test environment
-    if (this.isFastBoot || isTesting) {
+    if (this.isFastBoot || isTest) {
       return;
     }
 

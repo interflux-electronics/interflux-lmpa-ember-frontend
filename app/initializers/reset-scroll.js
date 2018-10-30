@@ -3,7 +3,7 @@ import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
 import { readOnly } from '@ember/object/computed';
 
-const { isTesting } = config;
+const { isTest } = config.buildConfig;
 
 export function initialize() {
   Route.reopen({
@@ -13,7 +13,7 @@ export function initialize() {
     activate() {
       this._super();
       // Avoid resetting scroll in Fastboot and tests
-      if (this.isFastBoot || isTesting) {
+      if (this.isFastBoot || isTest) {
         return;
       }
       window.scrollTo(0, 0);

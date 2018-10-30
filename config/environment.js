@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 
-const gitRevision = process.env.GIT_REVISION || '111111';
+const gitRevision = process.env.GIT_REVISION || 'xxxxxx';
 
 module.exports = function(environment) {
   // Environment flags

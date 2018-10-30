@@ -5,7 +5,7 @@ import { run } from '@ember/runloop';
 import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 
-const { isTesting } = config;
+const { isTest } = config.buildConfig;
 
 const limits = {
   wave: {
@@ -88,7 +88,7 @@ export default Component.extend({
 
   animateArrow(alloy, intro) {
     // Don't listen for scroll events in Fastboot nor test environment
-    if (this.isFastBoot || isTesting) {
+    if (this.isFastBoot || isTest) {
       return;
     }
 
