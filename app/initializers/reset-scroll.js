@@ -1,21 +1,23 @@
 import Route from '@ember/routing/route';
-// import config from 'ember-get-config';
+import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
+import { readOnly } from '@ember/object/computed';
 
-// const testing = config.buildConfig.isTest;
+const { isTesting } = config;
 
 export function initialize() {
   Route.reopen({
-    fastboot: service()
+    fastboot: service(),
+    isFastBoot: readOnly('fastboot.isFastBoot'),
 
-    // activate() {
-    //   this._super();
-    //   // In Fastboot the window global does not exist and breaks
-    //   if (this.isFastBoot || testing) {
-    //     return;
-    //   }
-    //   window.scrollTo(0, 0);
-    // }
+    activate() {
+      this._super();
+      // Avoid resetting scroll in Fastboot and tests
+      if (this.isFastBoot || isTesting) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    }
   });
 }
 
