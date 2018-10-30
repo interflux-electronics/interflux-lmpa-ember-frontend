@@ -120,32 +120,4 @@ header {
       }
     }
   }
-  #burger {
-    display: none;
-  }
-  // #burger {
-  //   border-left: 1px solid rgba(255, 255, 255, 0.2);
-  //   @media (min-width: 801px) {
-  //     display: none;
-  //   }
-  //   button {
-  //     display: flex;
-  //     flex-flow: column nowrap;
-  //     justify-content: center;
-  //     align-items: center;
-  //     color: white;
-  //     width: 80px;
-  //     height: 80px;
-  //     padding: 0;
-  //     svg {
-  //       width: 40px;
-  //     }
-  //     span {
-  //       line-height: 100%;
-  //       margin-bottom: 2px;
-  //       font-size: 12px;
-  //       font-family: $lato-bold;
-  //     }
-  //   }
-  // }
 }
