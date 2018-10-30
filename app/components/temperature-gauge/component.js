@@ -1,6 +1,11 @@
 import Component from '@ember/component';
+import config from 'ember-get-config';
 import { observer } from '@ember/object';
 import { run } from '@ember/runloop';
+import { readOnly } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+
+const { isTesting } = config;
 
 const limits = {
   wave: {
@@ -28,6 +33,9 @@ const timer = {
 export default Component.extend({
   elementId: 'temperature-gauge',
   classNameBindings: ['process'],
+
+  fastboot: service(),
+  isFastBoot: readOnly('fastboot.isFastBoot'),
 
   limits,
   timer,
@@ -79,6 +87,11 @@ export default Component.extend({
   },
 
   animateArrow(alloy, intro) {
+    // Don't listen for scroll events in Fastboot nor test environment
+    if (this.isFastBoot || isTesting) {
+      return;
+    }
+
     // Compute a random temperature with bounds of wave / soldering / reflow
     const process = this.process;
     const limits = this.limits[process][alloy];
