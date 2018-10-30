@@ -26,7 +26,7 @@ const timer = {
 };
 
 export default Component.extend({
-  classNames: ['temperature-gauge'],
+  elementId: 'temperature-gauge',
   classNameBindings: ['process'],
 
   limits,

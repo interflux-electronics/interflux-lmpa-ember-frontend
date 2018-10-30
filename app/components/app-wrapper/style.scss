@@ -1,12 +1,10 @@
 #app-wrapper {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
-  min-height: 100%;
   background: $interflux-blue url('images/background.jpg') no-repeat 50% 50% /
     cover;
   background-attachment: fixed;
@@ -110,8 +108,6 @@
       &:after,
       &:before {
         position: absolute;
-        bottom: 14px;
-        left: 10px;
         left: 50%;
         width: 0;
         height: 0;
@@ -123,10 +119,11 @@
       }
       &:after {
         border-top-color: $lmpa-orange;
+        bottom: -8px;
       }
       &:before {
-        bottom: -1.6vw;
         border-top-color: white;
+        bottom: -9px;
       }
       &.top {
         &:after,
@@ -150,15 +147,13 @@
       background: $lmpa-orange;
     }
     &.sac {
-      background: $faint-orange;
       background: $sac-grey;
       &:after {
-        border-top-color: $faint-orange;
+        border-top-color: $sac-grey;
       }
       &.top {
         &:after {
           border-top-color: transparent;
-          border-bottom-color: $faint-orange;
           border-bottom-color: $sac-grey;
         }
       }

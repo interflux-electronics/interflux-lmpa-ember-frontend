@@ -1,4 +1,4 @@
-.temperature-gauge {
+#temperature-gauge {
   position: relative;
   display: flex;
   align-items: center;
@@ -61,9 +61,7 @@
       h3,
       p {
         color: #5f5f5f;
-        background: white;
-        background: #f1f1f1;
-        background: rgba(0, 0, 0, 0.07);
+        background: rgba(#ededed, 0.8);
       }
     }
     h3 {
@@ -132,6 +130,7 @@
       transform: scale(0.8);
       transition: all 400ms ease;
       transition-property: transform;
+      cursor: pointer;
       &.active,
       &:hover {
         z-index: 2;
