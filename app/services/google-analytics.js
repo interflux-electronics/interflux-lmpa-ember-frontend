@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import config from '../config/environment';
+import config from 'ember-get-config';
 import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';

@@ -1,7 +1,8 @@
 'use strict';
 
-const git = require('git-rev-sync');
-const gitRevision = git.short();
+require('dotenv').config();
+
+const gitRevision = process.env.GIT_REVISION || 'xxxxxx';
 
 module.exports = function(environment) {
   // Environment flags

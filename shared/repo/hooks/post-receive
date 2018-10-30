@@ -26,14 +26,17 @@ do
     fi
 
     revision=$(git rev-parse $branch)
-    echo "Revision: $revision"
+    rev=$(expr substr "${revision}" 1 7)
+
+    echo "revision: $revision"
+    echo "rev: $rev"
 
     cd ../
     echo "Path: $PWD"
 
     base=$PWD
     gitdir="$base/repo/"
-    worktree="$base/releases/$revision/"
+    worktree="$base/releases/$rev/"
 
     echo "base: $base"
     echo "gitdir: $gitdir"
@@ -42,11 +45,13 @@ do
     echo "mkdir $worktree"
     mkdir $worktree
 
+    echo "cd $worktree"
+    cd $worktree
+
     echo "git --work-tree=$worktree --git-dir=$gitdir checkout $branch -f"
     git --work-tree=$worktree --git-dir=$gitdir checkout $branch -f
 
-    echo "cd $worktree"
-    cd $worktree
+    echo "GIT_REVISION=$rev" >> .env
 
     # echo "nvm install"
     # nvm install
@@ -60,8 +65,8 @@ do
     echo "rm -rf $base/current/*"
     rm -rf $base/current/*
 
-    echo "cp -r $base/releases/$revision/dist/* $base/current/"
-    cp -r $base/releases/$revision/dist/* $base/current/
+    echo "cp -r $base/releases/$rev/dist/* $base/current/"
+    cp -r $base/releases/$rev/dist/* $base/current/
 
     echo "ls $base/current/"
     ls $base/current/

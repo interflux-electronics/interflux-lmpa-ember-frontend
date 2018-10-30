@@ -17,7 +17,6 @@ module.exports = {
   },
   globals: {
     ga: true,
-    Instafeed: true,
     anime: true
   },
   rules: {

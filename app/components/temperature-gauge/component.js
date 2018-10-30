@@ -1,6 +1,11 @@
 import Component from '@ember/component';
+import config from 'ember-get-config';
 import { observer } from '@ember/object';
 import { run } from '@ember/runloop';
+import { readOnly } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+
+const { isTest } = config.buildConfig;
 
 const limits = {
   wave: {
@@ -26,8 +31,11 @@ const timer = {
 };
 
 export default Component.extend({
-  classNames: ['temperature-gauge'],
+  elementId: 'temperature-gauge',
   classNameBindings: ['process'],
+
+  fastboot: service(),
+  isFastBoot: readOnly('fastboot.isFastBoot'),
 
   limits,
   timer,
@@ -79,46 +87,45 @@ export default Component.extend({
   },
 
   animateArrow(alloy, intro) {
-    // const self = this;
-    // const process = this.process;
-    // const limits = this.limits[process][alloy];
-    // const min = limits[0];
-    // const max = limits[1];
-    // const range = max - min;
-    // const random = this.random();
-    // const temperature = min + range * random;
-    // const degrees = temperature * ((2 * 108) / 350) - 108;
-    // const duration = 1000 + random * 1400;
-    // const $lmpa = this.$(`#arrow-${alloy}>g`);
-    if (intro) {
-      //   $lmpa.velocity('stop').velocity(
-      //     {
-      //       rotateZ: [`${degrees}deg`, -108]
-      //     },
-      //     {
-      //       duration: 5000,
-      //       easing: 'easeInOut'
-      //     }
-      //   );
-      // } else {
-      //   $lmpa.velocity('stop').velocity(
-      //     {
-      //       rotateZ: `${degrees}deg`
-      //     },
-      //     {
-      //       duration: duration,
-      //       easing: 'easeInOut'
-      //     }
-      //   );
+    // Don't listen for scroll events in Fastboot nor test environment
+    if (this.isFastBoot || isTest) {
+      return;
     }
-    // const delay = intro ? 5100 : duration * 1.1;
-    // this.timer[alloy] = run.later(
-    //   self,
-    //   function() {
-    //     self.animateArrow(alloy);
-    //   },
-    //   delay
-    // );
+
+    // Compute a random temperature with bounds of wave / soldering / reflow
+    const process = this.process;
+    const limits = this.limits[process][alloy];
+    const min = limits[0];
+    const max = limits[1];
+    const range = max - min;
+    const random = this.random();
+    const temperature = min + range * random;
+    const degrees = temperature * ((2 * 108) / 350) - 108;
+
+    // Define animation params
+    const targets = this.element.querySelector(`#arrow-${alloy}>g`);
+    const rotateZ = intro ? ['-108deg', `${degrees}deg`] : `${degrees}deg`;
+    const duration = intro ? 6000 : 2000 + random * 1400;
+    const easing = 'easeInOutQuart';
+
+    // Animate the arrow
+    anime({
+      targets,
+      rotateZ,
+      duration,
+      easing
+    });
+
+    // Loop
+    const self = this;
+    const delay = intro ? 5100 : duration * 1.1;
+    this.timer[alloy] = run.later(
+      self,
+      function() {
+        self.animateArrow(alloy);
+      },
+      delay
+    );
   },
 
   actions: {
