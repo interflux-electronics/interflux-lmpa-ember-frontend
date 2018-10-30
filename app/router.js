@@ -29,7 +29,6 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('test');
   this.route('locale', { path: '/en' }, function() {
     this.route('intro', { path: '/low-melting-point-alloys' });
     this.route('overview', { path: '/low-melting-point-soldering-alloys' });
