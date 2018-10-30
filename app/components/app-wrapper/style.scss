@@ -1,6 +1,6 @@
 #app-wrapper {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   justify-content: flex-start;
   width: 100%;
   min-width: 320px;
