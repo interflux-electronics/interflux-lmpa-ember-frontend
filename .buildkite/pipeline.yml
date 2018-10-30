@@ -1,6 +1,6 @@
 timeout_in_minutes: 10
 steps:
-  - name: ':hamster:'
+  - name: ':ember:'
     command:
       - 'yarn install'
       - 'ember test'

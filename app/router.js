@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from './config/environment';
+import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { on } from '@ember/object/evented';
@@ -29,7 +29,6 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('test');
   this.route('locale', { path: '/en' }, function() {
     this.route('intro', { path: '/low-melting-point-alloys' });
     this.route('overview', { path: '/low-melting-point-soldering-alloys' });
