@@ -18,7 +18,7 @@
     "start": "ember serve",
     "test": "ember test",
     "prettify-repo": "prettier --write \"*/**/*.{css,scss,js,json,md}\"",
-    "build-production": "./build-production.sh"
+    "generate-benchmarks": "./lighthouse/generate-benchmarks.sh"
   },
   "lint-staged": {
     "*.{css,scss,js,json,md}": [
