@@ -11,7 +11,7 @@ module.exports = function(environment) {
   const isTest = environment === 'test';
 
   let ENV = {
-    modulePrefix: 'lmpa-interflux-com',
+    modulePrefix: 'app',
     environment,
     rootURL: '/',
     locationType: 'history',
@@ -39,13 +39,7 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: [
-        'interflux.com',
-        'fastboot.lmpa.interflux.com',
-        'lmpa.interflux.com',
-        '127.0.0.1:8000',
-        /^localhost:\d+$/
-      ]
+      hostWhitelist: ['lmpa.interflux.com', '127.0.0.1:8000', /^localhost:\d+$/]
     },
 
     googleAnalytics: {
