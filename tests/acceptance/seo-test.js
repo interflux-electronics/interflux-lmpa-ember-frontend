@@ -1,13 +1,14 @@
 import { module, test } from 'qunit';
 import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import assertRoute from 'lmpa-interflux-com/tests/helpers/assert-route';
-import assertMetaTitle from 'lmpa-interflux-com/tests/helpers/assert-meta-title';
-import assertMetaDescription from 'lmpa-interflux-com/tests/helpers/assert-meta-description';
-import assertMetaCanonical from 'lmpa-interflux-com/tests/helpers/assert-meta-canonical';
-import assertRobotMeta from 'lmpa-interflux-com/tests/helpers/assert-robot-meta';
+import assertRoute from 'app/tests/helpers/assert-route';
+import assertMetaTitle from 'app/tests/helpers/assert-meta-title';
+import assertMetaDescription from 'app/tests/helpers/assert-meta-description';
+import assertMetaCanonical from 'app/tests/helpers/assert-meta-canonical';
+import assertRobotMeta from 'app/tests/helpers/assert-robot-meta';
+import assertStructuredData from 'app/tests/helpers/assert-structured-data';
 
-module('Acceptance | Each page is optimised for SEO', function(hooks) {
+module('Acceptance | SEO', function(hooks) {
   setupApplicationTest(hooks);
 
   test('Intro page', async function() {
@@ -34,6 +35,28 @@ module('Acceptance | Each page is optimised for SEO', function(hooks) {
     assertMetaCanonical(
       'https://lmpa.interflux.com/en/low-melting-point-soldering-alloys'
     );
+
+    // Structured data
+    assertStructuredData({
+      type: 'Organization',
+      name: 'Interflux Electronics',
+      url: 'https://interflux.com',
+      logo: '/assets/images/interflux-logo.svg',
+      brand: {
+        type: 'Brand',
+        name: 'LMPA™',
+        alternateName: 'Low Melting Point Alloys',
+        url: 'https://lmpa.interflux.com',
+        description:
+          'LMPA is short for Low Melting Point Alloys™. These alloys allow you to use soldering temperatures that are considerably lower than for the traditional lead-free Sn(Ag)Cu (SAC) alloys.'
+      },
+      owns: {
+        type: 'Product',
+        name: 'LMPA-Q™',
+        url: 'https://lmpa.interflux.com',
+        description: `LMPA-Q™ is an enhanced LMPA™ with superior mechanical properties. It's without exception the best alloy we have developed so far. The benefits are numerous.`
+      }
+    });
   });
 
   test('Speed page', async function() {
