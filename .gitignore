@@ -22,5 +22,8 @@
 /bower.json.ember-try
 /package.json.ember-try
 
+# Mac OS
+.DS_Store
+
 # deploy variables
 .env*
