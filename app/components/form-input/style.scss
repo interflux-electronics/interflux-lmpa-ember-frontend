@@ -1,0 +1,42 @@
+.form-input {
+  max-width: 400px;
+  input {
+    height: 40px; // for IE10
+    padding: 0 13px;
+    line-height: 38px;
+  }
+  input {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    line-height: 130%;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    outline: 0 !important;
+    box-shadow: none;
+    transition: all 300ms ease-out;
+    transition-property: border-color, color;
+
+    -webkit-appearance: none;
+    &:hover {
+      border-color: #ccc;
+    }
+    &:focus {
+      color: $interflux-light-blue;
+      border-color: $interflux-light-blue;
+      & + i {
+        color: $interflux-light-blue;
+      }
+    }
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+    }
+    & + i {
+      transition: all 300ms ease-out;
+      transition-property: color;
+    }
+  }
+}

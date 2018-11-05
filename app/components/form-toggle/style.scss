@@ -1,0 +1,27 @@
+.form-toggle {
+  position: relative;
+  padding: 10px 10px 10px 25px;
+  line-height: 20px;
+  color: $paragraph-grey;
+  text-align: left;
+  background: none;
+  &:focus,
+  &:hover {
+    color: green;
+  }
+  i {
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    line-height: 18px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  &.unchecked i {
+    color: #fff;
+  }
+}

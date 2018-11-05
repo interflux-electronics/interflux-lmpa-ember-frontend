@@ -1,0 +1,47 @@
+.button-task {
+  position: relative;
+  &.blue {
+    button {
+      background: none;
+      &:hover {
+        background-color: rgba(white, 0.05);
+      }
+    }
+  }
+  button {
+    font-size: 16px;
+    font-family: $lato-regular;
+    line-height: 40px;
+    display: inline-block;
+    padding: 0 30px;
+    text-align: center;
+    text-decoration: none;
+    border: 0;
+    outline: 0 !important;
+    box-sizing: border-box;
+    border-radius: 4px;
+    user-select: none;
+    background: none;
+    // Grey out a button if disabled
+    &.disabled,
+    &[disabled] {
+      cursor: default;
+      color: #fff;
+      background: #ccc !important;
+    }
+    // Any button with class "loading" will get blue animated loading background
+    &.loading {
+      cursor: default;
+      color: #fff;
+      @include sideway-animation($interflux-light-blue);
+      text-shadow: 0 0 3px RGBA(0, 0, 0, 0.3);
+      height: 40px;
+    }
+  }
+  .error {
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    width: 100%;
+  }
+}
