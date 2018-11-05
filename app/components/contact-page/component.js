@@ -1,17 +1,24 @@
 import Component from '@ember/component';
-import { task } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 export default Component.extend({
   tagName: 'main',
-  elementId: 'contact',
+  elementId: 'contact-page',
 
-  store: service(),
+  conversions: service(),
 
-  countries: undefined,
+  showEmail: false,
+  showForm: false,
 
-  fetchCountries: task(function*() {
-    const countries = yield this.store.findAll('country');
-    this.set('countries', countries);
-  })
+  actions: {
+    showEmail() {
+      this.conversions.logUserAction('clicked "Show Email"');
+      set(this, 'showEmail', true);
+    },
+    showForm() {
+      this.conversions.logUserAction('clicked "Show Form"');
+      set(this, 'showForm', true);
+    }
+  }
 });

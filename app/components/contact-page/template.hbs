@@ -1,16 +1,34 @@
 <div>
-  <h2><strong>Get in touch</strong></h2>
-  <h3><a href="mailto:lmpa@interflux.com" target="_blank" rel="noopener">lmpa@interflux.com</a></h3>
+  <div class="left">
+    <h2><strong>Questions?</strong></h2>
+    <ButtonAction
+      @text="Email us"
+      @onClick={{action 'showEmail'}}
+      class="medium dark-blue"
+    />
+    {{#if showEmail}}
+      <h3>
+        <a
+          href="mailto:lmpa@interflux.com"
+          target="_blank"
+          rel="noopener"
+        >
+          lmpa@interflux.com
+        </a>
+      </h3>
+    {{/if}}
+  </div>
 
-  <button onclick={{perform fetchCountries}}>
-    {{if fetchCountries.isRunning "fetching" "Fetch Countries"}}
-  </button>
-  {{#if countries}}
-    <ul>
-      {{#each countries as |country|}}
-        <li>{{country.name}} ({{country.nativeName}})</li>
-      {{/each}}
-    </ul>
-  {{/if}}
-
+  <div class="left">
+    <h2><strong>Don't believe it?</strong></h2>
+    <p>We were surprise too when we first discovered the effects of LMPA&trade;. Allow us to demonstrate the LMPA, in person, at your compay, wherever in the world.</p>
+    <ButtonAction
+      @text="Request free demo"
+      @onClick={{action 'showForm'}}
+      class="medium dark-blue"
+    />
+    {{#if showForm}}
+      <ContactForm />
+    {{/if}}
+  </div>
 </div>

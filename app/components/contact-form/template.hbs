@@ -1,0 +1,48 @@
+<FormInput
+  @value={{person.name}}
+  @onUpdate={{action (mut person.name)}}
+  @onEnter={{action 'focusOnNextField'}}
+  @label="Your name"
+  @placeholder="e.g. John Doe"
+/>
+
+<FormInput
+  @value={{company.name}}
+  @onUpdate={{action (mut company.name)}}
+  @onEnter={{action 'focusOnNextField'}}
+  @label="Company name"
+  @placeholder="e.g. Electronics Expert"
+/>
+
+<FormInput
+  @value={{person.email}}
+  @onUpdate={{action (mut person.email)}}
+  @onEnter={{action 'focusOnNextField'}}
+  @label="Email"
+  @placeholder="e.g. john.doe@electronicsexpert.com"
+/>
+
+<FormInput
+  @value={{person.mobile}}
+  @onUpdate={{action (mut person.mobile)}}
+  @onEnter={{action 'focusOnNextField'}}
+  @label="Mobile"
+  @placeholder="e.g. +61 888 999 555"
+/>
+
+<FormDropdown
+  @label='Country'
+  @options={{countries}}
+  @selected={{company.country}}
+  @onUpdate={{action (mut company.country)}}
+  @searchField='name'
+/>
+
+<FormTextarea
+  @value={{message.body}}
+  @onUpdate={{action (mut message.body)}}
+  @onEnter={{perform focusOnNextField}}
+  @label="Message"
+  @rows=6
+  @placeholder="Hello Interflux, Please send your LMPA expert to our company for a demonstration."
+/>
