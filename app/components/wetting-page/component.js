@@ -1,6 +1,5 @@
-import Component from '@ember/component';
+import PageComponent from '../page-base/component';
 
-export default Component.extend({
-  tagName: 'main',
-  elementId: 'wetting'
+export default PageComponent.extend({
+  elementId: 'wetting-page'
 });

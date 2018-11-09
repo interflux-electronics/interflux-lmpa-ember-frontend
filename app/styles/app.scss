@@ -8,11 +8,13 @@
 @import 'fonts';
 @import 'common';
 
-// Components
+// App wrapper
 @import 'app/components/app-wrapper/style';
-@import 'app/components/page-header/style';
-@import 'app/components/page-footer/style';
-@import 'app/components/page-nav/style';
+@import 'app/components/app-header/style';
+@import 'app/components/app-footer/style';
+@import 'app/components/app-nav/style';
+
+// UI
 @import 'app/components/temperature-gauge/style';
 @import 'app/components/button-base/style';
 @import 'app/components/form-dropdown/style';
@@ -22,6 +24,7 @@
 @import 'app/components/form-toggle/style';
 
 // Pages
+@import 'app/components/page-base/style';
 @import 'app/components/intro-page/style';
 @import 'app/components/overview-page/style';
 @import 'app/components/speed-page/style';

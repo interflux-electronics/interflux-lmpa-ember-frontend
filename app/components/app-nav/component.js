@@ -18,7 +18,7 @@ const lastIndex = sequence.length - 1;
 
 export default Component.extend({
   tagName: 'nav',
-  classNames: ['page-nav'],
+  classNames: ['app-nav'],
   router: service('-routing'),
 
   allRoutes: sequence,

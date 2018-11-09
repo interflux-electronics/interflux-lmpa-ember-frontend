@@ -1,9 +1,9 @@
-import Component from '@ember/component';
+import PageComponent from '../page-base/component';
+
 import { inject as service } from '@ember/service';
 import { set } from '@ember/object';
 
-export default Component.extend({
-  tagName: 'main',
+export default PageComponent.extend({
   elementId: 'contact-page',
 
   conversions: service(),

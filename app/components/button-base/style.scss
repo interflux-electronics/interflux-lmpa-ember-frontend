@@ -2,12 +2,12 @@
 // Reuse these classes as much as possible.
 // Resist styling buttons per component, instead extend this base.
 
-.button-base {
+#app .button-base {
   background: none;
   border-radius: 4px;
   border: 0;
   box-sizing: border-box;
-  color: $paragraph-grey;
+  color: $paragraph-color;
   display: inline-block;
   font-family: $lato-black;
   font-size: 15px;

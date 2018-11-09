@@ -1,8 +1,7 @@
-import Component from '@ember/component';
+import PageComponent from '../page-base/component';
 
-export default Component.extend({
-  tagName: 'main',
-  elementId: 'intro',
+export default PageComponent.extend({
+  elementId: 'intro-page',
   process: 'selective',
   actions: {
     setProcess(process) {

@@ -1,4 +1,4 @@
-main#voiding {
+#voiding-page {
   > div {
     @media (min-width: 701px) {
       display: flex;
@@ -17,7 +17,7 @@ main#voiding {
     display: flex;
     flex-flow: column nowrap;
     padding: 5%;
-    background: $background-grey;
+    background: #eee;
     box-sizing: border-box;
     @media (min-width: 701px) {
       width: 50%;

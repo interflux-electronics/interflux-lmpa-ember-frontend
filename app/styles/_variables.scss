@@ -13,11 +13,12 @@ $lmpa-orange: #ff7300;
 $faint-orange: #f2ab72;
 $sac-grey: #6f6f6f;
 
-// UI colours
-$background-grey: #eee;
-$paragraph-grey: #545f6b;
-$button-colour: $lmpa-orange;
-$link-colour: $lmpa-orange;
+// Commons
+$regular-font: $lato-regular;
+$bold-font: $lato-bold;
+$paragraph-color: #545f6b;
+$hyperlink-color: $lmpa-orange;
+$hyperlink-color-hover: lighten($lmpa-orange, 0.1);
 $error-red: #ff7f7f;
 
 // Easing

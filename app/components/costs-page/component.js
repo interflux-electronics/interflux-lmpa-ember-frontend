@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import PageComponent from '../page-base/component';
 import config from 'ember-get-config';
 import { task, waitForEvent } from 'ember-concurrency';
 import { readOnly } from '@ember/object/computed';
@@ -6,9 +6,8 @@ import { inject as service } from '@ember/service';
 
 const { isTest } = config.buildConfig;
 
-export default Component.extend({
-  tagName: 'main',
-  elementId: 'costs',
+export default PageComponent.extend({
+  elementId: 'costs-page',
 
   fastboot: service(),
   isFastBoot: readOnly('fastboot.isFastBoot'),

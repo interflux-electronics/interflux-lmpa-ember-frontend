@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  tagName: 'footer',
-  elementId: 'page-footer'
+  tagName: 'header',
+  elementId: 'app-header'
 });

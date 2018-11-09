@@ -1,6 +1,5 @@
-import Component from '@ember/component';
+import PageComponent from '../page-base/component';
 
-export default Component.extend({
-  tagName: 'main',
-  elementId: 'voiding'
+export default PageComponent.extend({
+  elementId: 'voiding-page'
 });
