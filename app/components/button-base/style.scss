@@ -87,5 +87,14 @@ button {
         background: $interflux-blue-lighter;
       }
     }
+
+    &.orange-link {
+      color: $lmpa-orange;
+      text-decoration: underline;
+      padding: 0;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }

@@ -1,2 +1,21 @@
 #page-contact {
+  h2 {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+  p {
+    & + button {
+      margin-top: 40px;
+    }
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0 20px 0 40px;
+    }
+    a {
+      user-select: all;
+    }
+  }
 }
