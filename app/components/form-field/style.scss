@@ -1,12 +1,4 @@
 .form-field {
-  label {
-    display: block;
-    margin: 5px;
-    font-size: 14px;
-    line-height: 100%;
-    text-align: left;
-    opacity: 0.5;
-  }
   &.show-error {
     .error {
       p {
@@ -23,6 +15,35 @@
   & + .form-field {
     margin-top: 15px;
   }
+
+  input,
+  textarea {
+    @include placeholder {
+      color: #ccc !important;
+    }
+    &:focus {
+      @include placeholder {
+        color: #bbb !important;
+      }
+    }
+  }
+
+  input {
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  label {
+    display: block;
+    margin: 5px;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: left;
+    opacity: 0.5;
+  }
+
   .error {
     position: relative;
     z-index: 1; // To appear above {{form-dropdown}}

@@ -213,43 +213,6 @@
     }
   }
 
-  $placeholder-color: #aaa;
-  $placeholder-focus-color: #ccc;
-
-  input {
-    padding: 12px;
-    border: 1px solid black;
-    border-radius: 3px;
-    outline: none;
-    transition: all 350ms ease;
-  }
-  ::-webkit-input-placeholder {
-    color: $placeholder-color;
-  }
-  :-ms-input-placeholder {
-    color: $placeholder-color;
-  }
-  ::-moz-placeholder {
-    color: $placeholder-color;
-    opacity: 1;
-  }
-  :-moz-placeholder {
-    color: $placeholder-color;
-    opacity: 1;
-  }
-  :focus::-webkit-input-placeholder {
-    color: $placeholder-focus-color;
-  }
-  :focus:-ms-input-placeholder {
-    color: $placeholder-focus-color;
-  }
-  :focus::-moz-placeholder {
-    color: $placeholder-focus-color;
-  }
-  :focus:-moz-placeholder {
-    color: $placeholder-focus-color;
-  }
-
   #test-videos {
     background: white;
     display: flex;

@@ -20,6 +20,7 @@
   transition-property: background, padding, color, transform;
   transition: all 200ms ease;
   user-select: none;
+  cursor: pointer;
 
   // Has dark blue background and white letters.
   // Used on $interflux-blue backgrounds.
