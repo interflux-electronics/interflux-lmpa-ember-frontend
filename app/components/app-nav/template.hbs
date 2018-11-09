@@ -1,4 +1,8 @@
-{{#link-to prevRoute data-test-prev class="button white-border"}}Back{{/link-to}}
+<ButtonLink
+  @route={{prevRoute}}
+  @text="Back"
+  class="medium white-border"
+/>
 <ul>
   {{#each allRoutes as |route|}}
     <li>
@@ -7,4 +11,9 @@
     </li>
   {{/each}}
 </ul>
-{{#link-to nextRoute data-test-next class="button white-border"}}Next{{/link-to}}
+<ButtonLink
+  @route={{nextRoute}}
+  @text="Next"
+  class="medium white-border"
+  data-test-next
+/>
