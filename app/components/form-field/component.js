@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { and, not, readOnly, notEmpty } from '@ember/object/computed';
 
 const NOOP = () => {};
+const empty = [];
 
 export default Component.extend({
   classNames: ['form-field'],
@@ -16,7 +17,7 @@ export default Component.extend({
   isBlurred: not('hasFocus'),
   isLoading: false,
 
-  errors: [],
+  errors: empty,
   error: readOnly('errors.firstObject'),
   hasError: notEmpty('error'),
   shouldError: true,

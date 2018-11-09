@@ -5,7 +5,7 @@
 {{#if showError}}
   <div class="error">
     <p
-      onclick={{action 'hideError'}}
+      onclick={{action "hideError"}}
       role="button"
     >
       {{error}}
@@ -17,7 +17,7 @@
   options=options
   searchField=searchField
   selected=selected
-  onchange=(action 'selectItem')
+  onchange=(action "selectItem")
   as |item|
 }}
   {{get item searchField}}

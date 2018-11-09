@@ -2,6 +2,8 @@ import ButtonBase from '../button-base/component';
 import { get } from '@ember/object';
 import { readOnly, notEmpty } from '@ember/object/computed';
 
+const empty = [];
+
 export default ButtonBase.extend({
   tagName: 'button',
   classNames: ['button-task'],
@@ -20,7 +22,7 @@ export default ButtonBase.extend({
   // Show task error
   showError: notEmpty('error'),
   error: readOnly('errors.firstObject'),
-  errors: [],
+  errors: empty,
 
   // Perform the task passed in
   click() {
