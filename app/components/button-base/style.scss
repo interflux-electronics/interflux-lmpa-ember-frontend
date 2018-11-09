@@ -2,183 +2,90 @@
 // Reuse these classes as much as possible.
 // Resist styling buttons per component, instead extend this base.
 
-#app .button-base {
-  background: none;
-  border-radius: 4px;
-  border: 0;
-  box-sizing: border-box;
-  color: $paragraph-color;
-  display: inline-block;
-  font-family: $lato-black;
-  font-size: 15px;
-  line-height: 40px;
-  outline: 0 !important;
-  padding: 0 15px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition-property: background, padding, color, transform;
-  transition: all 200ms ease;
-  user-select: none;
-  cursor: pointer;
+a,
+button {
+  &.button-base {
+    position: relative;
+    display: inline-block;
+    background: none;
+    border: 0;
+    outline: 0 !important;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
 
-  // Has dark blue background and white letters.
-  // Used on $interflux-blue backgrounds.
-  &.dark-blue {
-    background: $interflux-blue-darker;
-    color: white;
-    &.active,
-    &.busy,
-    &:hover {
-      background: $interflux-blue-lighter;
-    }
-  }
+    // Do not set these here, use classes instead
+    // font-family: 'Lato-Black';
+    // font-size: 18px;
+    // line-height: 48px;
+    // padding: 0 28px;
+    // border-radius: 4px;
 
-  // Has dark blue background and white letters.
-  // Used on white backgrounds.
-  // Is clearly a primary call-to-action.
-  &.orange {
-    color: white;
-    border: 1px solid darken($lmpa-orange, 6%);
-    background: $lmpa-orange
-      linear-gradient(to bottom, rgba(black, 0) 0%, rgba(black, 0.1) 100%);
-    &.active,
-    &:hover {
-      border: 1px solid darken($faint-orange, 6%);
-      background: $faint-orange
-        linear-gradient(to bottom, rgba(black, 0) 0%, rgba(black, 0.1) 100%);
+    &.big {
+      font-family: 'Lato-Black';
+      font-size: 18px;
+      line-height: 48px;
+      padding: 0 28px;
+      border-radius: 4px;
+      span {
+        margin: 0 4px;
+      }
     }
-  }
 
-  // Small in height, clearly not a primary call-to-action
-  &.small {
-    padding: 0 6px;
-    line-height: 24px;
-    font-family: 'Lato-Regular';
-    font-size: 14px;
-    span {
-      margin: 0 4px;
+    &.medium {
+      font-family: 'Lato-Black';
+      font-size: 15px;
+      line-height: 40px;
+      padding: 0 20px;
+      border-radius: 3px;
+      span {
+        margin: 0 4px;
+      }
     }
-  }
 
-  &.medium {
-    font-family: 'Lato-Black';
-    font-size: 15px;
-    line-height: 40px;
-    padding: 0 20px;
-    span {
-      margin: 0 4px;
+    &.small {
+      padding: 0 6px;
+      line-height: 24px;
+      font-family: 'Lato-Regular';
+      font-size: 14px;
+      border-radius: 2px;
+      span {
+        margin: 0 4px;
+      }
     }
-  }
 
-  // Square buttons with centered icons and labels
-  &.square {
-    width: 90px;
-    height: 86px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    span {
-      font-family: $lato-bold;
-      font-size: 11px;
-      line-height: 100%;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 10px;
+    &.white-border {
+      color: white;
+      border: 2px solid white;
+      &:focus,
+      &:hover {
+        background: rgba(white, 0.4);
+      }
     }
-    i {
-      font-size: 30px;
-    }
-  }
 
-  // On hover the rocket icon will launch
-  &.animated-rocket {
-    &:hover {
-      overflow: hidden;
-      i.fa-rocket {
-        animation: rocket-launch 500ms ease;
+    &.grey-border {
+      color: lighten(black, 50%);
+      border: 2px solid #ddd;
+      &:focus,
+      &:hover {
+        color: $interflux-light-blue;
+        border-color: $interflux-light-blue;
+      }
+    }
+
+    // Has dark blue background and white letters.
+    // Used on $interflux-blue backgrounds.
+    &.dark-blue {
+      background: $interflux-blue-darker;
+      color: white;
+      &.active,
+      &.busy,
+      &:hover {
+        background: $interflux-blue-lighter;
       }
     }
   }
-
-  // For buttons that are temporarily not clickable (for example when task is running)
-  &.busy {
-    cursor: not-allowed;
-    pointer-events: none;
-    @include perpetual-moving-diagononals;
-    span,
-    i {
-      position: relative;
-      z-index: 1;
-    }
-  }
-
-  // For disabled buttons
-  &[disabled] {
-    cursor: default;
-    pointer-events: none;
-    color: #fff;
-    background: #ccc !important;
-  }
-
-  // For buttons in error state
-  &.show-error {
-    .error {
-      position: absolute;
-      left: 0;
-      bottom: -40px;
-      width: 100%;
-    }
-  }
 }
-
-// a.button,
-// button {
-//   display: inline-block;
-//   padding: 0 30px;
-//   font-family: $lato-regular;
-//   font-size: 16px;
-//   line-height: 40px;
-//   text-align: center;
-//   text-decoration: none;
-//   white-space: nowrap;
-//   background: none;
-//   border: 0;
-//   outline: 0 !important;
-//   box-sizing: border-box;
-//   user-select: none;
-//   &.white-border {
-//     flex-shrink: 0;
-//     padding: 0 29px;
-//     font-family: $lato-black;
-//     font-size: 20px;
-//     line-height: 240%;
-//     color: white;
-//     border: 2px solid white;
-//     border-radius: 4px;
-//     @media (max-width: 1080px) {
-//       padding: 0 2.7vw;
-//       font-size: 1.8vw;
-//       border-width: 0.25vw;
-//       border-radius: 0.4vw;
-//     }
-//     &:focus,
-//     &:hover {
-//       background: rgba(white, 0.4);
-//     }
-//     @media (max-width: 888px) {
-//       padding: 0 24px;
-//       font-size: 16px;
-//       line-height: 230%;
-//       border-width: 2px;
-//       border-radius: 3.5px;
-//     }
-//   }
-//   &.light-blue {
-//     font-family: $lato-bold;
-//     color: white;
-//     background: $interflux-light-blue;
-//   }
-// }

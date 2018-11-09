@@ -1,12 +1,15 @@
 import ButtonBase from '../button-base/component';
-import { get } from '@ember/object';
 
 export default ButtonBase.extend({
-  tagName: 'button',
   classNames: ['button-action'],
+
+  // Passed in
+  onClick: undefined,
+  text: undefined,
+  icon: undefined,
 
   // Perform the action passed in
   click() {
-    get(this, 'onClick')();
+    this.onClick();
   }
 });

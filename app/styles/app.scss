@@ -25,16 +25,16 @@
 
 // Pages
 @import 'app/components/page-base/style';
-@import 'app/components/intro-page/style';
-@import 'app/components/overview-page/style';
-@import 'app/components/speed-page/style';
-@import 'app/components/voiding-page/style';
-@import 'app/components/costs-page/style';
-@import 'app/components/heat-failures-page/style';
-@import 'app/components/dross-page/style';
-@import 'app/components/wetting-page/style';
-@import 'app/components/interflux-page/style';
-@import 'app/components/contact-page/style';
+@import 'app/components/page-intro/style';
+@import 'app/components/page-overview/style';
+@import 'app/components/page-speed/style';
+@import 'app/components/page-voiding/style';
+@import 'app/components/page-costs/style';
+@import 'app/components/page-heat-failures/style';
+@import 'app/components/page-dross/style';
+@import 'app/components/page-wetting/style';
+@import 'app/components/page-interflux/style';
+@import 'app/components/page-contact/style';
 
 // For outdated browsers
 @import 'outdatedbrowser';

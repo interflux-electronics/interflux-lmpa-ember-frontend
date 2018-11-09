@@ -4,7 +4,7 @@
   > div {
     max-width: 1080px;
     min-width: 320px;
-    padding: 1px 108px 216px;
+    padding: 1px 108px 150px;
     margin: 0 auto;
     background: white;
     box-sizing: border-box;
@@ -17,6 +17,13 @@
     }
     @media (max-width: 700px) {
       padding: 1px 6.6vw 20vw;
+    }
+  }
+
+  p {
+    max-width: 540px;
+    & + p {
+      margin-top: 20px;
     }
   }
 
