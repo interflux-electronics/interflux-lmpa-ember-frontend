@@ -1,0 +1,25 @@
+.form-search {
+  &.show-dropdown {
+    input {
+      border-radius: 3px 3px 0 0;
+    }
+  }
+  .input {
+    width: 100%;
+  }
+  .dropdown {
+    position: relative;
+    ul {
+      position: absolute;
+      left: 0;
+      top: -1px;
+      width: 100%;
+      background: rgba(white, 90%);
+      border: 1px solid #eee;
+      box-sizing: border-box;
+      li {
+        padding: 10px;
+      }
+    }
+  }
+}

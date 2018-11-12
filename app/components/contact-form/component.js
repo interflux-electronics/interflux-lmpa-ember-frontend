@@ -31,12 +31,12 @@ export default Component.extend({
     }
 
     const lead = this.store.createRecord('lead', {
-      name: 'Jan Werkhoven',
-      company: 'Interflux Electronics',
-      email: 'jw@interflux.com',
-      mobile: '+61424787652',
-      message: 'Hello Interflux, can you send me your best expert.',
-      purpose: 'Request LMPA demo',
+      // name: 'Jan Werkhoven',
+      // company: 'Interflux Electronics',
+      // email: 'jw@interflux.com',
+      // mobile: '+61424787652',
+      // message: 'Hello Interflux, can you send me your best expert.',
+      // purpose: 'Request LMPA demo',
       source: window.location.href
     });
 
@@ -58,7 +58,7 @@ export default Component.extend({
     const countryRecord = this.countries.findBy('countryCode', countryCode);
 
     this.lead.setProperties({
-      country: countryRecord,
+      // TODO: Move higher country: countryRecord,
       ipCountry: countryRecord,
       ipRegion: region,
       ipCity: city,

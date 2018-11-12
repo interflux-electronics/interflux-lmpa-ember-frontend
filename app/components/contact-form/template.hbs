@@ -30,14 +30,12 @@
   @placeholder="e.g. +61 888 999 555"
 />
 
-<p>Country: {{lead.country.name}}</p>
-
-<FormDropdown
+<FormSearch
   @label="Country"
+  @placeholder="e.g. {{if lead.country lead.country.name "Belgium"}}"
   @options={{countries}}
-  @selected={{lead.country}}
-  @onUpdate={{action (mut lead.country)}}
-  @searchField="name"
+  @onSelect={{action (mut lead.country)}}
+  @searchKey="searchString"
 />
 
 <FormTextarea
@@ -55,5 +53,5 @@
   @errors={{v-get this "errorCode" "messages"}}
   @textIdle="Send"
   @textBusy="Sending ..."
-  class="dark-blue"
+  class="big orange"
 />

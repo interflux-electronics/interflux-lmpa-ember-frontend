@@ -17,11 +17,10 @@
 // UI
 @import 'app/components/temperature-gauge/style';
 @import 'app/components/button-base/style';
-@import 'app/components/form-dropdown/style';
 @import 'app/components/form-field/style';
 @import 'app/components/form-input/style';
+@import 'app/components/form-search/style';
 @import 'app/components/form-textarea/style';
-@import 'app/components/form-toggle/style';
 
 // Pages
 @import 'app/components/page-base/style';
@@ -38,7 +37,3 @@
 
 // For outdated browsers
 @import 'outdatedbrowser';
-
-// Third party
-// TODO: move to vendor?
-@import 'ember-power-select';

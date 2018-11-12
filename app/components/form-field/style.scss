@@ -1,4 +1,9 @@
 .form-field {
+  max-width: 600px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
   &.show-error {
     .error {
       p {
@@ -8,7 +13,7 @@
     }
     input,
     textarea {
-      color: $paragraph-color;
+      color: $interflux-blue;
       border-color: $error-red;
     }
   }
@@ -28,20 +33,16 @@
     }
   }
 
-  input {
-    padding: 12px;
-    border: 1px solid black;
-    border-radius: 3px;
-    outline: none;
-  }
-
   label {
     display: block;
-    margin: 5px;
+    margin: 25px 0 5px;
     font-size: 14px;
     line-height: 100%;
     text-align: left;
     opacity: 0.5;
+    width: 130px;
+    margin: 0;
+    flex-shrink: 0;
   }
 
   .error {

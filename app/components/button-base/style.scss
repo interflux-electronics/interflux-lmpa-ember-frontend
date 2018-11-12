@@ -88,6 +88,16 @@ button {
       }
     }
 
+    &.orange {
+      background: $lmpa-orange;
+      color: white;
+      &.active,
+      &.busy,
+      &:hover {
+        background: lighten($lmpa-orange, 10%);
+      }
+    }
+
     &.orange-link {
       color: $lmpa-orange;
       text-decoration: underline;

@@ -1,16 +1,10 @@
 .form-input {
-  max-width: 400px;
   input {
-    height: 40px; // for IE10
-    padding: 0 13px;
-    line-height: 38px;
-  }
-  input {
+    height: 46px; // for IE10
     width: 100%;
-    min-width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
     line-height: 130%;
+    padding: 0 17px;
     background: #fff;
     border: 1px solid #eee;
     border-radius: 3px;
@@ -18,12 +12,10 @@
     box-shadow: none;
     transition: all 300ms ease-out;
     transition-property: border-color, color;
-
-    -webkit-appearance: none;
+    color: $paragraph-color;
+    appearance: none;
+    &:focus,
     &:hover {
-      border-color: #ccc;
-    }
-    &:focus {
       color: $interflux-light-blue;
       border-color: $interflux-light-blue;
       & + i {
