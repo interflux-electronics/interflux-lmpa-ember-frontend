@@ -1,7 +1,7 @@
 <div>
   <div>
-    <h2><strong>See for your self</strong></h2>
-    <p>Invite one of our LMPA engineers to your company, wherever in the world, and we'll demonstrate you in person how well LMPA performs on your production line. Free of charge.</p>
+    <h2><strong>See with your own eyes</strong></h2>
+    <p>Invite one of our LMPA engineers to your company, wherever in the world, and we'll demonstrate LMPA on your production line:</p>
     {{#if showForm}}
       <ContactForm />
     {{else}}
@@ -15,18 +15,19 @@
 
   <div>
     <h2><strong>Questions?</strong></h2>
+    <p>Ask our team of LMPA engineers:</p>
     <div class="row">
-      <ButtonAction
-        @text="Email us"
-        @onClick={{action "showEmail"}}
-        class="big dark-blue"
-      />
       {{#if showEmail}}
-        <p>Ask our LMPA engineers:</p>
         <ButtonExternalLink
           @href="mailto:lmpa@interflux.com"
           @text="lmpa@interflux.com"
           class="big orange-link"
+        />
+      {{else}}
+        <ButtonAction
+          @text="Send email"
+          @onClick={{action "showEmail"}}
+          class="big dark-blue"
         />
       {{/if}}
     </div>

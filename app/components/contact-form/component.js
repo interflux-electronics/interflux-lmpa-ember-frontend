@@ -86,14 +86,15 @@ export default Component.extend({
 
   // Persist the lead to our API, which should return a UUID.
   submit: task(function*() {
-    this.resetSubmit();
-    yield this.lead.save();
-
-    // TODO: Show user
+    this.resetApiErrors();
+    const tasks = [];
+    tasks.push(this.lead.save());
+    tasks.push(timeout(3000)); // Deliberately wait for 3 seconds to prevent quick flash
+    yield all(tasks);
   }).drop(),
 
-  resetSubmit() {
-    this.set('errorCode', null);
+  resetApiErrors() {
+    this.set('submitErrorCode', null);
   },
 
   actions: {
