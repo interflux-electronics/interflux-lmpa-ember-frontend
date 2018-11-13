@@ -23,6 +23,10 @@ export default Component.extend({
   countries: undefined,
   ipMeta: undefined,
 
+  // Flag set after user submits form
+  showSuccess: false,
+  showError: false,
+
   init() {
     this._super(...arguments);
 
@@ -86,16 +90,37 @@ export default Component.extend({
 
   // Persist the lead to our API, which should return a UUID.
   submit: task(function*() {
-    this.resetApiErrors();
-    const tasks = [];
-    tasks.push(this.lead.save());
-    tasks.push(timeout(3000)); // Deliberately wait for 3 seconds to prevent quick flash
-    yield all(tasks);
-  }).drop(),
+    //
+    // TODO: Log conversion event
+    //
+    const request = this.lead
+      .save()
+      .then(lead => {
+        return lead;
+      })
+      .catch(error => {
+        return error;
+      });
 
-  resetApiErrors() {
-    this.set('submitErrorCode', null);
-  },
+    const tasks = [];
+    tasks.push(request);
+    tasks.push(timeout(1000)); // Deliberately wait for 1 seconds to prevent quick flash
+    yield all(tasks);
+    if (request._result.id) {
+      this.set('showSuccess', true);
+      //
+      // TODO: Log conversion event
+      //
+    } else {
+      this.set('showError', true);
+      //
+      // TODO: Log conversion event
+      // TODO: Log error
+      // TODO: If 500 show error message
+      // TODO: If 422 let user try again
+      //
+    }
+  }).drop(),
 
   actions: {
     focusOnNextField() {

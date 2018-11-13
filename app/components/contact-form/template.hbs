@@ -1,6 +1,21 @@
-{{#if submitSucces}}
-  <p>Thank you for showing your interest. Our team will contact you soon!</p>
-  <p><em>Interflux Electronics</em></p>
+{{#if showSuccess}}
+  <div class="msg">
+    <h3>Request sent!</h3>
+    <p>Our team will contact you soon!</p>
+    <p>Kind regards</p>
+    <p><em>Interflux Electronics</em></p>
+  </div>
+{{else if showError}}
+  <div class="msg">
+    <h3>Something went wrong</h3>
+    <p>Your request was unfortunately not submitted. Our website engineer has been notified and will investigate.</p>
+    <p>Please send us an email instead:</p>
+    <ButtonExternalLink
+      @href="mailto:lmpa@interflux.com"
+      @text="LMPA@interflux.com"
+      class="big orange-link"
+    />
+  </div>
 {{else}}
   <FormInput
     @value={{lead.name}}
