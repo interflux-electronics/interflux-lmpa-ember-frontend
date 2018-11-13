@@ -2,6 +2,7 @@ import FormFieldComponent from '../form-field/component';
 import EmberObject, { computed } from '@ember/object';
 import { and, not } from '@ember/object/computed';
 import { sort } from '@ember/object/computed';
+import { htmlSafe } from '@ember/template';
 
 export default FormFieldComponent.extend({
   classNames: ['form-search', 'form-input'],
@@ -72,6 +73,7 @@ export default FormFieldComponent.extend({
         for (let i = 0; i < split1.length; i++) {
           html += split1[i];
           html += split2[i] ? `<mark>${split2[i]}</mark>` : '';
+          html = htmlSafe(html);
         }
         const match = EmberObject.create({
           option,
@@ -89,7 +91,7 @@ export default FormFieldComponent.extend({
       this.set('hasFocus', true);
       this.onFocusIn(event);
     },
-    _onBlur(event) {
+    _onBlur() {
       // TODO: Impedes onclickItem closure...
       // this.set('hasFocus', false);
       // this.onFocusOut(event);
@@ -103,7 +105,7 @@ export default FormFieldComponent.extend({
       this.onSelect(match.option);
       this.set('hasFocus', false);
     },
-    _onEnter(event) {
+    _onEnter() {
       // TODO: Select the one in focus
     }
   }
