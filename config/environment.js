@@ -2,39 +2,62 @@
 
 require('dotenv').config();
 
-const gitRevision = process.env.GIT_REVISION || 'xxxxxx';
+// Where the Rails backend is located
+const apiHosts = {
+  development: 'http://localhost:3000',
+  production: 'https://api.interflux.com'
+};
 
-module.exports = function(environment) {
+// Where this Ember app is located
+const appHosts = {
+  development: 'http://localhost:4200',
+  production: 'https://lmpa.interflux.com'
+};
+
+// Where the CDN is located
+const cdnHosts = {
+  development: 'http://localhost:9000',
+  production: 'https://cdn.interflux.com'
+};
+
+module.exports = function(env) {
   // Environment flags
-  const isDevelopment = environment === 'development';
-  const isProduction = environment === 'production';
-  const isTest = environment === 'test';
+  const isDevelopment = env === 'development';
+  const isProduction = env === 'production';
+  const isTest = env === 'test';
+
+  // Hosts
+  const apiHost = apiHosts[env];
+  const appHost = appHosts[env];
+  const cdnHost = cdnHosts[env];
+
+  // The Rails API namespace
+  const apiNamespace = 'v1/public';
+
+  // The git revision SHA of this build (only in production)
+  const gitRevision = process.env.GIT_REVISION;
 
   let ENV = {
     modulePrefix: 'app',
-    environment,
+    environment: env,
     rootURL: '/',
     locationType: 'history',
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      },
+      FEATURES: {},
       EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
     },
-
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    },
+    APP: {},
 
     buildConfig: {
       isDevelopment,
       isTest,
       isProduction,
+      apiHost,
+      appHost,
+      cdnHost,
+      apiNamespace,
       gitRevision
     },
 

@@ -1,0 +1,34 @@
+.form-input {
+  input {
+    height: 46px; // for IE10
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 130%;
+    padding: 0 17px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    outline: 0 !important;
+    box-shadow: none;
+    transition: all 300ms ease-out;
+    transition-property: border-color, color;
+    color: $paragraph-color;
+    appearance: none;
+    &:focus,
+    &:hover {
+      color: $interflux-light-blue;
+      border-color: $interflux-light-blue;
+      & + i {
+        color: $interflux-light-blue;
+      }
+    }
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+    }
+    & + i {
+      transition: all 300ms ease-out;
+      transition-property: color;
+    }
+  }
+}

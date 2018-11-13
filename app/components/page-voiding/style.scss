@@ -1,0 +1,48 @@
+#page-voiding {
+  > div {
+    @media (min-width: 701px) {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+  }
+  #text {
+    @media (min-width: 701px) {
+      width: 40%;
+      padding-bottom: 80px;
+    }
+  }
+  #images {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 5%;
+    background: #eee;
+    box-sizing: border-box;
+    @media (min-width: 701px) {
+      width: 50%;
+    }
+    .image {
+      position: relative;
+      width: 100%;
+      h4 {
+        position: absolute;
+        position: absolute;
+        top: 55%;
+        left: -4%;
+        padding: 6px 10px;
+        &:after,
+        &:before {
+          content: none;
+        }
+        span {
+          display: block;
+        }
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

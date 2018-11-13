@@ -1,26 +1,36 @@
+// This adapter is responsible for all Ember Data requests to the API
+// Production should hit https://api.interflux.com/admin/
+// Development should hit http://localhost:3000/admin/
+// Tests should hit Ember Mirage
+
+import JSONAPIAdapter from 'ember-data/adapters/json-api';
+import AdapterFetch from 'ember-fetch/mixins/adapter-fetch';
+import config from 'ember-get-config';
+import { computed } from '@ember/object';
+import { pluralize } from 'ember-inflector';
 import { underscore } from '@ember/string';
-import DS from 'ember-data';
 
-const headers = {
-  'Content-Type': 'application/json',
-  Accept: 'application/json'
-};
+const { apiHost, apiNamespace } = config.buildConfig;
 
-export default DS.JSONAPIAdapter.extend({
-  authorizer: 'authorizer:application',
-  host: 'http://localhost:3000',
+export default JSONAPIAdapter.extend(AdapterFetch, {
+  host: apiHost,
+  namespace: apiNamespace,
 
-  headers,
+  // Add dynamic headers here
+  // Docs: https://guides.emberjs.com/release/models/customizing-adapters/
+  headers: computed({
+    get() {
+      return {
+        'Content-Type': 'application/vnd.api+json',
+        Accept: 'application/vnd.api+json'
+      };
+    }
+  }),
 
-  // headers: {
-  //   'Accept': 'application/au.com.hotdoc.v5'
-  // },
-  // host: 'https://api.interflux.com',
-  // namespace: 'lmpa',
-  // host: Ember.ENV.serverURL || ""
-
-  // Rails expects underscored resources instead of hyphens
+  // Convert the Ember model name to something Rails would recognise:
+  // Rails expects underscored resources
+  // Rails expects pluralized resources
   pathForType: function(type) {
-    return underscore(type);
+    return pluralize(underscore(type));
   }
 });

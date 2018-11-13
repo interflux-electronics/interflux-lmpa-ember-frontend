@@ -15,7 +15,10 @@ module('Acceptance | SEO', function(hooks) {
     await visit('/en/low-melting-point-alloys');
     assertRoute('locale.intro');
     assertRobotMeta('index, follow');
-    assertMetaTitle(this, 'Interlux presents: Low Melting Point Alloys (LMPA)');
+    assertMetaTitle(
+      this,
+      'Interflux presents: Low Melting Point Alloys (LMPA)'
+    );
     assertMetaDescription(
       `LMPA-Q™ is an enhanced LMPA™ with superior mechanical properties. It's without exception the best alloy we have developed so far. The benefits are numerous.`
     );

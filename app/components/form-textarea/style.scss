@@ -1,0 +1,34 @@
+.form-textarea {
+  textarea {
+    width: 100%;
+    padding: 13px;
+    box-sizing: border-box;
+    line-height: 130%;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    outline: 0 !important;
+    box-shadow: none;
+    transition: all 300ms ease-out;
+    transition-property: border-color, color;
+    -webkit-appearance: none;
+    &:hover {
+      border-color: #ccc;
+    }
+    &:focus {
+      color: $interflux-light-blue;
+      border-color: $interflux-light-blue;
+      & + i {
+        color: $interflux-light-blue;
+      }
+    }
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+    }
+    & + i {
+      transition: all 300ms ease-out;
+      transition-property: color;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+#page-dross {
+  #images {
+    display: flex;
+    margin-top: 50px;
+    @media (max-width: 840px) {
+      flex-flow: column nowrap;
+    }
+    > div {
+      margin: 0 40px 0 0;
+      @media (max-width: 840px) {
+        margin: 0 0 40px;
+      }
+      h4 {
+        max-width: 190px;
+        margin-bottom: 5px;
+      }
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+    }
+  }
+}

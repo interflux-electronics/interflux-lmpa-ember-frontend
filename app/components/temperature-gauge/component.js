@@ -134,7 +134,7 @@ export default Component.extend({
     }
   },
 
-  didInsertElement: function() {
+  didInsertElement() {
     this.animateArrow('lmpa', true);
     this.animateArrow('sac', true);
   },
