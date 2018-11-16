@@ -1,16 +1,15 @@
 import Component from '@ember/component';
-import fetch from 'fetch';
 import { inject as service } from '@ember/service';
 import { task, timeout, all } from 'ember-concurrency';
 import { readOnly } from '@ember/object/computed';
+import { computed } from '@ember/object';
 
 export default Component.extend({
-  tagName: 'div',
   elementId: 'contact-form',
 
-  // ajax: service(),
   store: service(),
   fastboot: service(),
+  ipMeta: service(),
 
   isFastBoot: readOnly('fastboot.isFastBoot'),
 
@@ -21,7 +20,6 @@ export default Component.extend({
 
   // Fetched on init();
   countries: undefined,
-  ipMeta: undefined,
 
   // Flag set after user submits form
   showSuccess: false,
@@ -34,58 +32,39 @@ export default Component.extend({
       return false;
     }
 
+    const { region, city, query } = this.ipMeta.data;
+
     const lead = this.store.createRecord('lead', {
       // name: 'Jan Werkhoven',
       // company: 'Interflux Electronics',
       // email: 'jw@interflux.com',
       // mobile: '+61424787652',
       // message: 'Hello Interflux, can you send me your best expert.',
-      // purpose: 'Request LMPA demo',
-      source: window.location.href
-    });
-
-    this.set('lead', lead);
-    this.fetchData.perform();
-  },
-
-  // Fetch all countries and meta data for the visitor's IP.
-  // From the IP meta data we can extract the country of our visitor and
-  // pre-populate the country dropdown.
-  fetchData: task(function*() {
-    const tasks = [];
-    tasks.push(this.fetchCountries.perform());
-    tasks.push(this.fetchIpMeta.perform());
-    yield all(tasks);
-
-    const { countryCode, region, city, query } = this.ipMeta;
-
-    const countryRecord = this.countries.findBy('countryCode', countryCode);
-
-    this.lead.setProperties({
-      // TODO: Move higher country: countryRecord,
-      ipCountry: countryRecord,
+      purpose: 'Request LMPA demo',
+      source: window.location.href,
       ipRegion: region,
       ipCity: city,
       ip: query
     });
 
-    yield timeout(1);
-  }),
+    this.set('lead', lead);
 
-  // To populate the country dropdown we fetch all countries on init().
+    this.fetchCountries.perform();
+  },
+
   fetchCountries: task(function*() {
+    // Fetch all countries for the country search input.
     const countries = yield this.store.findAll('country');
     this.set('countries', countries);
+
+    // Deduct the user's country from their IP
+    const ipCountryCode = this.ipMeta.data.countryCode;
+    const ipCountry = countries.findBy('countryCode', ipCountryCode);
+    this.lead.set('ipCountry', ipCountry);
   }),
 
-  // To figure out which country the visitor is from we can ping their IP to a
-  // service which returns the IP meta data in JSON format, including the country.
-  // https://medium.com/@adeyinkaadegbenro/how-to-detect-the-location-of-your-websites-visitor-using-javascript-92f9e91c095f
-  // http://ip-api.com/json
-  fetchIpMeta: task(function*() {
-    const response = yield fetch('http://ip-api.com/json');
-    const json = yield response.json();
-    this.set('ipMeta', json);
+  countryPlaceholder: computed(function() {
+    return this.ipMeta.data.country || 'Belgium';
   }),
 
   // Persist the lead to our API, which should return a UUID.

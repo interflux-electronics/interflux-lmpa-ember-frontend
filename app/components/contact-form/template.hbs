@@ -17,6 +17,7 @@
     />
   </div>
 {{else}}
+
   <FormInput
     @value={{lead.name}}
     @onUpdate={{action (mut lead.name)}}
@@ -24,6 +25,7 @@
     @label="Your name"
     @placeholder="e.g. John Doe"
   />
+
   <FormInput
     @value={{lead.company}}
     @onUpdate={{action (mut lead.company)}}
@@ -31,6 +33,7 @@
     @label="Company name"
     @placeholder="e.g. Electronics Expert"
   />
+
   <FormInput
     @value={{lead.email}}
     @onUpdate={{action (mut lead.email)}}
@@ -38,6 +41,7 @@
     @label="Email"
     @placeholder="e.g. john.doe@electronicsexpert.com"
   />
+
   <FormInput
     @value={{lead.mobile}}
     @onUpdate={{action (mut lead.mobile)}}
@@ -45,13 +49,15 @@
     @label="Mobile"
     @placeholder="e.g. +61 888 999 555"
   />
+
   <FormSearch
     @label="Country"
-    @placeholder="e.g. {{if lead.country lead.country.name "Belgium"}}"
+    @placeholder="e.g. {{countryPlaceholder}}"
     @options={{countries}}
     @onSelect={{action (mut lead.country)}}
     @searchKey="searchString"
   />
+
   <FormTextarea
     @value={{lead.message}}
     @onUpdate={{action (mut lead.message)}}
@@ -60,6 +66,7 @@
     @rows="6"
     @placeholder="Hello Interflux, Please send your LMPA expert to our company for a demonstration."
   />
+
   <ButtonTask
     @task={{submit}}
     @onClick={{perform submit}}

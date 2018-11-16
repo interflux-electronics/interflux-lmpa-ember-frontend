@@ -26,6 +26,8 @@
     onenter={{action "_onEnter"}}
   >
 
+  <div class="icon"></div>
+
   {{#if showDropdown}}
     <div class="dropdown">
       <ul>
@@ -40,7 +42,7 @@
           {{/each}}
         {{else}}
           <li>
-            <span>No results found for "{{userSearch}}". ¯\_(ツ)_/¯</span>
+            <span>No results found for <strong>{{userSearch}}</strong></span>
           </li>
         {{/if}}
       </ul>

@@ -72,7 +72,7 @@ export default FormFieldComponent.extend({
         let html = '';
         for (let i = 0; i < split1.length; i++) {
           html += split1[i];
-          html += split2[i] ? `<mark>${split2[i]}</mark>` : '';
+          html += split2[i] ? `<strong>${split2[i]}</strong>` : '';
           html = htmlSafe(html);
         }
         const match = EmberObject.create({
