@@ -1,70 +1,153 @@
 import FormFieldComponent from '../form-field/component';
 import EmberObject, { computed } from '@ember/object';
 import { and, not } from '@ember/object/computed';
-import { sort } from '@ember/object/computed';
 import { htmlSafe } from '@ember/template';
 
 export default FormFieldComponent.extend({
   classNames: ['form-search', 'form-input'],
-  classNameBindings: [
-    'hasOptions:has-options:no-options',
-    'hasFocus:has-focus:no-focus',
-    'hasInput:has-input:no-input',
-    'showDropdown:show-dropdown:hide-dropdown'
-  ],
-
+  classNameBindings: ['showDropdown:show-dropdown:hide-dropdown'],
   attributeBindings: ['disabled'],
 
   // Passed in
   label: undefined,
   placeholder: undefined,
-  options: undefined,
   onSelect: undefined,
   searchKey: undefined,
+  sortKey: undefined,
+  sortOrder: undefined, // asc or desc
+
+  // The passed-in array of objects or records which the user will be choosing from
+  options: undefined,
+
+  // The options filtered by the user's search query and sorted
+  results: undefined,
 
   // Whether the passed in array of options has at least 1 item.
   hasOptions: computed('options', function() {
     return this.options && this.options.length;
   }),
 
-  // Sort countries by population size to avoid small island
-  // nations to appear above large countries.
-  sortedOptions: sort('options', function(a, b) {
-    if (a.population > b.population) {
-      return 1;
-    } else if (a.population < b.population) {
-      return -1;
-    }
-    return 0;
-  }),
-
   // In case no options were passed in, then disabled the form field.
+  // TODO: Create disabled state
   disabled: not('hasOptions'),
 
   // Whether user is currently focused on the <input>
   hasFocus: false,
 
   // Whether user typed at least 1 letter in the <input>
-  hasInput: computed('userSearch', function() {
-    return this.userSearch && this.userSearch.length;
-  }),
+  hasQuery: false,
 
   // Show the dropdown if <input> has focus and at least 1 letter
-  showDropdown: and('hasFocus', 'hasInput'),
+  showDropdown: and('hasFocus', 'hasQuery'),
 
-  // The letters the user is searching for
-  userSearch: undefined,
+  // Which item in the dropdown to highlight
+  highlightIndex: 0,
 
-  // All options that match the search query
-  matches: computed('userSearch', function() {
-    if (!this.hasOptions || !this.hasInput) {
+  actions: {
+    onFocus() {
+      this.set('hasFocus', true);
+    },
+
+    onBlur() {
+      // TODO: Impedes onclickItem closure...
+      // TODO: Close dropdown if clicked outside of it
+      // this.set('hasFocus', false);
+    },
+
+    onInput(query) {
+      this.showResultsFor(query);
+
+      // When someone types, remove the selected option
+      this.onSelect(undefined);
+    },
+
+    onKeyUp(event) {
+      this.set('hasFocus', true);
+
+      const pressedDown = event.key === 'ArrowDown';
+      const pressedUp = event.key === 'ArrowUp';
+      const pressedEnter = event.key === 'Enter';
+
+      if (pressedDown) {
+        this.moveSelectionDown();
+      }
+
+      if (pressedUp) {
+        this.moveSelectionUp();
+      }
+
+      if (pressedEnter) {
+        this.selectHighlighted();
+        this.set('hasFocus', false);
+      }
+    },
+
+    onClickItem(result) {
+      this.select(result);
+      this.set('hasFocus', false);
+    },
+
+    onMouseOverItem(index) {
+      this.set('highlightIndex', index);
+    }
+  },
+
+  showResultsFor(query) {
+    // Find and set results
+    const results = this.resultsFor(query);
+    this.set('results', results);
+
+    // Set flag
+    const hasQuery = query && query.length;
+    this.set('hasQuery', hasQuery);
+
+    // Reset the highligh index so the first item is selected after each key stroke.
+    this.set('highlightIndex', 0);
+  },
+
+  moveSelectionDown() {
+    if (!this.results) {
       return;
     }
-    const userSearch = this.userSearch;
-    const matches = [];
-    this.sortedOptions.forEach(option => {
+    const max = this.results.length;
+    let i = this.highlightIndex + 1;
+    i = i >= max ? 0 : i;
+    this.set('highlightIndex', i);
+  },
+
+  moveSelectionUp() {
+    if (!this.results) {
+      return;
+    }
+    const max = this.results.length;
+    let i = this.highlightIndex - 1;
+    i = i < 0 ? max - 1 : i;
+    this.set('highlightIndex', i);
+  },
+
+  selectHighlighted() {
+    const i = this.highlightIndex;
+    const highlighted = this.results[i];
+    this.select(highlighted);
+  },
+
+  select(result) {
+    const newQuery = result.option[this.searchKey];
+    this.set('value', newQuery);
+    this.onSelect(result.option);
+    this.showResultsFor(newQuery);
+  },
+
+  resultsFor(query) {
+    if (!this.hasOptions || !this.hasQuery) {
+      return;
+    }
+
+    // 1. Filter the results
+    let arr = [];
+    this.options.forEach(option => {
       const string = option[this.searchKey];
-      const escaped = userSearch.replace(/[.*+?^${}()|[\]\\]/g, '');
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const regex = new RegExp(escaped, 'gi');
       const split1 = string.split(regex);
       const split2 = string.match(regex);
@@ -76,38 +159,19 @@ export default FormFieldComponent.extend({
           html += split2[i] ? `<strong>${split2[i]}</strong>` : '';
           html = htmlSafe(html);
         }
-        const match = EmberObject.create({
-          option,
-          string,
-          html
-        });
-        matches.push(match);
+        const result = EmberObject.create({ option, string, html });
+        arr.push(result);
       }
     });
-    return matches.sortBy('population').reverse();
-  }),
 
-  actions: {
-    _onFocus(event) {
-      this.set('hasFocus', true);
-      this.onFocusIn(event);
-    },
-    _onBlur() {
-      // TODO: Impedes onclickItem closure...
-      // this.set('hasFocus', false);
-      // this.onFocusOut(event);
-    },
-    _onInput(userSearch) {
-      this.set('userSearch', userSearch);
-    },
-    _onClickItem(match) {
-      this.set('value', match.option[this.searchKey]);
-      this.set('userSearch', match.option[this.searchKey]);
-      this.onSelect(match.option);
-      this.set('hasFocus', false);
-    },
-    _onEnter() {
-      // TODO: Select the one in focus
+    // 2. Sort the results
+    if (this.sortKey) {
+      arr = arr.sortBy(`option.${this.sortKey}`);
     }
+    if (this.sortOrder === 'desc') {
+      arr = arr.reverse();
+    }
+
+    return arr;
   }
 });

@@ -39,7 +39,7 @@
         border-top: 0;
         cursor: pointer;
         &:hover,
-        &.mark {
+        &.highlight {
           background: $interflux-light-blue;
           border-color: $interflux-light-blue;
           color: white;

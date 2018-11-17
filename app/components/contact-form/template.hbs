@@ -55,7 +55,9 @@
     @placeholder="e.g. {{countryPlaceholder}}"
     @options={{countries}}
     @onSelect={{action (mut lead.country)}}
-    @searchKey="searchString"
+    @searchKey="localAndNativeName"
+    @sortKey="population"
+    @sortOrder="desc"
   />
 
   <FormTextarea

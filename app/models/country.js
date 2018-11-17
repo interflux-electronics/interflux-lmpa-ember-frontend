@@ -3,15 +3,14 @@ import attr from 'ember-data/attr';
 import { computed } from '@ember/object';
 
 export default Model.extend({
+  // Attributes
   name: attr('string'),
   nativeName: attr('string'),
   countryCode: attr('string'),
   population: attr('number'),
-  languages: attr('string'),
-  timezones: attr('string'),
-  callingCodes: attr('string'),
 
-  searchString: computed('name', 'nativeName', function() {
+  // Returns the English and native country name in the format: "Belgium (België)"
+  localAndNativeName: computed('name', 'nativeName', function() {
     if (this.name === this.nativeName) {
       return this.name;
     }
