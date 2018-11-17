@@ -15,6 +15,6 @@ export default Model.extend({
     if (this.name === this.nativeName) {
       return this.name;
     }
-    return `${this.name} - ${this.nativeName}`;
+    return `${this.name} (${this.nativeName})`;
   })
 });

@@ -64,7 +64,8 @@ export default FormFieldComponent.extend({
     const matches = [];
     this.sortedOptions.forEach(option => {
       const string = option[this.searchKey];
-      const regex = new RegExp(userSearch, 'gi');
+      const escaped = userSearch.replace(/[.*+?^${}()|[\]\\]/g, '');
+      const regex = new RegExp(escaped, 'gi');
       const split1 = string.split(regex);
       const split2 = string.match(regex);
       const isMatch = split1 && split1.length > 1;
