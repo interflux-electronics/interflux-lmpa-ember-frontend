@@ -38,7 +38,7 @@ module.exports = function(env) {
   const gitRevision = process.env.GIT_REVISION;
 
   let ENV = {
-    modulePrefix: 'app',
+    modulePrefix: 'interflux-lmpa',
     environment: env,
     rootURL: '/',
     locationType: 'history',
@@ -67,6 +67,10 @@ module.exports = function(env) {
 
     googleAnalytics: {
       trackingId: 'UA-34474019-11'
+    },
+
+    mixPanel: {
+      token: '108f7f07c111c43a83a2365ef952fc06'
     }
   };
 
