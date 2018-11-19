@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { visit, find, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import assertPath from 'app/tests/helpers/assert-path';
+import assertPath from 'interflux-lmpa/tests/helpers/assert-path';
 
 module('Acceptance | Users can click to all pages', function(hooks) {
   setupApplicationTest(hooks);
