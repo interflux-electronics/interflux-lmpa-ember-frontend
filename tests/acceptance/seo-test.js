@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
 import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import assertRoute from 'app/tests/helpers/assert-route';
-import assertMetaTitle from 'app/tests/helpers/assert-meta-title';
-import assertMetaDescription from 'app/tests/helpers/assert-meta-description';
-import assertMetaCanonical from 'app/tests/helpers/assert-meta-canonical';
-import assertRobotMeta from 'app/tests/helpers/assert-robot-meta';
-import assertStructuredData from 'app/tests/helpers/assert-structured-data';
+import assertRoute from 'interflux-lmpa/tests/helpers/assert-route';
+import assertMetaTitle from 'interflux-lmpa/tests/helpers/assert-meta-title';
+import assertMetaDescription from 'interflux-lmpa/tests/helpers/assert-meta-description';
+import assertMetaCanonical from 'interflux-lmpa/tests/helpers/assert-meta-canonical';
+import assertRobotMeta from 'interflux-lmpa/tests/helpers/assert-robot-meta';
+import assertStructuredData from 'interflux-lmpa/tests/helpers/assert-structured-data';
 
 module('Acceptance | SEO', function(hooks) {
   setupApplicationTest(hooks);

@@ -1,34 +1,30 @@
 import Service from '@ember/service';
 import config from 'ember-get-config';
-import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import { or, readOnly } from '@ember/object/computed';
 
-const {
-  environment,
-  mixPanel: { token }
-} = config;
+const { appName, environment, mixPanel } = config;
 
 export default Service.extend({
   fastboot: service(),
+  user: service(),
 
+  isDisabled: or('isFastBoot', 'isInterflux', 'isMissingGlobal'),
   isFastBoot: readOnly('fastboot.isFastBoot'),
-
-  canUseMixpanel: computed('isFastBoot', function() {
-    if (this.isFastBoot) {
-      return false;
-    }
+  isInterflux: readOnly('user.isInterflux'),
+  isMissingGlobal: computed(function() {
     try {
-      return mixpanel && token;
+      return mixPanel.token && mixpanel ? false : true;
     } catch (e) {
-      return false;
+      return true;
     }
   }),
 
-  // Set up the GA tracking object
+  // Load and initialise the Mixpanel script
   setup() {
-    if (this.isFastBoot) {
-      return false;
+    if (this.isFastBoot || this.isInterflux) {
+      return;
     }
 
     // prettier-ignore
@@ -38,21 +34,23 @@ export default Service.extend({
     for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
     /* eslint-enable */
 
-    if (!this.canUseMixpanel) {
+    if (this.isMissingGlobal) {
       return;
     }
 
-    mixpanel.init(token);
+    mixpanel.init(mixPanel.token);
   },
 
   // Send event to Google Analytics
   // Documentation: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
   trackEvent(name, properties) {
-    if (!this.canUseMixpanel) {
+    if (this.isDisabled) {
       return;
     }
 
-    properties['environment'] = environment;
+    properties.appName = appName;
+    properties.environment = environment;
+    properties.isInterflux = this.isInterflux;
 
     mixpanel.track(name, properties);
   }

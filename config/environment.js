@@ -1,5 +1,8 @@
 'use strict';
 
+const PKG = require('../package.json');
+
+// Responsible for making .env variables available (for example: process.env.GIT_REVISION)
 require('dotenv').config();
 
 // Where the Rails backend is located
@@ -38,7 +41,8 @@ module.exports = function(env) {
   const gitRevision = process.env.GIT_REVISION;
 
   let ENV = {
-    modulePrefix: 'interflux-lmpa',
+    appName: PKG.name,
+    modulePrefix: PKG.name,
     environment: env,
     rootURL: '/',
     locationType: 'history',
