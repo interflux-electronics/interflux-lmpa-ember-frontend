@@ -15,34 +15,33 @@
 
 <div class="wrapper">
   <input
-    type={{type}}
     value={{value}}
     placeholder={{placeholder}}
-    tabindex={{tabindex}}
-    autofocus={{autofocus}}
-    onfocus={{action "_onFocus"}}
-    onblur={{action "_onBlur"}}
-    oninput={{action "_onInput" value="target.value"}}
-    onenter={{action "_onEnter"}}
+    oninput={{action "onInput" value="target.value"}}
+    onkeyup={{action "onKeyUp"}}
+    onfocus={{action "onFocus"}}
+    onblur={{action "onBlur"}}
   >
+
+  <div class="icon"></div>
 
   {{#if showDropdown}}
     <div class="dropdown">
       <ul>
-        {{#if matches}}
-          {{#each matches as |match|}}
-            <li
-              onclick={{action "_onClickItem" match}}
-              role="button"
-            >
-              {{match.html}}
-            </li>
-          {{/each}}
+        {{#each results as |result index|}}
+          <li
+            onclick={{action "onClickItem" result}}
+            onmouseover={{action "onMouseOverItem" index}}
+            class={{if (eq index highlightIndex) "highlight"}}
+            role="button"
+          >
+            {{result.html}}
+          </li>
         {{else}}
           <li>
-            <span>No results found for "{{userSearch}}". ¯\_(ツ)_/¯</span>
+            <span>No results found for <strong>{{userSearch}}</strong></span>
           </li>
-        {{/if}}
+        {{/each}}
       </ul>
     </div>
   {{/if}}
