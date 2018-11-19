@@ -1,1 +1,41 @@
-// Mixins
+// For making 2 common media queries more readable, use:
+// @include on-mobile { ... }
+// @include on-desktop { ... }
+// For all other mediat queries, stick to:
+// @media (max-width: 400px) { ... }
+// @media (min-width: 401px) { ... }
+@mixin on-mobile {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+@mixin on-desktop {
+  @media (min-width: 801px) {
+    @content;
+  }
+}
+
+// For styling the placeholder text of <input> elements
+// input {
+//   @include placeholder {
+//     font-family: $base-font-family;
+//     color: red;
+//   }
+// }
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:placeholder-shown {
+    @content;
+  }
+}

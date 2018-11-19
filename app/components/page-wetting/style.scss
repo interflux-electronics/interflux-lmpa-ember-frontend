@@ -1,0 +1,13 @@
+#page-wetting {
+  text-align: center;
+  > div {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    img {
+      height: auto;
+      max-width: 100%;
+      margin-top: 3vw;
+    }
+  }
+}

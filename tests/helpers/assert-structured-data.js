@@ -5,7 +5,7 @@
 
 const { assert } = QUnit;
 import { find } from '@ember/test-helpers';
-import cleanString from 'app/tests/helpers/clean-string';
+import cleanString from 'interflux-lmpa/tests/helpers/clean-string';
 
 export default function(obj) {
   assertDirectProperties(obj);

@@ -67,6 +67,10 @@ module.exports = function(defaults) {
     // Include polyfills for old browsers
     'ember-cli-babel': {
       includePolyfill: true
+    },
+
+    'ember-fetch': {
+      preferNative: true
     }
   });
 

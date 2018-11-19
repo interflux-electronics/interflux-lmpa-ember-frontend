@@ -1,0 +1,24 @@
+#page-intro {
+  > div {
+    padding-bottom: 0;
+  }
+  h2 {
+    margin: 80px 0 100px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 36px;
+    text-align: center;
+    small {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 70%;
+    }
+  }
+  .temperature-gauge {
+    margin: 120px 0 0;
+  }
+  #cta {
+    padding: 50px 0 90px;
+    text-align: center;
+  }
+}

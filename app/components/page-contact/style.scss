@@ -1,0 +1,38 @@
+#page-contact {
+  h2 {
+    margin-top: 80px;
+    margin-bottom: 30px;
+  }
+  button.dark-blue {
+    margin-top: 30px;
+  }
+  a.orange-link {
+    margin: 20px 0 10px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0 20px 0 40px;
+    }
+    a {
+      user-select: all;
+    }
+  }
+  .msg {
+    background: #f1f1f1;
+    padding: 60px 40px;
+    h3 {
+      margin: 0 0 30px;
+    }
+    .orange-link {
+      margin: 13px 0 0;
+    }
+  }
+  #contact-form {
+    margin: 50px 0;
+    > button {
+      margin: 30px 0 0 130px;
+    }
+  }
+}

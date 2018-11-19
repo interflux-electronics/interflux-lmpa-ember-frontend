@@ -1,0 +1,19 @@
+<ButtonRoute
+  @route={{prevRoute}}
+  @text="Back"
+  class="medium white-border"
+/>
+<ul>
+  {{#each allRoutes as |route|}}
+    <li>
+      {{#link-to route}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
+<ButtonRoute
+  @route={{nextRoute}}
+  @text="Next"
+  class="medium white-border"
+  data-test-next
+/>

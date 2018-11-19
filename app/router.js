@@ -9,10 +9,14 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL,
 
   googleAnalytics: service(),
+  mixPanel: service(),
+  ipMeta: service(),
   headData: service(),
 
   onInit: on('init', function() {
-    this.googleAnalytics.startTracking();
+    this.googleAnalytics.setup();
+    this.mixPanel.setup();
+    this.ipMeta.fetch();
   }),
 
   onEachDidTransition: on('didTransition', function() {

@@ -17,7 +17,8 @@ module.exports = {
   },
   globals: {
     ga: true,
-    anime: true
+    anime: true,
+    mixpanel: true
   },
   rules: {
     'prettier/prettier': 'error',

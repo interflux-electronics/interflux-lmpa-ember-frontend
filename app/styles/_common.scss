@@ -4,7 +4,84 @@ html {
 }
 
 body {
-  // We support screen width above 320px only
+  // No website should ever be smaller than 320px wide (iPhone 5)
   min-width: 320px;
   min-height: 100%;
+  // The styles all headings and paragraphs will inherit, no need to add <p> rules
+  font-family: $regular-font;
+  font-size: 16px;
+  // To make all browsers render fonts the same
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 100%;
+  color: $paragraph-color;
+}
+
+// Prevent browsers from bolding our already bolded font families
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: normal;
+}
+
+// Remove all browser given margins
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+label {
+  margin: 0;
+}
+
+// Make all paragraphs-like elements behave the same
+label,
+li,
+p {
+  font-size: 16px;
+  line-height: 160%;
+  // Note how we use font-family and not font-weight to bold
+  strong {
+    font-family: $bold-font;
+  }
+  // For trademark symbols
+  sup {
+    top: -3px;
+    font-size: 75%;
+  }
+  // Classic hyperlinks should only appear within paragraphs. For all other, use buttons.
+  a {
+    color: $hyperlink-color;
+    text-decoration: underline;
+    outline: 0;
+    &:hover {
+      color: $hyperlink-color-hover;
+      text-decoration: none;
+    }
+  }
+}
+
+// Prevent <img> and <iframe> from having awkward empty space underneath
+iframe,
+img {
+  display: block;
+}
+
+// Most of the time <ul> are not used as bullets, thus we overwrite default padding / margin
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    color: $paragraph-color;
+  }
 }

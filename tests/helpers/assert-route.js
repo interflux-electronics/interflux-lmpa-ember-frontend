@@ -4,7 +4,7 @@
  * thus making it relevant to always assert the route after each `await visit()`.
  * @param {String} route - The route expected to be the current route
  * @example
- * import assertModal from 'bookings/tests/helpers/assert-route';
+ * import assertModal from 'interflux-lmpa/tests/helpers/assert-route';
  * import { visit } from 'ember-native-dom-helpers';
  * await visit(clinicPage.url);
  * assertRoute(clinicPage.route);
