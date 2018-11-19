@@ -33,7 +33,7 @@ export default Component.extend({
       return false;
     }
 
-    const { region, city, query } = this.ipMeta.data;
+    const { state_prov, city, ip } = this.ipMeta.data;
 
     const lead = this.store.createRecord('lead', {
       // name: 'Jan Werkhoven',
@@ -43,9 +43,9 @@ export default Component.extend({
       // message: 'Hello Interflux, can you send me your best expert.',
       purpose: 'Request LMPA demo',
       source: window.location.href,
-      ipRegion: region,
+      ipRegion: state_prov,
       ipCity: city,
-      ip: query
+      ip
     });
 
     this.set('lead', lead);
@@ -59,13 +59,13 @@ export default Component.extend({
     this.set('countries', countries);
 
     // Deduct the user's country from their IP
-    const ipCountryCode = this.ipMeta.data.countryCode;
+    const ipCountryCode = this.ipMeta.data.country_code2;
     const ipCountry = countries.findBy('countryCode', ipCountryCode);
     this.lead.set('ipCountry', ipCountry);
   }),
 
   countryPlaceholder: computed(function() {
-    return this.ipMeta.data.country || 'Belgium';
+    return this.ipMeta.data.country_name || 'Belgium';
   }),
 
   // Persist the lead to our API, which should return a UUID.
