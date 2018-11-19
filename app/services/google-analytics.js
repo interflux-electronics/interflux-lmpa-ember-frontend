@@ -4,6 +4,12 @@ import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 
+const {
+  modulePrefix,
+  environment,
+  googleAnalytics: { trackingId }
+} = config;
+
 export default Service.extend({
   fastboot: service(),
 
@@ -14,14 +20,14 @@ export default Service.extend({
       return false;
     }
     try {
-      return config.googleAnalytics && config.googleAnalytics.trackingId && ga;
+      return ga && trackingId;
     } catch (e) {
       return false;
     }
   }),
 
   // Set up the GA tracking object
-  startTracking() {
+  setup() {
     if (this.isFastBoot) {
       return false;
     }
@@ -36,12 +42,10 @@ export default Service.extend({
       return;
     }
 
-    ga('create', {
-      trackingId: config.googleAnalytics.trackingId
-    });
+    ga('create', { trackingId });
     ga('set', {
-      dimension1: config.modulePrefix,
-      dimension2: config.environment
+      dimension1: modulePrefix,
+      dimension2: environment
     });
   },
 

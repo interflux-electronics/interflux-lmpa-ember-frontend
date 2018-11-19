@@ -21,7 +21,6 @@
   <FormInput
     @value={{lead.name}}
     @onUpdate={{action (mut lead.name)}}
-    @onEnter={{action "focusOnNextField"}}
     @label="Your name"
     @placeholder="e.g. John Doe"
   />
@@ -29,7 +28,6 @@
   <FormInput
     @value={{lead.company}}
     @onUpdate={{action (mut lead.company)}}
-    @onEnter={{action "focusOnNextField"}}
     @label="Company name"
     @placeholder="e.g. Electronics Expert"
   />
@@ -37,7 +35,6 @@
   <FormInput
     @value={{lead.email}}
     @onUpdate={{action (mut lead.email)}}
-    @onEnter={{action "focusOnNextField"}}
     @label="Email"
     @placeholder="e.g. john.doe@electronicsexpert.com"
   />
@@ -45,7 +42,6 @@
   <FormInput
     @value={{lead.mobile}}
     @onUpdate={{action (mut lead.mobile)}}
-    @onEnter={{action "focusOnNextField"}}
     @label="Mobile"
     @placeholder="e.g. +61 888 999 555"
   />
@@ -63,7 +59,6 @@
   <FormTextarea
     @value={{lead.message}}
     @onUpdate={{action (mut lead.message)}}
-    @onEnter={{perform focusOnNextField}}
     @label="Message"
     @rows="6"
     @placeholder="Hello Interflux, Please send your LMPA expert to our company for a demonstration."

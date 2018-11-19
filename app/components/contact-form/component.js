@@ -7,9 +7,10 @@ import { computed } from '@ember/object';
 export default Component.extend({
   elementId: 'contact-form',
 
-  store: service(),
+  conversions: service(),
   fastboot: service(),
   ipMeta: service(),
+  store: service(),
 
   isFastBoot: readOnly('fastboot.isFastBoot'),
 
@@ -69,9 +70,11 @@ export default Component.extend({
 
   // Persist the lead to our API, which should return a UUID.
   submit: task(function*() {
-    //
-    // TODO: Log conversion event
-    //
+    this.conversions.trackEvent({
+      category: 'LMPA demo form',
+      event: 'user submits form'
+    });
+
     const request = this.lead
       .save()
       .then(lead => {
@@ -87,23 +90,21 @@ export default Component.extend({
     yield all(tasks);
     if (request._result.id) {
       this.set('showSuccess', true);
-      //
-      // TODO: Log conversion event
-      //
+      this.conversions.trackEvent({
+        category: 'LMPA demo form',
+        event: 'API request succeeded'
+      });
     } else {
       this.set('showError', true);
+      this.conversions.trackEvent({
+        category: 'LMPA demo form',
+        event: 'API request failed'
+      });
       //
-      // TODO: Log conversion event
       // TODO: Log error
       // TODO: If 500 show error message
       // TODO: If 422 let user try again
       //
     }
-  }).drop(),
-
-  actions: {
-    focusOnNextField() {
-      //
-    }
-  }
+  }).drop()
 });

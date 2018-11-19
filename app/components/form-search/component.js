@@ -16,6 +16,9 @@ export default FormFieldComponent.extend({
   sortKey: undefined,
   sortOrder: undefined, // asc or desc
 
+  // The value as shown in the input
+  value: undefined,
+
   // The passed-in array of objects or records which the user will be choosing from
   options: undefined,
 
@@ -103,6 +106,10 @@ export default FormFieldComponent.extend({
 
     // Reset the highligh index so the first item is selected after each key stroke.
     this.set('highlightIndex', 0);
+
+    // Set the value of the <input> so Glimmer knows when to rerender we set
+    // this.set('value', selected);
+    this.set('value', query);
   },
 
   moveSelectionDown() {
@@ -127,15 +134,14 @@ export default FormFieldComponent.extend({
 
   selectHighlighted() {
     const i = this.highlightIndex;
-    const highlighted = this.results[i];
-    this.select(highlighted);
+    const highlightedResult = this.results[i];
+    this.select(highlightedResult);
   },
 
   select(result) {
-    const newQuery = result.option[this.searchKey];
-    this.set('value', newQuery);
     this.onSelect(result.option);
-    this.showResultsFor(newQuery);
+    this.set('value', result.string);
+    this.showResultsFor(result.string);
   },
 
   resultsFor(query) {

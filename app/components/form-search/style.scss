@@ -11,14 +11,14 @@
     position: relative;
     z-index: 2;
   }
-  .icon {
-    position: absolute;
-    right: 0;
-    height: 46px;
-    width: 46px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-  }
+  // .icon {
+  //   position: absolute;
+  //   right: 0;
+  //   height: 46px;
+  //   width: 46px;
+  //   border: 1px solid #ddd;
+  //   box-sizing: border-box;
+  // }
   .dropdown {
     position: relative;
     z-index: 3;
@@ -27,7 +27,8 @@
       z-index: 1;
       left: 0;
       top: 0;
-      width: calc(100% - 46px);
+      // width: calc(100% - 46px);
+      width: 100%;
       background: white;
       border-top: 0;
       box-sizing: border-box;

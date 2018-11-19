@@ -11,14 +11,28 @@ export default PageComponent.extend({
   showEmail: false,
   showForm: false,
 
+  init() {
+    this._super(...arguments);
+    this.conversions.trackEvent({
+      category: 'LMPA demo form',
+      event: 'user sees contact page'
+    });
+  },
+
   actions: {
     showEmail() {
-      this.conversions.logUserAction('clicked "Show Email"');
       set(this, 'showEmail', true);
+      this.conversions.trackEvent({
+        category: 'LMPA demo form',
+        event: 'user clicked "Show Email"'
+      });
     },
     showForm() {
-      this.conversions.logUserAction('clicked "Show Form"');
       set(this, 'showForm', true);
+      this.conversions.trackEvent({
+        category: 'LMPA demo form',
+        event: 'user clicked "Show Form"'
+      });
     }
   }
 });
