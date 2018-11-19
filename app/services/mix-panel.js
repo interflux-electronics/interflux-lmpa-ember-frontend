@@ -5,6 +5,7 @@ import { computed } from '@ember/object';
 import { or, readOnly } from '@ember/object/computed';
 
 const { appName, environment, mixPanel } = config;
+const { isTest } = config.buildConfig;
 
 export default Service.extend({
   fastboot: service(),
@@ -23,7 +24,7 @@ export default Service.extend({
 
   // Load and initialise the Mixpanel script
   setup() {
-    if (this.isFastBoot || this.isInterflux) {
+    if (this.isFastBoot || this.isInterflux || isTest) {
       return;
     }
 
