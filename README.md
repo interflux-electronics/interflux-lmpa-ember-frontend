@@ -34,6 +34,7 @@ open http://localhost:4200
 ```
 git remote add server ssh://jw@sg1.nabu.io/var/www/lmpa.interflux.com
 ```
+
 ```
 git push server production
 open https://lmpa.interflux.com
@@ -51,9 +52,11 @@ ember build --environment production
 ```
 ember test
 ```
+
 ```
 ember test --server
 ```
+
 ```
 ember s
 open http://localhost:4200/tests
@@ -81,3 +84,7 @@ ember generate --help
 ember g -h
 ember g component foo
 ```
+
+## Fastboot
+
+sudo systemctl status lmpa.interflux.com.fastboot.service
