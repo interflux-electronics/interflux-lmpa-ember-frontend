@@ -21,6 +21,9 @@ echo "----------"
 echo "cd /var/www/lmpa.interflux.com"
 cd /var/www/lmpa.interflux.com
 echo "----------"
+echo "git clean -d  -fx ."
+git clean -d  -fx .
+echo "----------"
 echo "git checkout $BRANCH -f"
 git checkout $BRANCH -f
 echo "----------"
