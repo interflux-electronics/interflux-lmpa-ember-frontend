@@ -3,35 +3,16 @@
 set -e
 set -o pipefail
 
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-script_filename="$(basename "${BASH_SOURCE[0]}")"
-cd $script_dir
+branch=$(git rev-parse --abbrev-ref HEAD)
+revision=$(git rev-parse --short HEAD)
 
 echo "----------"
-echo "User: $USER"
-echo "Host: $HOSTNAME"
-echo "Path: $PWD"
+echo "Deploying:"
+echo $branch
+echo $revision
 echo "----------"
-echo "Running $script_filename ..."
+echo "scp install.sh deploy@server-singapore.interflux.com:/var/www/lmpa.interflux.com"
+scp install.sh deploy@server-frankfurt.nabu.io:/var/www/lmpa.interflux.com
 echo "----------"
-echo "git pull"
-git pull
-echo "----------"
-echo "git checkout 'production' -f"
-git checkout 'production' -f
-echo "----------"
-
-# This hack makes the nvm binary available to this script.
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-echo "nvm install"
-nvm install
-echo "----------"
-echo "yarn install"
-yarn install
-echo "----------"
-echo "ember build -prod"
-ember build -prod
-echo "----------"
+echo 'ssh deploy@server-frankfurt.nabu.io "/var/www/lmpa.interflux.com/install.sh $branch $revision"'
+ssh deploy@server-frankfurt.nabu.io "/var/www/lmpa.interflux.com/install.sh $branch $revision"
