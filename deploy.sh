@@ -12,7 +12,7 @@ echo $branch
 echo $revision
 echo "----------"
 echo "scp install.sh deploy@server-singapore.interflux.com:/var/www/lmpa.interflux.com"
-scp install.sh deploy@server-frankfurt.nabu.io:/var/www/lmpa.interflux.com
+scp install.sh deploy@server-singapore.interflux.com:/var/www/lmpa.interflux.com
 echo "----------"
 echo 'ssh deploy@server-frankfurt.nabu.io "/var/www/lmpa.interflux.com/install.sh $branch $revision"'
 ssh deploy@server-frankfurt.nabu.io "/var/www/lmpa.interflux.com/install.sh $branch $revision"
