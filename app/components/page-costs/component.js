@@ -83,7 +83,10 @@ export default PageComponent.extend({
             easing: 'easeInOutQuart',
             update: function(anim) {
               if (label) {
-                label.innerText = Math.round(anim.progress) + '%';
+                const progress = Math.round(anim.progress); // 0% - 100% of animation
+                const drop = parseInt(section.drop); // The number that should be shown when animation ends, counts up from 0%
+                const percentage = parseInt((progress / 100) * drop); // The number shown to the user, animated
+                label.innerText = `${percentage}%`;
               }
             }
           });
