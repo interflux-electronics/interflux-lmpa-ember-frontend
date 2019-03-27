@@ -2,7 +2,7 @@
   "name": "interflux-lmpa",
   "version": "0.0.0",
   "description": "The website for the LMPA product range of Interflux Electronics.",
-  "homepage": "lmpa.interflux.com",
+  "homepage": "https://lmpa.interflux.com",
   "repository": "git@github.com:janwerkhoven/lmpa.interflux.com.git",
   "license": "UNLICENSED",
   "author": "Jan Werkhoven <jw@nabu.io> (https://github.com/janwerkhoven)",
