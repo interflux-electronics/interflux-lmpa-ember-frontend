@@ -23,6 +23,17 @@ const cdnHosts = {
   production: 'https://cdn.interflux.com'
 };
 
+// The exact time of the build
+const now = new Date();
+const timeOfBuild = [
+  now.getUTCFullYear(),
+  now.getUTCMonth() + 1,
+  now.getUTCDate(),
+  now.getUTCHours(),
+  now.getUTCMinutes(),
+  now.getUTCSeconds()
+].join('-');
+
 module.exports = function(env) {
   // Environment flags
   const isDevelopment = env === 'development';
@@ -62,7 +73,8 @@ module.exports = function(env) {
       appHost,
       cdnHost,
       apiNamespace,
-      gitRevision
+      gitRevision,
+      timeOfBuild
     },
 
     fastboot: {
