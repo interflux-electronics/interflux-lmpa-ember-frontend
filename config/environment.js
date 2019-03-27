@@ -1,9 +1,7 @@
 'use strict';
 
 const PKG = require('../package.json');
-
-// Responsible for making .env variables available (for example: process.env.GIT_REVISION)
-require('dotenv').config();
+const git = require('git-rev-sync');
 
 // Where the Rails backend is located
 const apiHosts = {
@@ -23,17 +21,6 @@ const cdnHosts = {
   production: 'https://cdn.interflux.com'
 };
 
-// The exact time of the build
-const now = new Date();
-const timeOfBuild = [
-  now.getUTCFullYear(),
-  now.getUTCMonth() + 1,
-  now.getUTCDate(),
-  now.getUTCHours(),
-  now.getUTCMinutes(),
-  now.getUTCSeconds()
-].join('-');
-
 module.exports = function(env) {
   // Environment flags
   const isDevelopment = env === 'development';
@@ -48,8 +35,8 @@ module.exports = function(env) {
   // The Rails API namespace
   const apiNamespace = 'v1/public';
 
-  // The git revision SHA of this build (only in production)
-  const gitRevision = process.env.GIT_REVISION;
+  // Make the Git revision SHA available for fingerprinting files and bug tracking
+  const gitRevision = git.short();
 
   let ENV = {
     appName: PKG.name,
@@ -73,8 +60,7 @@ module.exports = function(env) {
       appHost,
       cdnHost,
       apiNamespace,
-      gitRevision,
-      timeOfBuild
+      gitRevision
     },
 
     fastboot: {

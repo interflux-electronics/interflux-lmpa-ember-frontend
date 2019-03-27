@@ -1,10 +1,9 @@
 'use strict';
 
-// Access ENV from config/environment
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const ENV = require('./config/environment')(EmberApp.env());
 
-const { isProduction, gitRevision, timeOfBuild } = ENV.buildConfig;
+const { isProduction, gitRevision } = ENV.buildConfig;
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -61,7 +60,7 @@ module.exports = function(defaults) {
         'woff2'
       ],
       replaceExtensions: ['html', 'css', 'scss', 'js'],
-      customHash: gitRevision || timeOfBuild
+      customHash: gitRevision
     },
 
     // Include polyfills for old browsers
