@@ -10,7 +10,8 @@ steps:
   - name: ':rocket:'
     branches: 'production'
     command:
+      - 'echo "git fetch"'
       - 'git fetch'
-      - 'git checkout production'
-      - 'git pull'
-      - 'git push server production'
+      - 'echo "git checkout production -f"'
+      - 'git checkout production -f'
+      - './deploy.sh'
