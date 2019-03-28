@@ -1,7 +1,14 @@
 'use strict';
 
 const PKG = require('../package.json');
+
+// Expose the git hash for fingerprinting and error logging
 const git = require('git-rev-sync');
+const gitBranch = git.branch();
+const gitRevision = git.short();
+
+// The Rails API namespace
+const apiNamespace = 'v1/public';
 
 // Where the Rails backend is located
 const apiHosts = {
@@ -21,6 +28,10 @@ const cdnHosts = {
   production: 'https://cdn.interflux.com'
 };
 
+// The mobile browser's theme colour
+// https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
+const themeColour = '#23578c';
+
 module.exports = function(env) {
   // Environment flags
   const isDevelopment = env === 'development';
@@ -31,12 +42,6 @@ module.exports = function(env) {
   const apiHost = apiHosts[env];
   const appHost = appHosts[env];
   const cdnHost = cdnHosts[env];
-
-  // The Rails API namespace
-  const apiNamespace = 'v1/public';
-
-  // Make the Git revision SHA available for fingerprinting files and bug tracking
-  const gitRevision = git.short();
 
   let ENV = {
     appName: PKG.name,
@@ -60,19 +65,17 @@ module.exports = function(env) {
       appHost,
       cdnHost,
       apiNamespace,
-      gitRevision
+      gitRevision,
+      gitBranch,
+      themeColour
     },
 
     fastboot: {
-      hostWhitelist: ['lmpa.interflux.com', '127.0.0.1:8000', /^localhost:\d+$/]
+      hostWhitelist: ['lmpa.interflux.com', '0.0.0.0:8000', 'localhost:4200']
     },
 
     googleAnalytics: {
       trackingId: 'UA-34474019-11'
-    },
-
-    mixPanel: {
-      token: '108f7f07c111c43a83a2365ef952fc06'
     }
   };
 
