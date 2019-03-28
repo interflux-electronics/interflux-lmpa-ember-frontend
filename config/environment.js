@@ -76,6 +76,10 @@ module.exports = function(env) {
 
     googleAnalytics: {
       trackingId: 'UA-34474019-11'
+    },
+
+    mixPanel: {
+      token: '108f7f07c111c43a83a2365ef952fc06'
     }
   };
 
