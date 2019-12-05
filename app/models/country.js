@@ -4,16 +4,21 @@ import { computed } from '@ember/object';
 
 export default Model.extend({
   // Attributes
-  name: attr('string'),
-  nativeName: attr('string'),
-  countryCode: attr('string'),
+  nameEnglish: attr('string'),
+  nameNative: attr('string'),
+
   population: attr('number'),
+  area: attr('number'),
+
+  numericCode: attr('string'),
+  twoLetterCode: attr('string'),
+  threeLetterCode: attr('string'),
 
   // Returns the English and native country name in the format: "Belgium (België)"
-  localAndNativeName: computed('name', 'nativeName', function() {
-    if (this.name === this.nativeName) {
-      return this.name;
+  localAndNativeName: computed('nameEnglish', 'nameNative', function() {
+    if (this.nameEnglish === this.nameNative) {
+      return this.nameEnglish;
     }
-    return `${this.name} (${this.nativeName})`;
+    return `${this.nameEnglish} (${this.nameNative})`;
   })
 });
