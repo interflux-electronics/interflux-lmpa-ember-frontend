@@ -12,11 +12,12 @@
   },
   "private": true,
   "scripts": {
+    "start": "./node_modules/ember-cli/bin/ember serve",
     "build": "./node_modules/ember-cli/bin/ember build -prod",
+    "deploy": "./remote/deploy.sh",
+    "test": "./node_modules/ember-cli/bin/ember./node_modules/ember-cli/bin/ember test",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "./node_modules/ember-cli/bin/ember serve",
-    "test": "./node_modules/ember-cli/bin/ember./node_modules/ember-cli/bin/ember test",
     "prettify-repo": "prettier --write \"*/**/*.{css,scss,js,json,md}\"",
     "generate-benchmarks": "./lighthouse/generate-benchmarks.sh"
   },
