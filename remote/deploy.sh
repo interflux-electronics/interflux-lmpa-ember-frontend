@@ -1,7 +1,7 @@
 #!/usr/local/bin/fish
 
 set remote "jw@server.interflux.com"
-set path "/var/www/www.interflux.com"
+set path "/var/www/lmpa.interflux.com"
 
 set branch (git rev-parse --abbrev-ref HEAD)
 set revision (git rev-parse --short HEAD)
