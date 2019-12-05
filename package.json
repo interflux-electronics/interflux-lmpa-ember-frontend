@@ -12,7 +12,7 @@
   },
   "private": true,
   "scripts": {
-    "build": "./node_modules/ember-cli/bin/ember build",
+    "build": "./node_modules/ember-cli/bin/ember build -prod",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "./node_modules/ember-cli/bin/ember serve",
