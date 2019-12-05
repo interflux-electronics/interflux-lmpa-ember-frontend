@@ -3,7 +3,7 @@ Description=This service starts and stops the Ember Fastboot app server for lmpa
 
 [Service]
 WorkingDirectory=/var/www/lmpa.interflux.com
-ExecStart=/home/jw/.nvm/versions/node/v8.12.0/bin/node server.js
+ExecStart=/home/jw/.nvm/versions/node/v8.12.0/bin/node fastboot-server.js
 Type=simple
 User=jw
 Group=jw
