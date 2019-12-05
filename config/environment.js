@@ -2,8 +2,13 @@
 
 const PKG = require('../package.json');
 
-// Responsible for making .env variables available (for example: process.env.GIT_REVISION)
-require('dotenv').config();
+// Expose the git hash for fingerprinting and error logging
+const git = require('git-rev-sync');
+const gitBranch = git.branch();
+const gitRevision = git.short();
+
+// The Rails API namespace
+const apiNamespace = 'v1/public';
 
 // Where the Rails backend is located
 const apiHosts = {
@@ -23,6 +28,10 @@ const cdnHosts = {
   production: 'https://cdn.interflux.com'
 };
 
+// The mobile browser's theme colour
+// https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
+const themeColour = '#23578c';
+
 module.exports = function(env) {
   // Environment flags
   const isDevelopment = env === 'development';
@@ -33,12 +42,6 @@ module.exports = function(env) {
   const apiHost = apiHosts[env];
   const appHost = appHosts[env];
   const cdnHost = cdnHosts[env];
-
-  // The Rails API namespace
-  const apiNamespace = 'v1/public';
-
-  // The git revision SHA of this build (only in production)
-  const gitRevision = process.env.GIT_REVISION;
 
   let ENV = {
     appName: PKG.name,
@@ -62,11 +65,13 @@ module.exports = function(env) {
       appHost,
       cdnHost,
       apiNamespace,
-      gitRevision
+      gitRevision,
+      gitBranch,
+      themeColour
     },
 
     fastboot: {
-      hostWhitelist: ['lmpa.interflux.com', '127.0.0.1:8000', /^localhost:\d+$/]
+      hostWhitelist: ['lmpa.interflux.com', '0.0.0.0:8000', 'localhost:4200']
     },
 
     googleAnalytics: {

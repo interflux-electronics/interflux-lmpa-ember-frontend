@@ -3,7 +3,7 @@
 const FastBootAppServer = require('fastboot-app-server');
 const FastBootWatchNotifier = require('fastboot-watch-notifier');
 
-const distPath = '/var/www/lmpa.interflux.com/current';
+const distPath = '/var/www/lmpa.interflux.com/dist';
 
 const notifier = new FastBootWatchNotifier({
   distPath,
