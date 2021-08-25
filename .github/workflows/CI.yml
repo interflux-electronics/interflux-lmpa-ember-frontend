@@ -1,0 +1,19 @@
+---
+
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!production'
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: 'yarn install'
+      # TODO: upgrade and fix test suite
+      # - run: 'yarn test'
