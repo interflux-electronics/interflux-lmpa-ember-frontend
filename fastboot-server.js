@@ -13,6 +13,9 @@ const notifier = new FastBootWatchNotifier({
   }
 });
 
+// 8000 lmpa.interflux.com
+// 8001 new.interflux.com
+
 const server = new FastBootAppServer({
   distPath,
   notifier,
