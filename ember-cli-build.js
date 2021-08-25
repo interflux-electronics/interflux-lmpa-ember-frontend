@@ -3,10 +3,22 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const ENV = require('./config/environment')(EmberApp.env());
 
+// To make CSS environment aware we assign a new src to output map.
+// The src changes with the environment.
+const cssMap = {};
+cssMap[ENV.environment] = '/assets/app.css';
+
 const { isProduction, gitRevision } = ENV.buildConfig;
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    outputPaths: {
+      app: {
+        js: '/assets/app.js',
+        css: cssMap
+      }
+    },
+
     // Makes SASS listen to file changes in the component folders
     sassOptions: {
       includePaths: ['app/components'],

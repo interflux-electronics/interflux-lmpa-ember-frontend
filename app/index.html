@@ -1,48 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="developer-name" content="Jan Werkhoven">
-    <meta name="developer-github" content="https://github.com/janwerkhoven">
-    <meta name="developer-linkedin" content="https://au.linkedin.com/pub/jan-werkhoven/10/64/b30">
-    <meta name="developer-email" content="jw@nabu.io">
-
-    <meta name="theme-color" content="#23578c">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     {{content-for "head"}}
 
-    <link rel="preload" as="style" href="{{rootURL}}assets/interflux-lmpa.css">
-    <link rel="preload" as="style" href="{{rootURL}}assets/outdatedbrowser.min.css">
-    <link rel="preload" as="script" href="{{rootURL}}assets/vendor.js">
-    <link rel="preload" as="script" href="{{rootURL}}assets/interflux-lmpa.js">
-    <link rel="preload" as="script" href="{{rootURL}}assets/outdatedbrowser.min.js">
-
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/interflux-lmpa.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/outdatedbrowser.min.css" />
-
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/favicons/favicon-128.png" sizes="128x128" />
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/app.css" />
 
     {{content-for "head-footer"}}
   </head>
   <body>
     {{content-for "body"}}
 
-    <div id="outdated">
-      <h6>Your browser is out-of-date!</h6>
-      <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-      <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-    </div>
-
-    <script src="{{rootURL}}assets/outdatedbrowser.min.js"></script>
     <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/interflux-lmpa.js"></script>
+    <script src="{{rootURL}}assets/app.js"></script>
+    <script src="{{rootURL}}assets/livechat.js"></script>
 
     {{content-for "body-footer"}}
   </body>
