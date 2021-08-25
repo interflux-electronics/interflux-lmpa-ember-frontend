@@ -28,10 +28,6 @@ const cdnHosts = {
   production: 'https://cdn.interflux.com'
 };
 
-// The mobile browser's theme colour
-// https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
-const themeColour = '#23578c';
-
 module.exports = function(env) {
   // Environment flags
   const isDevelopment = env === 'development';
@@ -66,8 +62,7 @@ module.exports = function(env) {
       cdnHost,
       apiNamespace,
       gitRevision,
-      gitBranch,
-      themeColour
+      gitBranch
     },
 
     fastboot: {
