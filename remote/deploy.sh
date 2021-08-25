@@ -1,45 +1,20 @@
-#!/usr/local/bin/fish
+#!/usr/bin/env bash
 
-set remote "jw@server.interflux.com"
-set path "/var/www/lmpa.interflux.com"
+set -e
+set -o pipefail
 
-set branch (git rev-parse --abbrev-ref HEAD)
-set revision (git rev-parse --short HEAD)
+user=bot
+server=server.interflux.com
+domain=lmpa.interflux.com
 
-echo ----------
-echo Deploying:
-echo Branch: $branch
-echo Revision: $revision
-echo Remote: $remote
-echo ----------
+echo "----------"
+echo "Deploying:"
+echo $domain
+echo $user@$server
+echo "----------"
 
-switch $branch
-case master
-  echo git push
-  git push
-  and echo ----------
-  and echo git checkout production -f
-  and git checkout production -f
-  and echo ----------
-  and echo git pull origin master
-  and git pull origin master
-  and echo ----------
-  and echo git push
-  and git push
-  and echo ----------
-  and echo scp remote/install.sh $remote:$path
-  and scp remote/install.sh $remote:$path
-  and echo ----------
-  and echo ssh $remote "$path/install.sh $branch $revision"
-  and ssh $remote "$path/install.sh $branch $revision"
-  and echo ----------
-  and echo git checkout master
-  and git checkout master
-  and echo ----------
-  and echo Local: deploy complete!
-  and echo ----------
-  or echo Aborting - Something went wrong...
-case '*'
-    echo Aborting - Only the branch master is deployable.
-    echo ----------
-end
+(
+  set -x
+  scp -i ~/.ssh/$user@$server remote/deploy-remote.sh $user@$server:~/
+  ssh -i ~/.ssh/$user@$server $user@$server "~/deploy-remote.sh $domain; rm -f ~/deploy-remote.sh"
+)
