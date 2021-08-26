@@ -22,16 +22,19 @@ export default PageComponent.extend({
   actions: {
     showEmail() {
       set(this, 'showEmail', true);
+
       this.conversions.trackEvent({
         category: 'LMPA demo form',
         event: 'user clicked "Show Email"'
       });
     },
-    showForm() {
-      set(this, 'showForm', true);
+
+    openLiveChat() {
+      window.LiveChatWidget.call('maximize');
+
       this.conversions.trackEvent({
         category: 'LMPA demo form',
-        event: 'user clicked "Show Form"'
+        event: 'user clicked "Free demo"'
       });
     }
   }

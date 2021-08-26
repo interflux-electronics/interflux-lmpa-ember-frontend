@@ -2,6 +2,12 @@
   <div>
     <h2><strong>See with your own eyes</strong></h2>
     <p>Invite one of our LMPA engineers to your company, wherever in the world, and we'll demonstrate LMPA on your production line:</p>
+    <ButtonAction
+      @text="Request free demo"
+      @onClick={{action "openLiveChat"}}
+      class="big dark-blue"
+    />
+    {{!--
     {{#if showForm}}
       <ContactForm />
     {{else}}
@@ -11,6 +17,7 @@
         class="big dark-blue"
       />
     {{/if}}
+    --}}
   </div>
 
   <div>

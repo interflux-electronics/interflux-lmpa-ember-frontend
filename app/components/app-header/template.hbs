@@ -39,9 +39,9 @@
 </div>
 
 <div id="cta">
-  <ButtonRoute
-    @route="locale.contact"
-    @text="Free Demo"
+  <ButtonAction
+    @onClick={{action "openLiveChat"}}
+    @text="Free demo"
     class="big white-border"
   />
 </div>
