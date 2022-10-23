@@ -12,21 +12,41 @@ const apiNamespace = 'v1/public';
 
 // Where the Rails backend is located
 const apiHosts = {
-  development: 'http://localhost:3000',
-  production: 'https://api.interflux.com'
-};
-
-// Where this Ember app is located
-const appHosts = {
-  development: 'http://localhost:4200',
-  production: 'https://lmpa.interflux.com'
+  production: 'https://api.interflux.com',
+  development: 'http://localhost:3000'
 };
 
 // Where the CDN is located
 const cdnHosts = {
+  production: 'https://cdn.interflux.com',
   development: 'http://localhost:9000',
-  production: 'https://cdn.interflux.com'
+  test: 'http://localhost:9000'
 };
+
+// Where this Ember app is located
+const publicHosts = {
+  production: 'https://interflux.com',
+  development: 'http://localhost:4200'
+};
+
+const adminHosts = {
+  production: 'https://admin.interflux.com',
+  development: 'http://localhost:4300'
+};
+
+const groupHosts = {
+  production: 'https://interflux.group',
+  development: 'http://localhost:4400'
+};
+
+const lmpaHosts = {
+  production: 'https://lmpa-q.com',
+  development: 'http://localhost:4500'
+};
+
+// The UTC date and time of when this build was compiled
+const date = new Date();
+const buildTimestamp = date.toUTCString();
 
 module.exports = function(env) {
   // Environment flags
@@ -36,10 +56,13 @@ module.exports = function(env) {
 
   // Hosts
   const apiHost = apiHosts[env];
-  const appHost = appHosts[env];
   const cdnHost = cdnHosts[env];
+  const publicHost = publicHosts[env];
+  const adminHost = adminHosts[env];
+  const groupHost = groupHosts[env];
+  const lmpaHost = lmpaHosts[env];
 
-  let ENV = {
+  const ENV = {
     appName: PKG.name,
     modulePrefix: PKG.name,
     environment: env,
@@ -53,17 +76,22 @@ module.exports = function(env) {
     },
     APP: {},
 
-    buildConfig: {
-      isDevelopment,
-      isTest,
-      isProduction,
-      apiHost,
-      appHost,
-      cdnHost,
-      apiNamespace,
-      gitRevision,
-      gitBranch
-    },
+    isDevelopment,
+    isTest,
+    isProduction,
+
+    apiHost,
+    cdnHost,
+    publicHost,
+    adminHost,
+    groupHost,
+    lmpaHost,
+
+    apiNamespace,
+
+    gitBranch,
+    gitRevision,
+    buildTimestamp,
 
     fastboot: {
       hostWhitelist: ['lmpa.interflux.com', '0.0.0.0:8000', 'localhost:4200']
@@ -78,28 +106,12 @@ module.exports = function(env) {
     }
   };
 
-  if (isDevelopment) {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-  }
-
   if (isTest) {
-    // Testem prefers this...
     ENV.locationType = 'none';
-
-    // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
-
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
-  }
-
-  if (isProduction) {
-    // here you can enable a production-specific feature
   }
 
   return ENV;

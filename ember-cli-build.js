@@ -8,10 +8,8 @@ const ENV = require('./config/environment')(EmberApp.env());
 const cssMap = {};
 cssMap[ENV.environment] = '/assets/app.css';
 
-const { isProduction, gitRevision } = ENV.buildConfig;
-
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
     outputPaths: {
       app: {
         js: '/assets/app.js',
@@ -22,66 +20,19 @@ module.exports = function(defaults) {
     // Makes SASS listen to file changes in the component folders
     sassOptions: {
       includePaths: ['app/components'],
-      overwrite: true
+      overwrite: true,
+      sourceMap: false
     },
 
     // Adds CSS browser prefixes
     autoprefixer: {
-      browsers: [
-        '> 1%',
-        'Explorer > 10',
-        'Firefox >= 17',
-        'Chrome >= 10',
-        'Safari >= 6',
-        'iOS >= 6'
-      ],
       cascade: false,
       remove: false
     },
 
-    // Prevent CSS minification in development and tests
-    minifyCSS: {
-      enabled: isProduction
-    },
-
-    // Prevent JS minification in development and tests
-    minifyJS: {
-      enabled: isProduction
-    },
-
-    // Enable source maps for debugging and Sentry
-    sourcemaps: {
-      enabled: isProduction,
-      extensions: ['js']
-    },
-
+    // Fingerprint files with the git revision rather than the MD5 to deduct from which deploy.
     fingerprint: {
-      enabled: true,
-      extensions: [
-        'js',
-        'css',
-        'png',
-        'jpg',
-        'svg',
-        'map',
-        'mp4',
-        'ogg',
-        'webp',
-        'webm',
-        'woff',
-        'woff2'
-      ],
-      replaceExtensions: ['html', 'css', 'scss', 'js'],
-      customHash: gitRevision
-    },
-
-    // Include polyfills for old browsers
-    'ember-cli-babel': {
-      includePolyfill: true
-    },
-
-    'ember-fetch': {
-      preferNative: true
+      customHash: ENV.gitRevision
     }
   });
 

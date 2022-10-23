@@ -4,7 +4,7 @@ import { task, waitForEvent } from 'ember-concurrency';
 import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 
-const { isTest } = config.buildConfig;
+const { isTest } = config;
 
 export default PageComponent.extend({
   elementId: 'page-costs',

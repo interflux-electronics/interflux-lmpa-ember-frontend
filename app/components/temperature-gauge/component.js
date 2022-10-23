@@ -5,7 +5,7 @@ import { run } from '@ember/runloop';
 import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 
-const { isTest } = config.buildConfig;
+const { isTest } = config;
 
 const limits = {
   wave: {

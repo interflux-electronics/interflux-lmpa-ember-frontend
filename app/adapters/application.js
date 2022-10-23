@@ -14,7 +14,7 @@ import { computed } from '@ember/object';
 import { pluralize } from 'ember-inflector';
 import { underscore } from '@ember/string';
 
-const { apiHost, apiNamespace } = config.buildConfig;
+const { apiHost, apiNamespace } = config;
 
 export default JSONAPIAdapter.extend(AdapterFetch, {
   host: apiHost,
