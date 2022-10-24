@@ -27,15 +27,6 @@ export default PageComponent.extend({
         category: 'LMPA demo form',
         event: 'user clicked "Show Email"'
       });
-    },
-
-    openLiveChat() {
-      window.LiveChatWidget.call('maximize');
-
-      this.conversions.trackEvent({
-        category: 'LMPA demo form',
-        event: 'user clicked "Free demo"'
-      });
     }
   }
 });
