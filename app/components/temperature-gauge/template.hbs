@@ -1,5 +1,5 @@
 <div class="label" id="lmpa">
-  <h3>LMPA<sup>&trade;</sup>-Q</h3>
+  <h3>LMPA-Q</h3>
   <p>{{minTempLMPA}}°C - {{maxTempLMPA}}°C</p>
 </div>
 <div class="label" id="sac">
@@ -7,20 +7,3 @@
   <p>{{minTempSAC}}°C - {{maxTempSAC}}°C</p>
 </div>
 <SvgTemperatureGauge />
-<div class="buttons">
-  <ButtonAction
-    @text="Wave soldering"
-    @onClick={{action "setProcess" "wave"}}
-    class="medium grey-borders {{if (eq process "wave") "active"}}"
-  />
-  <ButtonAction
-    @text="Selective soldering"
-    @onClick={{action "setProcess" "selective"}}
-    class="medium grey-borders {{if (eq process "selective") "active"}}"
-  />
-  <ButtonAction
-    @text="Reflow soldering"
-    @onClick={{action "setProcess" "reflow"}}
-    class="medium grey-borders {{if (eq process "reflow") "active"}}"
-  />
-</div>

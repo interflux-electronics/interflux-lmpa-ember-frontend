@@ -94,7 +94,12 @@ module.exports = function(env) {
     buildTimestamp,
 
     fastboot: {
-      hostWhitelist: ['lmpa.interflux.com', '0.0.0.0:8000', 'localhost:4200']
+      hostWhitelist: [
+        'lmpa.interflux.com',
+        'lmpa-q.com',
+        '0.0.0.0:8000',
+        'localhost:4500'
+      ]
     },
 
     googleAnalytics: {
