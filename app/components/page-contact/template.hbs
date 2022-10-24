@@ -1,28 +1,7 @@
 <div>
   <div>
-    <h2><strong>See with your own eyes</strong></h2>
-    <p>Invite one of our LMPA engineers to your company, wherever in the world, and we'll demonstrate LMPA on your production line:</p>
-    <ButtonAction
-      @text="Request free demo"
-      @onClick={{action "openLiveChat"}}
-      class="big dark-blue"
-    />
-    {{!--
-    {{#if showForm}}
-      <ContactForm />
-    {{else}}
-      <ButtonAction
-        @text="Request free demo"
-        @onClick={{action "showForm"}}
-        class="big dark-blue"
-      />
-    {{/if}}
-    --}}
-  </div>
-
-  <div>
     <h2><strong>Questions?</strong></h2>
-    <p>Ask our team of LMPA engineers:</p>
+    <p>Ask our team of LMPA-Q engineers:</p>
     <div class="row">
       {{#if showEmail}}
         <ButtonExternalLink
@@ -32,7 +11,7 @@
         />
       {{else}}
         <ButtonAction
-          @text="Send email"
+          @text="lmpa@interflux.com"
           @onClick={{action "showEmail"}}
           class="big dark-blue"
         />

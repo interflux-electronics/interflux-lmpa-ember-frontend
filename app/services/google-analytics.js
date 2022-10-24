@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 import { or, readOnly } from '@ember/object/computed';
 
 const { appName, environment, googleAnalytics } = config;
-const { isTest } = config.buildConfig;
+const { isTest } = config;
 
 export default Service.extend({
   fastboot: service(),

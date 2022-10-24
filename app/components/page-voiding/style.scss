@@ -7,6 +7,11 @@
       padding-bottom: 0;
     }
   }
+  h2 {
+    span {
+      display: block;
+    }
+  }
   #text {
     @media (min-width: 701px) {
       width: 40%;

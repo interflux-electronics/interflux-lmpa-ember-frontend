@@ -3,7 +3,7 @@ import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
 import { readOnly } from '@ember/object/computed';
 
-const { isTest } = config.buildConfig;
+const { isTest } = config;
 
 export function initialize() {
   Route.reopen({

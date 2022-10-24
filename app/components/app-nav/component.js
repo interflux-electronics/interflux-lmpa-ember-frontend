@@ -3,14 +3,13 @@ import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 const sequence = [
-  'locale.intro',
-  'locale.overview',
   'locale.speed',
   'locale.voiding',
+  'locale.wetting',
+  'locale.overview',
   'locale.costs',
   'locale.heat-failures',
   'locale.dross',
-  'locale.wetting',
   'locale.interflux',
   'locale.contact'
 ];
