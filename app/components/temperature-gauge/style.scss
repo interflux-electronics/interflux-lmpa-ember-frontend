@@ -1,15 +1,15 @@
-#temperature-gauge {
+.temperature-gauge {
   position: relative;
   display: flex;
   align-items: center;
   flex-flow: column nowrap;
   justify-content: center;
   &.wave {
-    #lmpa.label {
+    .lmpa.label {
       top: -40px;
       right: 200px;
     }
-    #sac.label {
+    .sac.label {
       top: 90px;
       right: 60px;
     }
@@ -18,11 +18,11 @@
     }
   }
   &.selective {
-    #lmpa.label {
+    .lmpa.label {
       top: -20px;
       right: 160px;
     }
-    #sac.label {
+    .sac.label {
       top: 148px;
       right: 39px;
     }
@@ -31,11 +31,11 @@
     }
   }
   &.reflow {
-    #lmpa.label {
+    .lmpa.label {
       top: -54px;
       right: 230px;
     }
-    #sac.label {
+    .sac.label {
       top: 22px;
       right: 129px;
     }
@@ -50,14 +50,14 @@
     display: flex;
     align-items: flex-start;
     flex-flow: column nowrap;
-    &#lmpa {
+    &.lmpa {
       h3,
       p {
         color: white;
         background: $lmpa-orange;
       }
     }
-    &#sac {
+    &.sac {
       h3,
       p {
         color: #5f5f5f;

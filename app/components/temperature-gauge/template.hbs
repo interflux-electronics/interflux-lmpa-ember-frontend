@@ -1,9 +1,11 @@
-<div class="label" id="lmpa">
+<div class="label lmpa" id="lmpa-{{this.process}}">
   <h3>LMPA-Q</h3>
   <p>{{minTempLMPA}}°C - {{maxTempLMPA}}°C</p>
 </div>
-<div class="label" id="sac">
+
+<div class="label sac" id="sac-{{this.process}}">
   <h3>Sn(Ag)Cu</h3>
   <p>{{minTempSAC}}°C - {{maxTempSAC}}°C</p>
 </div>
+
 <SvgTemperatureGauge />

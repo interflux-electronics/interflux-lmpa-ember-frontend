@@ -31,7 +31,7 @@ const timer = {
 };
 
 export default Component.extend({
-  elementId: 'temperature-gauge',
+  classNames: ['temperature-gauge'],
   classNameBindings: ['process'],
 
   fastboot: service(),
@@ -57,8 +57,8 @@ export default Component.extend({
     run.cancel(this.timer.lmpa);
     run.cancel(this.timer.sac);
     this.setValues();
-    this.animateArrow('lmpa');
-    this.animateArrow('sac');
+    this.animateArrow(`lmpa-${this.process}`);
+    this.animateArrow(`sac-${this.process}`);
   }),
 
   setValues() {
@@ -86,7 +86,7 @@ export default Component.extend({
     );
   },
 
-  animateArrow(alloy, intro) {
+  animateArrow(id, intro) {
     // Don't listen for scroll events in Fastboot nor test environment
     if (this.isFastBoot || isTest) {
       return;
@@ -94,6 +94,7 @@ export default Component.extend({
 
     // Compute a random temperature with bounds of wave / soldering / reflow
     const process = this.process;
+    const alloy = id.split('-')[0];
     const limits = this.limits[process][alloy];
     const min = limits[0];
     const max = limits[1];
@@ -135,8 +136,8 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    this.animateArrow('lmpa', true);
-    this.animateArrow('sac', true);
+    this.animateArrow(`lmpa-${this.process}`, true);
+    this.animateArrow(`sac-${this.process}`, true);
   },
 
   willDestroy() {
