@@ -10,7 +10,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     env:
-      PRIVATE_KEY: ${{secrets.SSH_FRANKFURT}}
+      SSH: ${{secrets.FRANKFURT_SSH}}
       URL: admin@frankfurt.server.interflux.com
       ROOT: /var/www/lmpa-q.com
     steps:
@@ -20,7 +20,7 @@ jobs:
       - run: mkdir ~/.ssh
 
       # Add the private key of the restricted bot user on the remote server
-      - run: 'echo "$PRIVATE_KEY" > ~/.ssh/$URL'
+      - run: 'echo "$SSH" > ~/.ssh/$URL'
 
       # Configure SSH to always use the custom key, so we don't have to do ssh -i
       - run: 'echo "IdentityFile ~/.ssh/$URL" > ~/.ssh/config'
@@ -34,11 +34,8 @@ jobs:
       # First, check out the latest production branch on the remote.
       - run: ssh $URL "cd $ROOT; git checkout production; git pull"
 
-      # Install Node
-      - run: ssh $URL "cd $ROOT; nvm install"
-
-      # Install Node packages
-      - run: ssh $URL "cd $ROOT; yarn install"
+      # Install Node and dependencies
+      - run: ssh $URL "cd $ROOT; nvm install; yarn install"
 
       # Build Ember app, once built Fastboot restarts
       - run: ssh $URL "cd $ROOT; yarn build"
