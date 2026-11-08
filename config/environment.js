@@ -12,8 +12,8 @@ const apiNamespace = 'v1/public';
 
 // Where the Rails backend is located
 const apiHosts = {
-  production: 'https://rails.api.interflux.com',
-  development: 'http://localhost:3000'
+  production: 'https://api.interflux.com',
+  development: 'http://localhost:3000',
 };
 
 // Where the CDN is located
